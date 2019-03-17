@@ -1,0 +1,20 @@
+Package: ukpolice
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Evan",
+           family = "Odell",
+           role = c("aut", "cre"),
+           email = "evanodell91@gmail.com",
+           comment = c(ORCID = "0000-0003-1845-808X"))
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Imports: 
+    jsonlite,
+    tibble
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
+Suggests: 
+    testthat
