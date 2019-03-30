@@ -1,5 +1,5 @@
 Package: ukpolice
-Title: What the Package Does (One Line, Title Case)
+Title: Download Data on UK Police and Crime
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Evan",
@@ -11,7 +11,8 @@ Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Imports: 
     jsonlite,
-    tibble
+    tibble,
+    purrr
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

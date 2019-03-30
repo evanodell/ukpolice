@@ -16,37 +16,39 @@
 #' @return A tibble with details of street crimes.
 #' @export
 #'
-#' @examples \dontrun{
-#' crime <- ukc_street_crime(lat = 51.5, lng = -0.6,
-#'                           crime_category = "bicycle-theft")
+#' @examples
+#' \dontrun{
+#' crime <- ukc_street_crime(
+#'   lat = 51.5, lng = -0.6,
+#'   crime_category = "bicycle-theft"
+#' )
 #'
-#' crime_poly <- ukc_street_crime(lat = c(52.268, 52.794, 52.130),
-#'                                lng = c(0.543, 0.238, 0.478))
-#'
+#' crime_poly <- ukc_street_crime(
+#'   lat = c(52.268, 52.794, 52.130),
+#'   lng = c(0.543, 0.238, 0.478)
+#' )
 #' }
-
+#'
 ukc_street_crime <- function(lat, lng, date = NULL, crime_category = NULL) {
-  if (is.null(date)) {
-    date_query <- NULL
-  } else {
-    date_query <- paste0("&date=", date)
-  }
+  date_query <- ukc_date_processing(date)
 
   if (is.null(crime_category)) {
     crime_query <- "all-crime?"
   } else {
-    crime_query <-  paste0(crime_category, "?")
+    crime_query <- paste0(crime_category, "?")
   }
 
   if (length(lat) != length(lng)) {
     stop("`lat` and `lng` must contain the same number of coordinates",
-         call. = FALSE)
+      call. = FALSE
+    )
   }
 
   if (length(lat) > 1) {
-    loc_query <- paste0("poly=",
-                        paste(paste(lat, lng, sep = ","), collapse = ":"))
-
+    loc_query <- paste0(
+      "poly=",
+      paste(paste(lat, lng, sep = ","), collapse = ":")
+    )
   } else {
     loc_query <- paste0("lat=", lat, "&lng=", lng)
   }

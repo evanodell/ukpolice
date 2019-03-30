@@ -14,11 +14,11 @@
 #' `ukc_officers` returns details on senior officers for a given police force.
 #' @export
 #'
-#' @examples \dontrun{
+#' @examples
+#' \dontrun{
 #' forces <- ukc_forces()
-#'
+#' 
 #' cops <- ukc_officers("cumbria")
-#'
 #' }
 ukc_forces <- function() {
   df <- ukc_get_data("forces")

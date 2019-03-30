@@ -30,6 +30,5 @@ officers on that force.
 forces <- ukc_forces()
 
 cops <- ukc_officers("cumbria")
-
 }
 }

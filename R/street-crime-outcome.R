@@ -1,6 +1,10 @@
 
 #' Street level crime outcomes
 #'
+#' Returns details on crimes at a given location, if given the id of a specific
+#' location. If given latitude and longitude, finds the nearest pre-defined
+#' location and returns the crimes which occurred there.
+#'
 #' @details If specified, `lat` and `lng` must be the same length. `location`
 #' or both `lat` and `lng` must be specified.
 #'
@@ -18,34 +22,34 @@
 #'
 #' @examples
 #'
-
 ukc_street_crime_outcome <- function(lat, lng, location, date = NULL) {
-  if (is.null(date)) {
-    date_query <- NULL
-  } else {
-    date_query <- paste0("&date=", date)
-  }
+  date_query <- ukc_date_processing(date)
 
   if (!missing(location)) {
-      query <- paste0("outcomes-at-location?", date_query,
-                      "&location_id=", location)
+    query <- paste0(
+      "outcomes-at-location?", date_query,
+      "&location_id=", location
+    )
   } else {
-  if (length(lat) != length(lng)) {
-    stop("`lat` and `lng` must contain the same number of coordinates",
-         call. = FALSE)
-  }
+    if (length(lat) != length(lng)) {
+      stop("`lat` and `lng` must contain the same number of coordinates",
+        call. = FALSE
+      )
+    }
 
     if (length(lat) > 1) {
-      loc_query <- paste0("poly=",
-                          paste(paste(lat, lng, sep = ","), collapse = ":"))
-
+      loc_query <- paste0(
+        "poly=",
+        paste(paste(lat, lng, sep = ","), collapse = ":")
+      )
     } else {
       loc_query <- paste0("lat=", lat, "&lng=", lng)
     }
 
-    query <- paste0("crimes-street/outcomes-at-location?",
-                    loc_query, date_query)
-
+    query <- paste0(
+      "crimes-street/crimes-at-location?",
+      loc_query, date_query
+    )
   }
 
   df <- ukc_get_data(query)

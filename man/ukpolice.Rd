@@ -3,7 +3,7 @@
 \docType{package}
 \name{ukpolice}
 \alias{ukpolice-package}
-\title{ukpolice: Download data on police forces and reported crime in England and Wales}
+\title{ukpolice: Download Data on UK Police and Crime}
 \description{
-ukpolice: Download data on police forces and reported crime in England and Wales
+See the \href{https://data.police.uk/docs/}{API documentation} for more details.
 }
