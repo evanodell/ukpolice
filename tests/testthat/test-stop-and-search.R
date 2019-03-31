@@ -8,4 +8,9 @@ test_that("stop_and_search functions work", {
   expect_true("Arrest" %in% ss_no_location$outcome)
   expect_true("Female" %in% ss_no_location$gender)
 
+  ss_force <- ukc_stop_search_force(force = "city-of-london")
+
+  expect_error(ukc_stop_search_no_location())
+  expect_error(ukc_stop_search_force())
+
 })

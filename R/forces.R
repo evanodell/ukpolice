@@ -17,7 +17,7 @@
 #' @examples
 #' \dontrun{
 #' forces <- ukc_forces()
-#' 
+#'
 #' cops <- ukc_officers("cumbria")
 #' }
 ukc_forces <- function() {
@@ -39,7 +39,7 @@ ukc_force_details <- function(force = NULL) {
   df
 }
 
-
+#' @export
 #' @rdname ukc_forces
 ukc_officers <- function(force) {
   query <- paste0("forces/", force, "/people")
