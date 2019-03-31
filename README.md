@@ -11,6 +11,11 @@ status](https://travis-ci.org/evanodell/ukpolice.svg?branch=master)](https://tra
 status](https://ci.appveyor.com/api/projects/status/github/evanodell/ukpolice?branch=master&svg=true)](https://ci.appveyor.com/project/evanodell/ukpolice)
 [![Coverage
 status](https://codecov.io/gh/evanodell/ukpolice/branch/master/graph/badge.svg)](https://codecov.io/github/evanodell/ukpolice?branch=master)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/ukpolice)](https://cran.r-project.org/package=ukpolice)
+[![GitHub
+tag](https://img.shields.io/github/tag/evanodell/ukpolice.svg)](https://github.com/evanodell/ukpolice)
+[![](https://cranlogs.r-pkg.org/badges/grand-total/ukpolice)](https://dgrtwo.shinyapps.io/cranview/)
+[![DOI](https://zenodo.org/badge/178673884.svg)](https://zenodo.org/badge/latestdoi/178673884)
 
 # ukpolice
 
@@ -28,14 +33,6 @@ in December 2018, and plots them by police-reported ethnic group.
 library(ukpolice)
 library(ggplot2)
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 
 tv_ss <- ukc_stop_search_force("thames-valley", date = "2018-12")
 
@@ -48,13 +45,14 @@ tv_ss2 <- tv_ss %>%
 p1 <- ggplot(tv_ss2, aes(x = outcome, y = perc,
                              group = outcome, fill = outcome)) + 
   geom_col(position = "dodge") + 
-  scale_y_continuous(labels = scales::percent, breaks = seq(0.25, 0.8, by = 0.25)) + 
+  scale_y_continuous(labels = scales::percent,
+                     breaks = seq(0.25, 0.8, by = 0.25)) + 
   scale_x_discrete(labels = scales::wrap_format(15)) + 
-  theme(legend.position = "none") + 
+  theme(legend.position = "none", axis.text.x = element_text(size = 8)) + 
   labs(x = "Outcome", 
        y = "Percentage of stop and searches resulting in outcome",
        title = "Stop and Search Outcomes by Police-Reported Ethnicity",
-       subtitle = "Metropolitan Police Department, December 2018",
+       subtitle = "Thames Valley Police Department, December 2018",
        caption = "(c) Evan Odell | 2019 | CC-BY-SA") + 
   facet_wrap(~officer_defined_ethnicity)
 

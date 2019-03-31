@@ -5,5 +5,7 @@
 \alias{ukpolice-package}
 \title{ukpolice: Download Data on UK Police and Crime}
 \description{
+The API allows for 15 requests each second, but up to 30 in a single second
+if in a single burst. The API does not require authentication.
 See the \href{https://data.police.uk/docs/}{API documentation} for more details.
 }

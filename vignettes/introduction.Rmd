@@ -24,7 +24,7 @@ Data is available on police forces, crimes, policing areas and stop-and-search. 
 
 The example below queries stop and searches by the Metropolitan Police in December 2018, and plots them by police-reported ethnic group.
 
-```{r stop-search-london}
+```{r stop-search-london, eval=FALSE}
 library(ukpolice)
 library(ggplot2)
 library(dplyr)
@@ -41,12 +41,13 @@ london_ss2 <- london_ss %>%
 p1 <- ggplot(london_ss2, aes(x = outcome, y = perc,
                              group = outcome, fill = outcome)) + 
   geom_col(position = "dodge") + 
-  scale_y_continuous(labels = scales::percent, breaks = seq(0.25, 0.8, by = 0.25)) + 
+  scale_y_continuous(labels = scales::percent,
+                     breaks = seq(0.25, 0.8, by = 0.25)) + 
   scale_x_discrete(labels = scales::wrap_format(15)) + 
   theme(legend.position = "none") + 
   labs(x = "Outcome", 
        y = "Percentage of stop and searches resulting in outcome",
-       title = "Stop and Search Outcomes by Police-Reported Ethnicity",
+       title = "Stop and Search Outcomes by Police-Defined Ethnicity",
        subtitle = "Metropolitan Police Department, December 2018",
        caption = "(c) Evan Odell | 2019 | CC-BY-SA") + 
   facet_wrap(~officer_defined_ethnicity)
@@ -54,6 +55,10 @@ p1 <- ggplot(london_ss2, aes(x = outcome, y = perc,
 p1
 ```
 
+
+```{r stop-search-plot, echo=FALSE, out.width = '100%'}
+knitr::include_graphics("stop-search.png")
+```
 
 We can also map crimes tied to particular locations. In the map below, you can see all crimes reported in Cambridge in September 2018, with markers indicating the approximate location.
 

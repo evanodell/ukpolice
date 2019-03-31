@@ -24,6 +24,7 @@ Data on a specific neighbourhood boundary, using lat/lng pairs.
 \dontrun{
 borders <- ukc_neighbourhood_boundary("dorset", "10-1")
 }
+
 }
 \seealso{
 \code{\link[=ukc_neighbourhoods]{ukc_neighbourhoods()}}
