@@ -16,4 +16,12 @@ test_that("specific-crime and no-location crime works", {
    outcome <- ukc_specific_outcome(crime_id)
 
    expect_length(outcome, 6)
+
+   outcome2 <- ukc_specific_outcome(
+     "590d68b69228a9ff95b675bb4af591b38de561aa03129dc09a03ef34f537588c"
+     )
+
+   expect_length(outcome2, 2)
+   expect_true(is.list(outcome2))
+
 })
