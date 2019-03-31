@@ -22,11 +22,11 @@
 #'
 #' @examples
 #' \dontrun{
-#' street_crime_outcome1 <- ukc_street_crime_outcome(location=883498)
-#'
-#' street_crime_outcome2 <- ukc_street_crime_outcome(lat=52, lng=0)
+#' street_crime_outcome1 <- ukc_street_crime_outcome(location = 883498)
+#' 
+#' street_crime_outcome2 <- ukc_street_crime_outcome(lat = 52, lng = 0)
 #' }
-
+#' 
 ukc_street_crime_outcome <- function(lat, lng, location, date = NULL) {
   date_query <- ukc_date_processing(date)
 

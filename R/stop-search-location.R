@@ -26,14 +26,14 @@
 #'
 #' @examples
 #' \dontrun{
-#' ukc_stop_search1 <- ukc_stop_search_location(lat = 52.629729, lng=-1.131592)
-#'
+#' ukc_stop_search1 <- ukc_stop_search_location(lat = 52.629729, lng = -1.131592)
+#' 
 #' ukc_stop_search2 <- ukc_stop_search_location(
-#'                      lat = c(52.268, 53.194, 52.130),
-#'                      lng = c(0.543, 0.238, 0.478)
-#'                     )
+#'   lat = c(52.268, 53.194, 52.130),
+#'   lng = c(0.543, 0.238, 0.478)
+#' )
 #' }
-
+#' 
 ukc_stop_search_location <- function(lat, lng, location, date = NULL) {
   date_query <- ukc_date_processing(date)
 
@@ -42,13 +42,12 @@ ukc_stop_search_location <- function(lat, lng, location, date = NULL) {
       "stops-at-location?", "location_id=", location, date_query
     )
   } else {
-  loc_query <- ukc_lat_lng(lat, lng)
+    loc_query <- ukc_lat_lng(lat, lng)
 
-  query <- paste0("stops-street?", loc_query, date_query)
+    query <- paste0("stops-street?", loc_query, date_query)
   }
 
   df <- ukc_get_data(query)
 
   df
 }
-

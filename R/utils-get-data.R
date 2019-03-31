@@ -20,7 +20,7 @@ ukc_get_data_specific_crime <- function(query) {
 }
 
 # because neighbourhood data is weird
-ukc_get_hood_data  <- function(query) {
+ukc_get_hood_data <- function(query) {
   api_return <- jsonlite::fromJSON(paste0(baseurl, query))
 
   api_return$contact_details <- as.data.frame(api_return$contact_details)
@@ -29,5 +29,4 @@ ukc_get_hood_data  <- function(query) {
   df <- as_tibble(api_return)
 
   df
-
 }

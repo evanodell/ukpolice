@@ -20,7 +20,7 @@
 #' \dontrun{
 #' people <- ukc_neighbourhood_team("dorset", "10-2")
 #' }
-
+#' 
 ukc_neighbourhood_team <- function(force, neighbourhood_id) {
   if (missing(force)) {
     stop("The police force must be specified", call. = FALSE)
@@ -29,11 +29,9 @@ ukc_neighbourhood_team <- function(force, neighbourhood_id) {
   if (missing(neighbourhood_id)) {
     df <- ukc_neighbourhoods(force)
   } else {
-
     query <- paste0(tolower(force), "/", neighbourhood_id, "/people")
 
     df <- ukc_get_data(query)
-
   }
 
   df

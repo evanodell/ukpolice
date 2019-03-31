@@ -19,7 +19,7 @@
 #' \dontrun{
 #' priorities <- ukc_neighbourhood_team("dorset", "10-2")
 #' }
-
+#' 
 ukc_neighbourhood_priorities <- function(force, neighbourhood_id) {
   if (missing(force)) {
     stop("The police force must be specified", call. = FALSE)

@@ -18,7 +18,7 @@
 #' \dontrun{
 #' ss_dorset <- ukc_stop_search_force(force = "dorset")
 #' }
-#'
+#' 
 ukc_stop_search_force <- function(force, date = NULL) {
   if (missing(force)) {
     stop("The police force must be specified", call. = FALSE)

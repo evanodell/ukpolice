@@ -20,8 +20,8 @@
 #' \dontrun{
 #' ss_no_location <- ukc_stop_search_no_location(force = "city-of-london")
 #' }
-#'
-ukc_stop_search_no_location <- function(force,  date = NULL) {
+#' 
+ukc_stop_search_no_location <- function(force, date = NULL) {
   if (missing(force)) {
     stop("The police force must be specified", call. = FALSE)
   } else {

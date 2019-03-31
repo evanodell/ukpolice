@@ -15,4 +15,8 @@ test_that("multiplication works", {
   expect_length(crime, 9)
   expect_equal(nrow(crime), 8)
   expect_true(all(crime$category == "bicycle-theft"))
+
+  street_crime_outcome2 <- ukc_street_crime_outcome(lat = 52, lng = 0,
+                                                    date = "2019-01")
+  expect_length(street_crime_outcome2, 9)
 })

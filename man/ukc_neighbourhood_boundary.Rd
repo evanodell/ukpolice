@@ -28,6 +28,7 @@ places4 <- ukc_specific_neighbourhood("dorset", "10-1")
 # returns all neighbourhoods as specific neighbourhood is unspecified.
 places3 <- ukc_specific_neighbourhood("dorset")
 }
+
 }
 \seealso{
 \code{\link[=ukc_neighbourhoods]{ukc_neighbourhoods()}}

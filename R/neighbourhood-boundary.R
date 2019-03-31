@@ -21,11 +21,11 @@
 #' \dontrun{
 #' # returns a specific neighbourood
 #' places4 <- ukc_specific_neighbourhood("dorset", "10-1")
-#'
+#' 
 #' # returns all neighbourhoods as specific neighbourhood is unspecified.
 #' places3 <- ukc_specific_neighbourhood("dorset")
 #' }
-
+#' 
 ukc_neighbourhood_boundary <- function(force, neighbourhood_id) {
   if (missing(force)) {
     stop("The police force must be specified", call. = FALSE)
@@ -34,11 +34,9 @@ ukc_neighbourhood_boundary <- function(force, neighbourhood_id) {
   if (missing(neighbourhood_id)) {
     df <- ukc_neighbourhood(force)
   } else {
-
     query <- paste0(tolower(force), "/", neighbourhood_id, "/boundary")
 
     df <- ukc_get_data(query)
-
   }
 
   df

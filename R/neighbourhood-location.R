@@ -19,11 +19,11 @@
 #' \dontrun{
 #' find <- ukc_neighbourhood_location(lat = 51.500617, lng = -0.124629)
 #' }
-
+#' 
 ukc_neighbourhood_location <- function(lat, lng) {
   if (length(lng) > 1 | length(lat) > 1) {
     stop("`lat` and `lng` must be specified and be a single string or number",
-         call. = FALSE
+      call. = FALSE
     )
   }
 
@@ -32,5 +32,4 @@ ukc_neighbourhood_location <- function(lat, lng) {
   df <- ukc_get_data(query)
 
   df
-
 }

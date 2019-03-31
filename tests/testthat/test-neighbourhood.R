@@ -8,7 +8,8 @@ test_that("neighbourhood-returns works", {
 
   places4 <- ukc_neighbourhood_specific("dorset", "10-1")
 
-  expect_equal(places4$name,
-               "Northbourne and Wallisdown Safer Neighbourhood Team")
-
+  expect_equal(
+    places4$name,
+    "Northbourne and Wallisdown Safer Neighbourhood Team"
+  )
 })

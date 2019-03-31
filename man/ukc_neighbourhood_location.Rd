@@ -22,6 +22,7 @@ a set of coordinates.
 \dontrun{
 find <- ukc_neighbourhood_location(lat = 51.500617, lng = -0.124629)
 }
+
 }
 \seealso{
 \code{\link[=ukc_neighbourhood_boundary]{ukc_neighbourhood_boundary()}}

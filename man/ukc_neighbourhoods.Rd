@@ -21,6 +21,7 @@ All the neighbourhoods within a given police force area.
 \dontrun{
 places <- ukc_neighbourhoods("dorset")
 }
+
 }
 \seealso{
 \code{\link[=ukc_neighbourhood_boundary]{ukc_neighbourhood_boundary()}}

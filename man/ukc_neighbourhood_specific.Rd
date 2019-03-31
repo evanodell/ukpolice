@@ -44,12 +44,15 @@ Data on a specific neighbourhood within a given police force area.
 \dontrun{
 events <- ukc_neighbourhood_events("dorset", "10-1")
 }
+
 \dontrun{
 priorities <- ukc_neighbourhood_team("dorset", "10-2")
 }
+
 \dontrun{
 people <- ukc_neighbourhood_team("dorset", "10-2")
 }
+
 \dontrun{
 # returns a specific neighbourood
 places4 <- ukc_specific_neighbourhood("dorset", "10-1")
@@ -57,6 +60,7 @@ places4 <- ukc_specific_neighbourhood("dorset", "10-1")
 # returns all neighbourhoods as specific neighbourhood is unspecified.
 places3 <- ukc_specific_neighbourhood("dorset")
 }
+
 }
 \seealso{
 \code{\link[=ukc_neighbourhood_boundary]{ukc_neighbourhood_boundary()}}

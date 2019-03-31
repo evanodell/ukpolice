@@ -17,7 +17,7 @@
 #' \dontrun{
 #' places <- ukc_neighbourhoods("dorset")
 #' }
-
+#' 
 ukc_neighbourhoods <- function(force) {
   if (missing(force)) {
     stop("The police force must be specified", call. = FALSE)
