@@ -1,7 +1,6 @@
 context("test-crime-at-location")
 
 test_that("multiplication works", {
-
   x <- ukc_crime_location(lat = 52, lng = 0)
   expect_true(length(x) == 9)
 
@@ -9,5 +8,4 @@ test_that("multiplication works", {
 
   expect_error(ukc_crime_location())
   expect_error(ukc_crime_location(lat = 52, lng = c(0, 0.5)))
-
 })

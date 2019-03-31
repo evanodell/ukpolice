@@ -23,8 +23,10 @@ test_that("neighbourhood-returns works", {
     "Northbourne and Wallisdown Safer Neighbourhood Team"
   )
 
-  neighbour_location <- ukc_neighbourhood_location(lat = 51.500617,
-                                                   lng = -0.124629)
+  neighbour_location <- ukc_neighbourhood_location(
+    lat = 51.500617,
+    lng = -0.124629
+  )
 
   expect_equal(neighbour_location$neighbourhood, "00BK17N")
 
@@ -39,5 +41,4 @@ test_that("neighbourhood-returns works", {
   places5x <- ukc_neighbourhood_team("dorset", "10-13")
   places6x <- ukc_neighbourhood_events("thames-valley", "N449")
   places7x <- ukc_neighbourhood_priorities("durham", "107")
-
 })

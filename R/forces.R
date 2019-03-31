@@ -17,7 +17,7 @@
 #' @examples
 #' \dontrun{
 #' forces <- ukc_forces()
-#'
+#' 
 #' cops <- ukc_officers("cumbria")
 #' }
 ukc_forces <- function() {

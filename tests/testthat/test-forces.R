@@ -16,5 +16,4 @@ test_that("forces retrieval", {
   expect_length(forcesc, 4)
   expect_equal(nrow(forcesb), 5)
   expect_true(all(c("contact_details", "bio") %in% names(forcesc)))
-
 })
