@@ -1,3 +1,7 @@
+^docs$
+^_pkgdown\.yml$
+^Meta$
+^doc$
 ^appveyor\.yml$
 ^codecov\.yml$
 ^\.travis\.yml$
@@ -6,3 +10,4 @@
 ^LICENSE\.md$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+.build.timestamp

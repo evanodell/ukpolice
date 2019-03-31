@@ -21,4 +21,12 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 Suggests: 
     testthat,
-    covr
+    covr,
+    knitr,
+    rmarkdown,
+    ggplot2,
+    dplyr,
+    leaflet,
+    htmltools,
+    scales
+VignetteBuilder: knitr
