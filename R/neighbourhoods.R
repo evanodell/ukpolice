@@ -12,12 +12,12 @@
 #' @export
 #'
 #' @seealso [ukc_neighbourhood_boundary()]
-#' @seealso [ukc_specific_neighbourhood()]
+#' @seealso [ukc_neighbourhood_specific()]
 #' @examples
 #' \dontrun{
 #' places <- ukc_neighbourhoods("dorset")
 #' }
-#' 
+#'
 ukc_neighbourhoods <- function(force) {
   if (missing(force)) {
     stop("The police force must be specified", call. = FALSE)

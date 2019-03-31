@@ -26,5 +26,5 @@ places <- ukc_neighbourhoods("dorset")
 \seealso{
 \code{\link[=ukc_neighbourhood_boundary]{ukc_neighbourhood_boundary()}}
 
-\code{\link[=ukc_specific_neighbourhood]{ukc_specific_neighbourhood()}}
+\code{\link[=ukc_neighbourhood_specific]{ukc_neighbourhood_specific()}}
 }

@@ -22,8 +22,8 @@ ukc_neighbourhood_specific(force, neighbourhood_id)
 neighbourhoods for. Must be specified, and is not case sensitive.}
 
 \item{neighbourhood_id}{A string containing the ID of a given neighbourhood,
-returned from \code{\link[=ukc_neighbourhood]{ukc_neighbourhood()}}. If missing, returns all neighbourhoods
-for the specified police force, using \code{\link[=ukc_neighbourhood]{ukc_neighbourhood()}}.}
+returned from \code{\link[=ukc_neighbourhoods]{ukc_neighbourhoods()}}. If missing, returns all neighbourhoods
+for the specified police force, using \code{\link[=ukc_neighbourhoods]{ukc_neighbourhoods()}}.}
 }
 \value{
 A tibble with data for a specific neighbourhood.
@@ -55,10 +55,10 @@ people <- ukc_neighbourhood_team("dorset", "10-2")
 
 \dontrun{
 # returns a specific neighbourood
-places4 <- ukc_specific_neighbourhood("dorset", "10-1")
+places4 <- ukc_neighbourhood_specific("dorset", "10-1")
 
 # returns all neighbourhoods as specific neighbourhood is unspecified.
-places3 <- ukc_specific_neighbourhood("dorset")
+places3 <- ukc_neighbourhood_specific("dorset")
 }
 
 }
