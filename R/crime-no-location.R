@@ -20,7 +20,7 @@
 #' \dontrun{
 #' no_location <- ukc_crime_no_location(force = "city-of-london")
 #' }
-#' 
+#'
 ukc_crime_no_location <- function(force, crime_category = NULL, date = NULL) {
   if (missing(force)) {
     stop("The police force must be specified", call. = FALSE)
@@ -31,12 +31,12 @@ ukc_crime_no_location <- function(force, crime_category = NULL, date = NULL) {
   date_query <- ukc_date_processing(date)
 
   if (is.null(crime_category)) {
-    crime_query <- "all-crime?"
+    crime_query <- "all-crime&"
   } else {
-    crime_query <- paste0(crime_category, "?")
+    crime_query <- paste0(crime_category, "&")
   }
 
-  query <- paste0("crimes-no-location?", crime_query, force_query, date_query)
+  query <- paste0("crimes-no-location?category=", crime_query, force_query, date_query)
 
   df <- ukc_get_data(query)
 

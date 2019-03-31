@@ -8,5 +8,6 @@ test_that("multiplication works", {
   y <- ukc_crime_location(location = 802171)
 
   expect_error(ukc_crime_location())
+  expect_error(ukc_crime_location(lat = 52, lng = c(0, 0.5)))
 
 })

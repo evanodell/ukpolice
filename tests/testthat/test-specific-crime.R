@@ -24,4 +24,10 @@ test_that("specific-crime and no-location crime works", {
    expect_length(outcome2, 2)
    expect_true(is.list(outcome2))
 
+   no_location2 <- ukc_crime_no_location(force = "city-of-london",
+                                         date = "2019-01",
+                                         crime_category = "drugs")
+
+   expect_true(all(no_location2$category == "drugs"))
+
 })

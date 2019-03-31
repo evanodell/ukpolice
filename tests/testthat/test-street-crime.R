@@ -19,4 +19,13 @@ test_that("multiplication works", {
   street_crime_outcome2 <- ukc_street_crime_outcome(lat = 52, lng = 0,
                                                     date = "2019-01")
   expect_length(street_crime_outcome2, 9)
+
+  street_crime_outcome3 <- ukc_street_crime_outcome(location = 802171,
+                                                    date = "2019-01")
+  expect_length(street_crime_outcome3, 4)
+  expect_equal(street_crime_outcome3$category$code, "no-further-action")
+
+  expect_error(ukc_street_crime(lat = c(52.268, 52.794, 52.130),
+                                lng = c(0.543, 0.238)))
+
 })

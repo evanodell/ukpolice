@@ -20,10 +20,10 @@
 #' @examples
 #' \dontrun{
 #' x <- ukc_crime_location(lat = 52, lng = 0)
-#' 
+#'
 #' y <- ukc_crime_location(location = 802171)
 #' }
-#' 
+#'
 ukc_crime_location <- function(lat, lng, location, date = NULL) {
   date_query <- ukc_date_processing(date)
 
@@ -33,7 +33,7 @@ ukc_crime_location <- function(lat, lng, location, date = NULL) {
       "&location_id=", location
     )
   } else {
-    if (length(lat) != 1) {
+    if ( any(length(lat) != 1, length(lng) !=1)) {
       stop("`lat` and `lng` must only contain a single value each.",
         call. = FALSE
       )
