@@ -14,14 +14,15 @@
 #' basic details and outcomes (if available).
 #' @export
 #'
-#' @examples \dontrun{
+#' @examples
+#' \dontrun{
 #' no_location <- ukc_crime_no_location(force = "city-of-london")
 #'
 #' crime_id <- no_location$persistent_id[[1]]
 #'
 #' outcome <- ukc_specific_outcome(crime_id)
 #' }
-
+#'
 ukc_specific_outcome <- function(persistent_id) {
   if (missing(persistent_id)) {
     stop("A persistent_id for a crime must be specified", call. = FALSE)
@@ -29,8 +30,7 @@ ukc_specific_outcome <- function(persistent_id) {
 
   query <- paste0("outcomes-for-crime/", persistent_id)
 
-  df <- ukc_get_data_specific_crime(query) # this fails with null outcomes
+  df <- ukc_get_data_specific_crime(query)
 
   df
-
 }

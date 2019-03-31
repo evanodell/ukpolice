@@ -21,7 +21,12 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' street_crime_outcome1 <- ukc_street_crime_outcome(location=883498)
 #'
+#' street_crime_outcome2 <- ukc_street_crime_outcome(lat=52, lng=0)
+#' }
+
 ukc_street_crime_outcome <- function(lat, lng, location, date = NULL) {
   date_query <- ukc_date_processing(date)
 
@@ -31,25 +36,9 @@ ukc_street_crime_outcome <- function(lat, lng, location, date = NULL) {
       "&location_id=", location
     )
   } else {
-    if (length(lat) != length(lng)) {
-      stop("`lat` and `lng` must contain the same number of coordinates",
-        call. = FALSE
-      )
-    }
+    loc_query <- ukc_lat_lng(lat, lng)
 
-    if (length(lat) > 1) {
-      loc_query <- paste0(
-        "poly=",
-        paste(paste(lat, lng, sep = ","), collapse = ":")
-      )
-    } else {
-      loc_query <- paste0("lat=", lat, "&lng=", lng)
-    }
-
-    query <- paste0(
-      "crimes-street/crimes-at-location?",
-      loc_query, date_query
-    )
+    query <- paste0("crimes-street/crimes-at-location?", loc_query, date_query)
   }
 
   df <- ukc_get_data(query)

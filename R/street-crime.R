@@ -38,20 +38,7 @@ ukc_street_crime <- function(lat, lng, date = NULL, crime_category = NULL) {
     crime_query <- paste0(crime_category, "?")
   }
 
-  if (length(lat) != length(lng)) {
-    stop("`lat` and `lng` must contain the same number of coordinates",
-      call. = FALSE
-    )
-  }
-
-  if (length(lat) > 1) {
-    loc_query <- paste0(
-      "poly=",
-      paste(paste(lat, lng, sep = ","), collapse = ":")
-    )
-  } else {
-    loc_query <- paste0("lat=", lat, "&lng=", lng)
-  }
+  loc_query <- ukc_lat_lng(lat, lng)
 
   query <- paste0("crimes-street/", crime_query, loc_query, date_query)
 

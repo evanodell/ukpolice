@@ -8,6 +8,8 @@ Authors@R:
            email = "evanodell91@gmail.com",
            comment = c(ORCID = "0000-0003-1845-808X"))
 Description: What the package does (one paragraph).
+URL: https://github.com/EvanOdell/ukpolice/
+BugReports: https://github.com/EvanOdell/ukpolice/issues
 License: MIT + file LICENSE
 Imports: 
     jsonlite,
@@ -18,4 +20,5 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 Suggests: 
-    testthat
+    testthat,
+    covr

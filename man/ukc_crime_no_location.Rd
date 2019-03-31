@@ -7,7 +7,8 @@
 ukc_crime_no_location(force, crime_category = NULL, date = NULL)
 }
 \arguments{
-\item{force}{The police force to return data from. Must be specified.}
+\item{force}{A string containing the name of the police force to return data
+for. Must be specified, and is not case sensitive.}
 
 \item{crime_category}{The category of crime to return. Defaults to
 returning all crimes. See \code{\link[=ukc_crime_category]{ukc_crime_category()}} for details.
@@ -28,4 +29,5 @@ Note that the police force must be specified
 \dontrun{
 no_location <- ukc_crime_no_location(force = "city-of-london")
 }
+
 }
