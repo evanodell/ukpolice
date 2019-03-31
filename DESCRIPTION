@@ -1,13 +1,16 @@
 Package: ukpolice
 Title: Download Data on UK Police and Crime
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person(given = "Evan",
            family = "Odell",
            role = c("aut", "cre"),
            email = "evanodell91@gmail.com",
            comment = c(ORCID = "0000-0003-1845-808X"))
-Description: What the package does (one paragraph).
+Description: Downloads data from the 'UK Police' public data API, 
+    the full docs of which are available at <https://data.police.uk/docs/>. 
+    Includes data on police forces and police force areas, crime reports, 
+    and the use of stop-and-search powers.
 URL: https://github.com/EvanOdell/ukpolice/, https://docs.evanodell.com/ukpolice
 BugReports: https://github.com/EvanOdell/ukpolice/issues
 License: MIT + file LICENSE
