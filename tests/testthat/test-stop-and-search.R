@@ -18,7 +18,7 @@ test_that("stop_and_search functions work", {
 
   ukc_stop_search2 <- ukc_stop_search_location(
     lat = c(52.268, 53.194, 52.130),
-    lng = c(0.543, 0.238, 0.478), date = "2019-01"
+    lng = c(0.543, 0.238, 0.478), date = as.Date("2019-01-01")
   )
 
   expect_length(ukc_stop_search2, 16)
