@@ -1,6 +1,7 @@
 context("test-neighbourhood")
 
 test_that("neighbourhood-returns works", {
+  skip_on_cran()
   places1 <- ukc_neighbourhoods("dorset")
   places2 <- ukc_neighbourhood_specific("DORSET")
   places3 <- ukc_neighbourhood_boundary("dorset")
@@ -13,8 +14,6 @@ test_that("neighbourhood-returns works", {
   expect_error(ukc_neighbourhood_events())
   expect_error(ukc_neighbourhood_team())
   expect_error(ukc_neighbourhood_priorities())
-
-
 
   places4 <- ukc_neighbourhood_specific("dorset", "10-1")
 
