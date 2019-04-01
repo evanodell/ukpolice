@@ -15,7 +15,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' forces <- ukc_forces()
 #' 
 #' cops <- ukc_officers("cumbria")

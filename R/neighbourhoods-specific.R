@@ -27,14 +27,14 @@
 #'
 #' @rdname ukc_neighbourhood_specific
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # returns a specific neighbourood
 #' places4 <- ukc_neighbourhood_specific("dorset", "10-1")
-#' 
+#'
 #' # returns all neighbourhoods as specific neighbourhood is unspecified.
 #' places3 <- ukc_neighbourhood_specific("dorset")
 #' }
-#' 
+#'
 ukc_neighbourhood_specific <- function(force, neighbourhood_id) {
   if (missing(force)) {
     stop("The police force must be specified", call. = FALSE)

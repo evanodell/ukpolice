@@ -17,7 +17,7 @@
 #' @seealso [ukc_neighbourhood_location()]
 #' @rdname ukc_neighbourhood_specific
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' people <- ukc_neighbourhood_team("dorset", "10-2")
 #' }
 #' 

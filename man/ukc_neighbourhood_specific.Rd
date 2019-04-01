@@ -41,19 +41,19 @@ Data on a specific neighbourhood within a given police force area.
 }
 }
 \examples{
-\dontrun{
+\donttest{
 events <- ukc_neighbourhood_events("dorset", "10-1")
 }
 
-\dontrun{
+\donttest{
 priorities <- ukc_neighbourhood_team("dorset", "10-2")
 }
 
-\dontrun{
+\donttest{
 people <- ukc_neighbourhood_team("dorset", "10-2")
 }
 
-\dontrun{
+\donttest{
 # returns a specific neighbourood
 places4 <- ukc_neighbourhood_specific("dorset", "10-1")
 

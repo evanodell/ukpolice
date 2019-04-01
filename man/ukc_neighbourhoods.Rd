@@ -18,7 +18,7 @@ given police force.
 All the neighbourhoods within a given police force area.
 }
 \examples{
-\dontrun{
+\donttest{
 places <- ukc_neighbourhoods("dorset")
 }
 

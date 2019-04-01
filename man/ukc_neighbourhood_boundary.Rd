@@ -21,7 +21,7 @@ A tibble with the lat/lng boundaries for a specific neighbourhood.
 Data on a specific neighbourhood boundary, using lat/lng pairs.
 }
 \examples{
-\dontrun{
+\donttest{
 borders <- ukc_neighbourhood_boundary("dorset", "10-1")
 }
 

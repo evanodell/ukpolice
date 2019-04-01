@@ -18,7 +18,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' x <- ukc_crime_location(lat = 52, lng = 0)
 #' 
 #' y <- ukc_crime_location(location = 802171)

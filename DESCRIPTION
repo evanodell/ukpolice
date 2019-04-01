@@ -1,6 +1,6 @@
 Package: ukpolice
 Title: Download Data on UK Police and Crime
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person(given = "Evan",
            family = "Odell",
