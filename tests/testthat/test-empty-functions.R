@@ -1,6 +1,7 @@
 context("test-update")
 
 test_that("empty-functions works", {
+  skip_on_cran()
   expect_silent(x <- ukc_last_update())
   expect_true(is.character(x$date))
 

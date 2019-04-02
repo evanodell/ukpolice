@@ -31,7 +31,7 @@
 #'
 #' @rdname ukc_neighbourhood_specific
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # returns a specific neighbourood
 #' places4 <- ukc_neighbourhood_specific("dorset", "10-1")
 #'

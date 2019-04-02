@@ -11,8 +11,9 @@ ukc_specific_outcome(persistent_id)
 particular crime.}
 }
 \value{
-Either a tibble with basic details of a crime, or a list with
-basic details and outcomes (if available).
+Either a \code{tibble} with basic details of a crime if no outcome
+is available, or a list with basic details and a \code{tibble} containing
+the outcome if one is available.
 }
 \description{
 Returns the outcomes (case history) for a specified crime.
@@ -20,7 +21,7 @@ The ID of a crime is a 64-character string, named \code{persistent_id} and
 returned by other methods.
 }
 \examples{
-\dontrun{
+\donttest{
 no_location <- ukc_crime_no_location(force = "city-of-london")
 
 crime_id <- no_location$persistent_id[[1]]

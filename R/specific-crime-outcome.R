@@ -16,7 +16,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' no_location <- ukc_crime_no_location(force = "city-of-london")
 #'
 #' crime_id <- no_location$persistent_id[[1]]

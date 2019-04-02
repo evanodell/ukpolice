@@ -17,7 +17,7 @@
 #' @docType package
 #' @name ukpolice
 #' @importFrom jsonlite fromJSON
-#' @importFrom `tibble` as_`tibble` enframe
+#' @importFrom tibble as_tibble
 #' @importFrom purrr compact
 #' @aliases NULL ukpolice-package
 NULL

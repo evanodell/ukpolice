@@ -23,7 +23,7 @@ will necessarily have reported stop and search data for the latest month;
 check availability with the \code{\link[=ukc_available]{ukc_available()}} function.}
 }
 \value{
-A tibble with details of stop and searches outcomes.
+A \code{tibble} with details of stop and searches outcomes.
 }
 \description{
 Returns details on stops and searches at a given location. The stop and
@@ -38,7 +38,7 @@ mile radius are returned. If multiple pairs, all recorded stop and searches
 within a custom drawn polygon will be returned.
 }
 \examples{
-\dontrun{
+\donttest{
 ukc_stop_search1 <- ukc_stop_search_location(lat = 52.629729, lng = -1.131592)
 
 ukc_stop_search2 <- ukc_stop_search_location(

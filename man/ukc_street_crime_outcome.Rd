@@ -20,7 +20,7 @@ available through other methods including \code{\link[=ukc_street_crime]{ukc_str
 available month will be returned.}
 }
 \value{
-A tibble with details of street crime outcomes.
+A \code{tibble} with details of street crime outcomes.
 }
 \description{
 Returns details on crimes at a given location, if given the id of a specific
@@ -32,7 +32,7 @@ If specified, \code{lat} and \code{lng} must be the same length. \code{location}
 or both \code{lat} and \code{lng} must be specified.
 }
 \examples{
-\dontrun{
+\donttest{
 street_crime_outcome1 <- ukc_street_crime_outcome(location = 883498)
 
 street_crime_outcome2 <- ukc_street_crime_outcome(lat = 52, lng = 0)

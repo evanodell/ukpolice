@@ -5,6 +5,15 @@
 \alias{ukpolice-package}
 \title{ukpolice: Download Data on UK Police and Crime}
 \description{
+Downloads data from the 'UK Police' public data API. Includes data on UK
+police forces and police force areas, crime reports, and the use of
+stop-and-search powers.
+}
+\details{
+Most functions return a \code{tibble} with the requested data, with the exception
+of \code{\link[=ukc_specific_outcome]{ukc_specific_outcome()}} in some cases, which returns a list containing a
+list and a \code{tibble}.
+
 The API allows for 15 requests each second, but up to 30 in a single second
 if in a single burst. The API does not require authentication.
 See the \href{https://data.police.uk/docs/}{API documentation} for more details.

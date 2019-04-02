@@ -18,14 +18,14 @@ will necessarily have reported stop and search data for the latest month;
 check availability with the \code{\link[=ukc_available]{ukc_available()}} function.}
 }
 \value{
-A tibble with details of stop and searches by a given police force.
+A \code{tibble} with details of stop and searches by a given police force.
 }
 \description{
 Returns details of stop and searches carried out by a particular police
 force. Note that the police force must be specified.
 }
 \examples{
-\dontrun{
+\donttest{
 ss_dorset <- ukc_stop_search_force(force = "dorset")
 }
 

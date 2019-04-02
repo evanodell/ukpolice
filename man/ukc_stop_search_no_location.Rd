@@ -18,7 +18,7 @@ will necessarily have reported stop and search data for the latest month;
 check availability with the \code{\link[=ukc_available]{ukc_available()}} function.}
 }
 \value{
-A tibble with details of stop and searches without a specific
+A \code{tibble} with details of stop and searches without a specific
 location.
 }
 \description{
@@ -27,7 +27,7 @@ location. Note that the police force must be specified. For all stop and
 searches carried out by a police force, use \code{\link[=ukc_stop_search_force]{ukc_stop_search_force()}}.
 }
 \examples{
-\dontrun{
+\donttest{
 ss_no_location <- ukc_stop_search_no_location(force = "city-of-london")
 }
 

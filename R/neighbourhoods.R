@@ -15,7 +15,7 @@
 #' @seealso [ukc_neighbourhood_specific()]
 #' @seealso [ukc_neighbourhood_location()]
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' places <- ukc_neighbourhoods("dorset")
 #' }
 #'

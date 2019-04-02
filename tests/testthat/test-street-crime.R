@@ -1,6 +1,7 @@
 context("test-street-crime")
 
 test_that("multiplication works", {
+  skip_on_cran()
   crime_poly <- ukc_street_crime(
     lat = c(52.268, 52.794, 52.130),
     lng = c(0.543, 0.238, 0.478), date = "2019-01"

@@ -19,7 +19,7 @@ available month will be returned. Also accepts dates in formats that can be
 coerced to \code{Date} class with \code{as.Date()}.}
 }
 \value{
-A tibble with details of crimes at a given location.
+A \code{tibble} with details of crimes at a given location.
 }
 \description{
 Returns details at crimes at a given
@@ -29,7 +29,7 @@ If specified, \code{lat} and \code{lng} must be the same length. \code{location}
 or both \code{lat} and \code{lng} must be specified.
 }
 \examples{
-\dontrun{
+\donttest{
 x <- ukc_crime_location(lat = 52, lng = 0)
 
 y <- ukc_crime_location(location = 802171)

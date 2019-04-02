@@ -15,7 +15,7 @@
 #' @seealso [ukc_stop_search_location()]
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' ss_no_location <- ukc_stop_search_no_location(force = "city-of-london")
 #' }
 #'

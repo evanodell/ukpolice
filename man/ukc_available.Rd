@@ -7,7 +7,7 @@
 ukc_available()
 }
 \description{
-Returns a tibble with all available datasets. The \code{id} column contains the
+Returns a \code{tibble} with all available datasets. The \code{id} column contains the
 year and month, and other columns contain a list with all police forces
 reporting data for that month. As of 2019-04-02 only information on
 stop and search data is returned by this endpoint.

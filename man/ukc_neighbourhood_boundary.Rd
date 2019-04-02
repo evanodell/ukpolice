@@ -15,13 +15,13 @@ returned from \code{\link[=ukc_neighbourhoods]{ukc_neighbourhoods()}}. If missin
 for the specified police force, using \code{\link[=ukc_neighbourhoods]{ukc_neighbourhoods()}}.}
 }
 \value{
-A tibble with the lat/lng boundaries for a specific neighbourhood.
+A \code{tibble} with the lat/lng boundaries for a specific neighbourhood.
 }
 \description{
 Data on a specific neighbourhood boundary, using lat/lng pairs.
 }
 \examples{
-\dontrun{
+\donttest{
 borders <- ukc_neighbourhood_boundary("dorset", "10-1")
 }
 

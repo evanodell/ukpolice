@@ -20,7 +20,7 @@ available month will be returned.}
 returning all crimes. See \code{\link[=ukc_crime_category]{ukc_crime_category()}} for details.}
 }
 \value{
-A tibble with details of street crimes.
+A \code{tibble} with details of street crimes.
 }
 \description{
 Street level crime
@@ -29,7 +29,7 @@ Street level crime
 \code{lat} and \code{lng} must be the same length.
 }
 \examples{
-\dontrun{
+\donttest{
 crime <- ukc_street_crime(
   lat = 51.5, lng = -0.6,
   crime_category = "bicycle-theft"

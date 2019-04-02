@@ -11,14 +11,14 @@ ukc_neighbourhoods(force)
 neighbourhoods for. Must be specified, and is not case sensitive.}
 }
 \value{
-A tibble with data for neighbourhoods within the area of the
+A \code{tibble} with data for neighbourhoods within the area of the
 given police force.
 }
 \description{
 All the neighbourhoods within a given police force area.
 }
 \examples{
-\dontrun{
+\donttest{
 places <- ukc_neighbourhoods("dorset")
 }
 

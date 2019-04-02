@@ -1,6 +1,7 @@
 context("test-specific-crime")
 
 test_that("specific-crime and no-location crime works", {
+  skip_on_cran()
   no_location <- ukc_crime_no_location(
     force = "city-of-london",
     date = "2019-01"

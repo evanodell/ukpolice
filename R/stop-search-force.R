@@ -21,7 +21,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' ss_dorset <- ukc_stop_search_force(force = "dorset")
 #' }
 #'

@@ -16,7 +16,7 @@
 # @seealso [ukc_neighbourhoods()]
 #' @rdname ukc_neighbourhood_specific
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Police priorities in Northbourne and Wallisdown
 #' priorities <- ukc_neighbourhood_team("dorset", "10-2")
 #' }

@@ -17,7 +17,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' no_location <- ukc_crime_no_location(force = "city-of-london")
 #' }
 #'
