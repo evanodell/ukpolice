@@ -1,6 +1,6 @@
 
 
-#' Specific Neighbourhood Events
+#' Specific Neighbourhood Details
 #
 # Data on events within a specific neighbourhood policing area.
 #
@@ -12,14 +12,15 @@
 #'
 #' @export
 #'
-#' @seealso [ukc_neighbourhood_boundary()]
-#' @seealso [ukc_neighbourhoods()]
+# @seealso [ukc_neighbourhood_boundary()]
+# @seealso [ukc_neighbourhoods()]
 #' @rdname ukc_neighbourhood_specific
 #' @examples
 #' \dontrun{
+#' # Police engagement events in Northbourne and Wallisdown
 #' events <- ukc_neighbourhood_events("dorset", "10-1")
 #' }
-#' 
+#'
 ukc_neighbourhood_events <- function(force, neighbourhood_id) {
   if (missing(force)) {
     stop("The police force must be specified", call. = FALSE)
@@ -28,7 +29,7 @@ ukc_neighbourhood_events <- function(force, neighbourhood_id) {
   if (missing(neighbourhood_id)) {
     df <- ukc_neighbourhoods(force)
   } else {
-    query <- paste0(tolower(force), "/", neighbourhood_id, "/events")
+    query <- paste0(force, "/", neighbourhood_id, "/events")
 
     df <- ukc_get_data(query)
   }

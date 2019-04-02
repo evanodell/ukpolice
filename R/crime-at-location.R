@@ -14,16 +14,16 @@
 #' available month will be returned. Also accepts dates in formats that can be
 #' coerced to `Date` class with `as.Date()`.
 #'
-#' @return A tibble with details of crimes at a given location.
+#' @return A `tibble` with details of crimes at a given location.
 #' @export
 #'
 #' @examples
 #' \dontrun{
 #' x <- ukc_crime_location(lat = 52, lng = 0)
-#' 
+#'
 #' y <- ukc_crime_location(location = 802171)
 #' }
-#' 
+#'
 ukc_crime_location <- function(lat, lng, location, date = NULL) {
   date_query <- ukc_date_processing(date)
 

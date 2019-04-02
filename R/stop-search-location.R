@@ -18,28 +18,31 @@
 #' a custom polygon.
 #' @param location If specified, `lat` and `lng` are ignored. Location IDs are
 #' available through other methods including [ukc_street_crime()].
-#' @param date The year and month in "YYYY-MM" form. If `NULL`, latest
-#' available month will be returned.
+#' @inheritParams ukc_stop_search_force
 #'
-#' @return A tibble with details of stop and searches outcomes.
+#' @return A `tibble` with details of stop and searches outcomes.
+#'
+#' @seealso [ukc_stop_search_force()]
+#' @seealso [ukc_stop_search_no_location()]
+#'
 #' @export
 #'
 #' @examples
 #' \dontrun{
 #' ukc_stop_search1 <- ukc_stop_search_location(lat = 52.629729, lng = -1.131592)
-#' 
+#'
 #' ukc_stop_search2 <- ukc_stop_search_location(
 #'   lat = c(52.268, 53.194, 52.130),
 #'   lng = c(0.543, 0.238, 0.478)
 #' )
 #' }
-#' 
+#'
 ukc_stop_search_location <- function(lat, lng, location, date = NULL) {
   date_query <- ukc_date_processing(date)
 
   if (!missing(location)) {
     query <- paste0(
-      "stops-at-location?", "location_id=", location, date_query
+      "stops-at-location?location_id=", location, date_query
     )
   } else {
     loc_query <- ukc_lat_lng(lat, lng)

@@ -16,8 +16,11 @@ a custom polygon.}
 \item{location}{If specified, \code{lat} and \code{lng} are ignored. Location IDs are
 available through other methods including \code{\link[=ukc_street_crime]{ukc_street_crime()}}.}
 
-\item{date}{The year and month in "YYYY-MM" form. If \code{NULL}, latest
-available month will be returned.}
+\item{date}{The year and month in "YYYY-MM" form. Also accepts dates in
+formats that can be coerced to \code{Date} class with \code{as.Date()}. If \code{NULL},
+the latest available month will be returned. Note that not all forces
+will necessarily have reported stop and search data for the latest month;
+check availability with the \code{\link[=ukc_available]{ukc_available()}} function.}
 }
 \value{
 A tibble with details of stop and searches outcomes.
@@ -44,4 +47,9 @@ ukc_stop_search2 <- ukc_stop_search_location(
 )
 }
 
+}
+\seealso{
+\code{\link[=ukc_stop_search_force]{ukc_stop_search_force()}}
+
+\code{\link[=ukc_stop_search_no_location]{ukc_stop_search_no_location()}}
 }

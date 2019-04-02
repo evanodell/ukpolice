@@ -14,7 +14,7 @@ ukc_officers(force)
 }
 \arguments{
 \item{force}{The id of the police force, available from the \code{id} column
-returned by \code{ukc_forces}.}
+returned by \code{ukc_forces}. Not case sensitive.}
 }
 \value{
 \code{ukc_forces} returns a \code{tibble} with all police forces in England
@@ -30,5 +30,7 @@ officers on that force.
 forces <- ukc_forces()
 
 cops <- ukc_officers("cumbria")
+
+details <- ukc_force_details("thames-valley")
 }
 }

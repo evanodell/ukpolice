@@ -13,7 +13,7 @@
 #' @param crime_category The category of crime to return. Defaults to
 #' returning all crimes. See [ukc_crime_category()] for details.
 #'
-#' @return A tibble with details of street crimes.
+#' @return A `tibble` with details of street crimes.
 #' @export
 #'
 #' @examples

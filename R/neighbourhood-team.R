@@ -12,15 +12,16 @@
 #'
 #' @export
 #'
-#' @seealso [ukc_neighbourhood_boundary()]
-#' @seealso [ukc_neighbourhoods()]
-#' @seealso [ukc_neighbourhood_location()]
+# @seealso [ukc_neighbourhood_boundary()]
+# @seealso [ukc_neighbourhoods()]
+# @seealso [ukc_neighbourhood_location()]
 #' @rdname ukc_neighbourhood_specific
 #' @examples
 #' \dontrun{
+#' # Details on Kinson North Safer Neighbourhood Team members
 #' people <- ukc_neighbourhood_team("dorset", "10-2")
 #' }
-#' 
+#'
 ukc_neighbourhood_team <- function(force, neighbourhood_id) {
   if (missing(force)) {
     stop("The police force must be specified", call. = FALSE)
@@ -29,7 +30,7 @@ ukc_neighbourhood_team <- function(force, neighbourhood_id) {
   if (missing(neighbourhood_id)) {
     df <- ukc_neighbourhoods(force)
   } else {
-    query <- paste0(tolower(force), "/", neighbourhood_id, "/people")
+    query <- paste0(force, "/", neighbourhood_id, "/people")
 
     df <- ukc_get_data(query)
   }

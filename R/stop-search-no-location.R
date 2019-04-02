@@ -5,22 +5,20 @@
 #' location. Note that the police force must be specified. For all stop and
 #' searches carried out by a police force, use [ukc_stop_search_force()].
 #'
-#' @param force A string containing the name of the police force to return data
-#' for. Must be specified, and is not case sensitive.
-#' See [ukc_forces()] for details.
-#' @param date The year and month in "YYYY-MM" form. If `NULL`, latest
-#' available month will be returned. Also accepts dates in formats that can be
-#' coerced to `Date` class with `as.Date()`.
+#' @inheritParams ukc_stop_search_force
 #'
-#' @return A tibble with details of stop and searches without a specific
+#' @return A `tibble` with details of stop and searches without a specific
 #' location.
 #' @export
+#'
+#' @seealso [ukc_stop_search_force()]
+#' @seealso [ukc_stop_search_location()]
 #'
 #' @examples
 #' \dontrun{
 #' ss_no_location <- ukc_stop_search_no_location(force = "city-of-london")
 #' }
-#' 
+#'
 ukc_stop_search_no_location <- function(force, date = NULL) {
   if (missing(force)) {
     stop("The police force must be specified", call. = FALSE)

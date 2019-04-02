@@ -17,7 +17,7 @@
 #' @param date The year and month in "YYYY-MM" form. If `NULL`, latest
 #' available month will be returned.
 #'
-#' @return A tibble with details of street crime outcomes.
+#' @return A `tibble` with details of street crime outcomes.
 #' @export
 #'
 #' @examples

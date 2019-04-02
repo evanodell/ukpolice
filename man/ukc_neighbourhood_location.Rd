@@ -16,7 +16,7 @@ The police force and neighbourhood code of the given coordinates.
 }
 \description{
 Find the neighbourhood policing team responsible for a given area, by
-a set of coordinates.
+a set of coordinates. Accepts only a single pair of latitude and longitude.
 }
 \examples{
 \dontrun{

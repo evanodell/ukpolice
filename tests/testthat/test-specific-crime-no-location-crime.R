@@ -33,4 +33,7 @@ test_that("specific-crime and no-location crime works", {
   )
 
   expect_true(all(no_location2$category == "drugs"))
+
+  expect_error(ukc_crime_no_location())
+  expect_error(ukc_specific_outcome())
 })

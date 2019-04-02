@@ -2,7 +2,7 @@
 % Please edit documentation in R/neighbourhoods.R
 \name{ukc_neighbourhoods}
 \alias{ukc_neighbourhoods}
-\title{Neighbourhoods}
+\title{Policing Neighbourhoods}
 \usage{
 ukc_neighbourhoods(force)
 }
@@ -27,4 +27,6 @@ places <- ukc_neighbourhoods("dorset")
 \code{\link[=ukc_neighbourhood_boundary]{ukc_neighbourhood_boundary()}}
 
 \code{\link[=ukc_neighbourhood_specific]{ukc_neighbourhood_specific()}}
+
+\code{\link[=ukc_neighbourhood_location]{ukc_neighbourhood_location()}}
 }

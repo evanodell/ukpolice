@@ -31,6 +31,13 @@ knitr::opts_chunk$set(
 
 The `ukpolice` package downloads data from the UK Police public data API, the full docs of which are available at https://data.police.uk/docs/.
 
+You can install the development version of `ukpolice` from github with:
+
+```{r gh-installation, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("evanodell/ukpolice")
+```
+
 Data is available on police forces, crimes, policing areas and stop-and-search. All functions begin with `ukc_`.
 
 The example below queries stop and searches by the Thames Valley Police in December 2018, and plots them by police-reported ethnic group.
@@ -64,3 +71,7 @@ p1 <- ggplot(tv_ss2, aes(x = outcome, y = perc,
 
 p1
 ```
+
+For more details, see the package vignette [vignette](https://docs.evanodell.com/ukpolice/articles/introduction.html) and [function documentation](https://docs.evanodell.com/ukpolice/reference/index.html).
+
+Please note that the 'ukpolice' project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.

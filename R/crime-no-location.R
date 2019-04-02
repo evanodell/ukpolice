@@ -13,14 +13,14 @@
 #' available month will be returned. Also accepts dates in formats that can be
 #' coerced to `Date` class with `as.Date()`.
 #'
-#' @return A tibble with details of crimes without a specific location.
+#' @return A `tibble` with details of crimes without a specific location.
 #' @export
 #'
 #' @examples
 #' \dontrun{
 #' no_location <- ukc_crime_no_location(force = "city-of-london")
 #' }
-#' 
+#'
 ukc_crime_no_location <- function(force, crime_category = NULL, date = NULL) {
   if (missing(force)) {
     stop("The police force must be specified", call. = FALSE)

@@ -6,10 +6,14 @@
 #'
 #' @details
 #' `ukpolice` contains the following functions for specific neighbourhoods:
-#' * `ukc_neighbourhood_specific`
-#' * `ukc_neighbourhood_team`
-#' * `ukc_neighbourhood_events`
-#' * `ukc_neighbourhood_priorities`
+#' * `ukc_neighbourhood_specific` -- Basic information and description of a
+#' specific neighbourhood.
+#' * `ukc_neighbourhood_team` -- Brief biographies of police officers
+#' responsible for the specified neighbourhood.
+#' * `ukc_neighbourhood_events` -- Police public engagement events taking
+#' place in the specified neighbourhood.
+#' * `ukc_neighbourhood_priorities` -- Policing priorities for the
+#' specified neighbourhood.
 #'
 #'
 #' @param force A string containing the name of the police force to return
@@ -18,7 +22,7 @@
 #' returned from [ukc_neighbourhoods()]. If missing, returns all neighbourhoods
 #' for the specified police force, using [ukc_neighbourhoods()].
 #'
-#' @return A tibble with data for a specific neighbourhood.
+#' @return A `tibble` with data for a specific neighbourhood.
 #' @export
 #'
 #' @seealso [ukc_neighbourhood_boundary()]
@@ -30,11 +34,11 @@
 #' \dontrun{
 #' # returns a specific neighbourood
 #' places4 <- ukc_neighbourhood_specific("dorset", "10-1")
-#' 
+#'
 #' # returns all neighbourhoods as specific neighbourhood is unspecified.
 #' places3 <- ukc_neighbourhood_specific("dorset")
 #' }
-#' 
+#'
 ukc_neighbourhood_specific <- function(force, neighbourhood_id) {
   if (missing(force)) {
     stop("The police force must be specified", call. = FALSE)
@@ -43,7 +47,7 @@ ukc_neighbourhood_specific <- function(force, neighbourhood_id) {
   if (missing(neighbourhood_id)) {
     df <- ukc_neighbourhoods(force)
   } else {
-    query <- paste0(tolower(force), "/", neighbourhood_id)
+    query <- paste0(force, "/", neighbourhood_id)
 
     df <- ukc_get_hood_data(query)
   }

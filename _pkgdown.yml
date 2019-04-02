@@ -9,6 +9,35 @@ authors:
     href: https://evanodell.com
 
 
+reference:
+- title: "Crimes"
+  desc: "Retrieve data on police reported crime"
+  contents:
+- starts_with("ukc_crime")
+- starts_with("ukc_street")
+- ukc_specific_outcome
+- ukc_last_update
+
+
+- title: "Police Forces"
+  desc: "Retrieve data on specific forces and officers"
+  contents:
+- ukc_forces
+
+
+
+- title: "Neighbourhoods"
+  desc: "Retrieve data on policing neighbourhood areas, priorities, etc."
+  contents:
+- starts_with("ukc_neighbourhood")
+
+
+- title: "Stop and Search"
+  desc: "Retrieve data on the use of stop and search powers by the police"
+  contents:
+- starts_with("ukc_stop")
+
+
 name:
 navbar:
   left:
