@@ -24,7 +24,7 @@ ukc_neighbourhoods <- function(force) {
     stop("The police force must be specified", call. = FALSE)
   }
 
-  query <- paste0(force, "/neighbourhoods")
+  query <- paste0(tolower(force), "/neighbourhoods")
 
   df <- ukc_get_data(query)
 

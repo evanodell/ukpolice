@@ -31,7 +31,7 @@
 #'
 #' @rdname ukc_neighbourhood_specific
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # returns a specific neighbourood
 #' places4 <- ukc_neighbourhood_specific("dorset", "10-1")
 #'
@@ -47,7 +47,7 @@ ukc_neighbourhood_specific <- function(force, neighbourhood_id) {
   if (missing(neighbourhood_id)) {
     df <- ukc_neighbourhoods(force)
   } else {
-    query <- paste0(force, "/", neighbourhood_id)
+    query <- paste0(tolower(force), "/", neighbourhood_id)
 
     df <- ukc_get_hood_data(query)
   }

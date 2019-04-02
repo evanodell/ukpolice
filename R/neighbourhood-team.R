@@ -30,7 +30,7 @@ ukc_neighbourhood_team <- function(force, neighbourhood_id) {
   if (missing(neighbourhood_id)) {
     df <- ukc_neighbourhoods(force)
   } else {
-    query <- paste0(force, "/", neighbourhood_id, "/people")
+    query <- paste0(tolower(force), "/", neighbourhood_id, "/people")
 
     df <- ukc_get_data(query)
   }

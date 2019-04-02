@@ -29,7 +29,7 @@ ukc_neighbourhood_priorities <- function(force, neighbourhood_id) {
   if (missing(neighbourhood_id)) {
     df <- ukc_neighbourhoods(force)
   } else {
-    query <- paste0(force, "/", neighbourhood_id, "/priorities")
+    query <- paste0(tolower(force), "/", neighbourhood_id, "/priorities")
 
     df <- ukc_get_data(query)
   }
