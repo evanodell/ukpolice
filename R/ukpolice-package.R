@@ -10,6 +10,9 @@
 #' of [ukc_specific_outcome()] in some cases, which returns a list containing a
 #' list and a `tibble`.
 #'
+#' Data accessed through `ukpolice` is licenced with
+#' [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
+#'
 #' The API allows for 15 requests each second, but up to 30 in a single second
 #' if in a single burst. The API does not require authentication.
 #' See the [API documentation](https://data.police.uk/docs/) for more details.

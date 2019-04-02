@@ -13,9 +13,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Travis build status](https://travis-ci.org/evanodell/ukpolice.svg?branch=master)](https://travis-ci.org/evanodell/ukpolice)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/evanodell/ukpolice?branch=master&svg=true)](https://ci.appveyor.com/project/evanodell/ukpolice)
@@ -61,7 +58,7 @@ p1 <- ggplot(tv_ss2, aes(x = outcome, y = perc,
   scale_y_continuous(labels = scales::percent,
                      breaks = seq(0.25, 0.8, by = 0.25)) + 
   scale_x_discrete(labels = scales::wrap_format(15)) + 
-  theme(legend.position = "none", axis.text.x = element_text(size = 8)) + 
+  theme(legend.position = "none", axis.text.x = element_text(size = 7)) + 
   labs(x = "Outcome", 
        y = "Percentage of stop and searches resulting in outcome",
        title = "Stop and Search Outcomes by Police-Reported Ethnicity",
@@ -74,4 +71,24 @@ p1
 
 For more details, see the package vignette [vignette](https://docs.evanodell.com/ukpolice/articles/introduction.html) and [function documentation](https://docs.evanodell.com/ukpolice/reference/index.html).
 
+## Meta
+
 Please note that the 'ukpolice' project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
+
+The UK Police API is operated by the UK Government's Home Office. The `ukpolice` package is not affiliated with the Home Office. All data accessed through `ukpolice` is licenced with [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
+
+Get citation information for `ukpolice` in R with `citation(package = 'ukpolice')`, or use the citation information below:
+
+Odell E (2019). _ukpolice: Download Data on UK Police and Crime_. doi:
+10.5281/zenodo.2619537 (URL: http://doi.org/10.5281/zenodo.2619537), R package version 0.1.2, <URL: https://github.com/evanodell/ukpolice>.
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {{ukpolice}: Download Data on UK Police and Crime},
+    author = {Evan Odell},
+    year = {2019},
+    note = {R package version 0.1.2},
+    doi = {10.5281/zenodo.2619537},
+    url = {https://github.com/evanodell/ukpolice},
+  }
