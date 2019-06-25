@@ -5,6 +5,10 @@
 
 * Documentation improvements.
 
+## Code Changes
+
+* Revision to structure of location based searches
+
 # ukpolice 0.1.2
 
  * Preventing tests from running on CRAN and hammering the API.

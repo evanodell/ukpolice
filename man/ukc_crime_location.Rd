@@ -22,7 +22,7 @@ coerced to \code{Date} class with \code{as.Date()}.}
 A \code{tibble} with details of crimes at a given location.
 }
 \description{
-Returns details at crimes at a given
+Returns details of crimes within a one mile radius of a given point.
 }
 \details{
 If specified, \code{lat} and \code{lng} must be the same length. \code{location}

@@ -1,7 +1,7 @@
 
 #' Crimes at a specific location
 #'
-#' Returns details at crimes at a given
+#' Returns details of crimes within a one mile radius of a given point.
 #'
 #' @details If specified, `lat` and `lng` must be the same length. `location`
 #' or both `lat` and `lng` must be specified.
@@ -51,3 +51,117 @@ ukc_crime_location <- function(lat, lng, location, date = NULL) {
 
   df
 }
+
+
+#' Extract crime areas within a polygon
+#'
+#' @param poly_df dataframe containing the lat/lng pairs which define the
+#'   boundary of the custom area. If a custom area contains more than 10,000
+#'   crimes, the API will return a 503 status code. ukp_crime_poly converts the
+#'   dataframe into lat/lng pairs, separated by colons:
+#'   `lat`,`lng`:`lat`,`lng`:`lat`,`lng`. The first and last coordinates need
+#'   not be the same — they will be joined by a straight line once the request
+#'   is made.
+#' @param date, Optional. (YYY-MM), limit results to a specific month. The
+#'   latest month will be shown by default. e.g. date = "2013-01"
+#' @param ... further arguments passed to or from other methods. For example,
+#'   verbose option can be added with
+#'   `ukp_api("call", config = httr::verbose())`.
+#'   See more in `?httr::GET` documentation
+#'   <https://cran.r-project.org/web/packages/httr/> and
+#'   <https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html>.
+#' @note further documentation here:
+#'   <https://data.police.uk/docs/method/crime-street/>
+#'
+#' @examples
+#'
+#' library(ukpolice)
+#'
+#' # with 3 points
+#' poly_df_3 = data.frame(lat = c(52.268, 52.794, 52.130),
+#'                        long = c(0.543, 0.238, 0.478))
+#'
+#' ukp_data_poly_3 <- ukp_crime_poly(poly_df_3)
+#' head(ukp_data_poly_3)
+#'
+#' # with 4 points
+#' poly_df_4 = data.frame(lat = c(52.268, 52.794, 52.130, 52.000),
+#'                        long = c(0.543,  0.238,  0.478,  0.400))
+#' ukp_data_poly_4 <- ukp_crime_poly(poly_df = poly_df_4)
+#'
+#' head(ukp_data_poly_4)
+#'
+#' @export
+ukc_crime_poly <- function(poly_df,
+                           date = NULL,
+                           ...){
+
+  # poly must be a dataframe
+  stopifnot(inherits(poly_df, "data.frame"))
+
+  # "poly_df must contain columns named 'lat' and 'long'"
+  stopifnot(c("lat", "long") %in% names(poly_df))
+
+  # date = NULL
+
+  poly_string <- ukp_poly_paste(poly_df,
+                                "long",
+                                "lat")
+
+  # if date is used
+  if (is.null(date) == FALSE) {
+
+    result <- ukp_api(
+      glue::glue("api/crimes-street/all-crime?poly={poly_string}&date={date}")
+    )
+
+    # else if no date is specified
+  } else if (is.null(date) == TRUE) {
+
+    # get the latest date
+    # last_date <- ukpolice::ukp_last_update()
+
+    result <- ukp_api(
+      glue::glue("api/crimes-street/all-crime?poly={poly_string}")
+    )
+
+  } # end ifelse
+
+  extract_result <- purrr::map_dfr(.x = result$content,
+                                   .f = ukp_crime_unlist)
+
+  # rename the data
+  extract_result <- dplyr::rename(
+    extract_result,
+    lat = location.latitude,
+    long = location.longitude,
+    street_id = location.street.id,
+    street_name = location.street.name,
+    date = month,
+    outcome_status = outcome_status.category,
+    outcome_date = outcome_status.date
+  )
+
+  # ensure that lat and long are numeric
+  final_result <- dplyr::mutate(extract_result,
+                                lat = as.numeric(lat),
+                                long = as.numeric(long))
+
+  final_result <- dplyr::select(final_result,
+                                category,
+                                persistent_id,
+                                date,
+                                lat,
+                                long,
+                                street_id,
+                                street_name,
+                                context,
+                                id,
+                                location_type,
+                                location_subtype,
+                                outcome_status,
+                                category)
+
+  return(final_result)
+
+} # end function

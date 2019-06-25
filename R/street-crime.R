@@ -22,13 +22,13 @@
 #'   lat = 51.5, lng = -0.6,
 #'   crime_category = "bicycle-theft"
 #' )
-#' 
+#'
 #' crime_poly <- ukc_street_crime(
 #'   lat = c(52.268, 52.794, 52.130),
 #'   lng = c(0.543, 0.238, 0.478)
 #' )
 #' }
-#' 
+#'
 ukc_street_crime <- function(lat, lng, date = NULL, crime_category = NULL) {
   date_query <- ukc_date_processing(date)
 
