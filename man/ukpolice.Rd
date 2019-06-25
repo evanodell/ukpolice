@@ -14,6 +14,9 @@ Most functions return a \code{tibble} with the requested data, with the exceptio
 of \code{\link[=ukc_specific_outcome]{ukc_specific_outcome()}} in some cases, which returns a list containing a
 list and a \code{tibble}.
 
+Data accessed through \code{ukpolice} is licenced with
+\href{https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/}{Open Government Licence v3.0}.
+
 The API allows for 15 requests each second, but up to 30 in a single second
 if in a single burst. The API does not require authentication.
 See the \href{https://data.police.uk/docs/}{API documentation} for more details.

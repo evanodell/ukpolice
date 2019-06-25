@@ -45,7 +45,7 @@ specified neighbourhood.
 }
 }
 \examples{
-\donttest{
+\dontrun{
 # returns a specific neighbourood
 places4 <- ukc_neighbourhood_specific("dorset", "10-1")
 
