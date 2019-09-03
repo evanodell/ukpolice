@@ -39,5 +39,5 @@ test_that("neighbourhood-returns works", {
 
   places5x <- ukc_neighbourhood_team("dorset", "10-13")
   places6x <- ukc_neighbourhood_events("leicestershire", "NC04")
-  places7x <- ukc_neighbourhood_priorities("durham", "107")
+  places7x <- ukc_neighbourhood_priorities("durham", "BISH1")
 })

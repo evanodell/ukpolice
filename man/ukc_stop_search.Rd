@@ -24,7 +24,7 @@ latest month will be shown by default. e.g. date = "2013-01"}
 
 \item{...}{further arguments passed to or from other methods. For example,
 verbose option can be added with
-\code{ukp_api("call", config = httr::verbose())}. See more in \code{?httr::GET}
+\code{ukc_api("call", config = httr::verbose())}. See more in \code{?httr::GET}
 documentation
 (\url{https://cran.r-project.org/web/packages/httr/}) and
 (\url{https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html}).}
@@ -45,7 +45,7 @@ is made.}
 
 \item{poly_df}{dataframe containing the lat/lng pairs which define the
 boundary of the custom area. If a custom area contains more than 10,000
-crimes, the API will return a 503 status code. ukp_crime_poly converts the
+crimes, the API will return a 503 status code. ukc_crime_poly converts the
 dataframe into lat/lng pairs, separated by colons:
 \code{lat},\code{lng}:\code{lat},\code{lng}:\code{lat},\code{lng}. The first and last coordinates need
 not be the same — they will be joined by a straight line once the request
@@ -96,17 +96,17 @@ poly_df_3 <- data.frame(
   long = c(0.543, 0.238, 0.478)
 )
 
-ukp_data_poly_3 <- ukc_stop_search_poly(poly_df_3)
-head(ukp_data_poly_3)
+ukc_data_poly_3 <- ukc_stop_search_poly(poly_df_3)
+head(ukc_data_poly_3)
 
 # with 4 points
 poly_df_4 <- data.frame(
   lat = c(52.268, 52.794, 52.130, 52.000),
   long = c(0.543, 0.238, 0.478, 0.400)
 )
-ukp_data_poly_4 <- ukc_stop_search_poly(poly_df = poly_df_4)
+ukc_data_poly_4 <- ukc_stop_search_poly(poly_df = poly_df_4)
 
-head(ukp_data_poly_4)
+head(ukc_data_poly_4)
 }
 \seealso{
 \code{\link[=ukc_stop_search_force]{ukc_stop_search_force()}}

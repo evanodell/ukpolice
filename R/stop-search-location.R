@@ -30,7 +30,7 @@
 #' is made.
 #' @param ... further arguments passed to or from other methods. For example,
 #' verbose option can be added with
-#' `ukp_api("call", config = httr::verbose())`. See more in `?httr::GET`
+#' `ukc_api("call", config = httr::verbose())`. See more in `?httr::GET`
 #' documentation
 #' (<https://cran.r-project.org/web/packages/httr/>) and
 #' (<https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html>).
@@ -89,6 +89,8 @@ ukc_stop_search_coord <- function(lat, lng, date = NULL, ...) {
 }
 
 
+# NEED TO ADD ABILITY TO ACCEPT SF, SP, ETC
+
 #' Find stop and search in custom area
 #'
 #'
@@ -99,14 +101,13 @@ ukc_stop_search_coord <- function(lat, lng, date = NULL, ...) {
 #'
 #' @param poly_df dataframe containing the lat/lng pairs which define the
 #'   boundary of the custom area. If a custom area contains more than 10,000
-#'   crimes, the API will return a 503 status code. ukp_crime_poly converts the
+#'   crimes, the API will return a 503 status code. ukc_crime_poly converts the
 #'   dataframe into lat/lng pairs, separated by colons:
 #'   `lat`,`lng`:`lat`,`lng`:`lat`,`lng`. The first and last coordinates need
 #'   not be the same — they will be joined by a straight line once the request
 #'   is made.
-#' @param date, Optional. (YYY-MM), limit results to a specific month. The
+#' @param date, Optional. (YYYY-MM), limit results to a specific month. The
 #'   latest month will be shown by default. e.g. date = "2013-01"
-
 #'
 #' @rdname ukc_stop_search
 #' @examples
@@ -117,18 +118,21 @@ ukc_stop_search_coord <- function(lat, lng, date = NULL, ...) {
 #'   long = c(0.543, 0.238, 0.478)
 #' )
 #'
-#' ukp_data_poly_3 <- ukc_stop_search_poly(poly_df_3)
-#' head(ukp_data_poly_3)
+#' ukc_data_poly_3 <- ukc_stop_search_poly(poly_df_3)
+#' head(ukc_data_poly_3)
 #'
 #' # with 4 points
 #' poly_df_4 <- data.frame(
 #'   lat = c(52.268, 52.794, 52.130, 52.000),
 #'   long = c(0.543, 0.238, 0.478, 0.400)
 #' )
-#' ukp_data_poly_4 <- ukc_stop_search_poly(poly_df = poly_df_4)
+#' ukc_data_poly_4 <- ukc_stop_search_poly(poly_df = poly_df_4)
 #'
-#' head(ukp_data_poly_4)
+#' head(ukc_data_poly_4)
 #' @export
+#'
+#'
+#'
 ukc_stop_search_poly <- function(poly_df, date = NULL, ...) {
 
   # poly must be a dataframe
@@ -137,7 +141,7 @@ ukc_stop_search_poly <- function(poly_df, date = NULL, ...) {
   # "poly_df must contain columns named 'lat' and 'long'"
   stopifnot(c("lat", "long") %in% names(poly_df))
 
-  poly_string <- ukp_poly_paste(
+  poly_string <- ukpolice:::ukc_poly_paste(
     poly_df,
     "long",
     "lat"
@@ -145,17 +149,17 @@ ukc_stop_search_poly <- function(poly_df, date = NULL, ...) {
 
   # if date is used
   if (!is.null(date)) {
-    api_string <- glue::glue("api/stops-street?poly={poly_string}&date={date}")
+    query <- glue::glue("stops-street?poly={poly_string}&date={date}")
     # else if no date is specified
   } else if (is.null(date)) {
-    api_string <- glue::glue("api/stops-street?poly={poly_string}")
+    query <- glue::glue("stops-street?poly={poly_string}")
   } # end ifelse
 
-  result <- ukp_api(api_string)
+  result <- ukc_get_data(query)
 
   extract_result <- purrr::map_dfr(
     .x = result$content,
-    .f = ukp_crime_unlist
+    .f = ukc_crime_unlist
   )
 
   # rename the data
@@ -192,7 +196,7 @@ ukc_stop_search_poly <- function(poly_df, date = NULL, ...) {
 #' @export
 #' @rdname ukc_stop_search
 ukc_stop_search_location <- function(lat, lng, location, date = NULL) {
-  .Deprecated("ukc_stop_search")
+  .Deprecated("ukc_stop_search_loc")
   date_query <- ukc_date_processing(date)
 
   if (!missing(location)) {

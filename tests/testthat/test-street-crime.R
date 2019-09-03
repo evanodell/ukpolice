@@ -1,6 +1,6 @@
 context("test-street-crime")
 
-test_that("multiplication works", {
+test_that("street crime works", {
   skip_on_cran()
   crime_poly <- ukc_street_crime(
     lat = c(52.268, 52.794, 52.130),
@@ -14,7 +14,7 @@ test_that("multiplication works", {
     crime_category = "bicycle-theft", date = "2019-01"
   )
   expect_length(crime, 9)
-  expect_equal(nrow(crime), 8)
+  expect_equal(nrow(crime), 12)
   expect_true(all(crime$category == "bicycle-theft"))
 
   street_crime_outcome2 <- ukc_street_crime_outcome(
