@@ -19,7 +19,7 @@ ukc_stop_search_location(lat, lng, location, date = NULL)
 \item{location}{If specified, \code{lat} and \code{lng} are ignored. Location IDs are
 available through other methods including \code{\link[=ukc_street_crime]{ukc_street_crime()}}.}
 
-\item{date, }{Optional. (YYY-MM), limit results to a specific month. The
+\item{date, }{Optional. (YYYY-MM), limit results to a specific month. The
 latest month will be shown by default. e.g. date = "2013-01"}
 
 \item{...}{further arguments passed to or from other methods. For example,
@@ -34,14 +34,6 @@ a custom polygon.}
 
 \item{lng}{Longitude. Accepts a single value or a vector of values to create
 a custom polygon.}
-
-\item{poly_df}{dataframe containing the lat/lng pairs which define the
-boundary of the custom area. If a custom area contains more than 10,000
-crimes, the API will return a 503 status code. \code{\link[=ukc_crime_poly]{ukc_crime_poly()}} converts the
-dataframe into lat/lng pairs, separated by colons:
-\code{lat},\code{lng}:\code{lat},\code{lng}:\code{lat},\code{lng}. The first and last coordinates need
-not be the same — they will be joined by a straight line once the request
-is made.}
 
 \item{poly_df}{dataframe containing the lat/lng pairs which define the
 boundary of the custom area. If a custom area contains more than 10,000

@@ -21,11 +21,12 @@ License: MIT + file LICENSE
 Imports: 
     jsonlite,
     tibble,
-    purrr
+    purrr,
+    glue
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.0
 Suggests: 
     testthat,
     covr,

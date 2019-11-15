@@ -24,9 +24,11 @@ test_that("stop_and_search functions work", {
   expect_length(ukc_stop_search2, 16)
   expect_equal(nrow(ukc_stop_search2), 5)
 
+  expect_warning(
   ukc_stop_search3 <- ukc_stop_search_location(
     location = 1142484,
     date = "2019-01"
+  )
   )
 
   expect_length(ukc_stop_search3, 16)

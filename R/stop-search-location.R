@@ -23,8 +23,8 @@
 #' available through other methods including [ukc_street_crime()].
 #' @param poly_df dataframe containing the lat/lng pairs which define the
 #' boundary of the custom area. If a custom area contains more than 10,000
-#' crimes, the API will return a 503 status code. [ukc_crime_poly()] converts the
-#' dataframe into lat/lng pairs, separated by colons:
+#' crimes, the API will return a 503 status code. [ukc_crime_poly()] converts
+#' the dataframe into lat/lng pairs, separated by colons:
 #' `lat`,`lng`:`lat`,`lng`:`lat`,`lng`. The first and last coordinates need
 #' not be the same — they will be joined by a straight line once the request
 #' is made.
@@ -34,7 +34,6 @@
 #' documentation
 #' (<https://cran.r-project.org/web/packages/httr/>) and
 #' (<https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html>).
-#' @inheritParams ukc_stop_search_force
 #' @note The API will return a 400 status code in response to a GET request
 #' longer than 4094 characters. For submitting particularly complex poly
 #' parameters, consider using POST instead.
@@ -141,7 +140,7 @@ ukc_stop_search_poly <- function(poly_df, date = NULL, ...) {
   # "poly_df must contain columns named 'lat' and 'long'"
   stopifnot(c("lat", "long") %in% names(poly_df))
 
-  poly_string <- ukpolice:::ukc_poly_paste(
+  poly_string <- ukc_poly_paste(
     poly_df,
     "long",
     "lat"

@@ -1,7 +1,7 @@
 context("test-crime-at-location")
 
-test_that("multiplication works", {
-  skip_on_cran()
+test_that("crime at location", {
+  #skip_on_cran()
   x <- ukc_crime_location(lat = 52, lng = 0)
   expect_true(length(x) == 9)
 

@@ -59,7 +59,7 @@ ukc_poly_paste <- function(data,
 #   # long_name <- deparse(substitute(long))
 #   # lat_name <- deparse(substitute(lat))
 #
-#   # data_chull <- data[grDevices::chull(data[[long_name]], data[[lat_name]]), ]
+#   #data_chull <- data[grDevices::chull(data[[long_name]], data[[lat_name]]), ]
 #   chull_long_lat <- grDevices::chull(data[[long]], data[[lat]])
 #   data_chull <- data[chull_long_lat, ]
 #

@@ -22,5 +22,6 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom tibble as_tibble
 #' @importFrom purrr compact
+#' @importFrom glue glue
 #' @aliases NULL ukpolice-package
 NULL

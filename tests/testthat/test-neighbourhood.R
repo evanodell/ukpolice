@@ -1,7 +1,7 @@
 context("test-neighbourhood")
 
-test_that("neighbourhood-returns works", {
-  skip_on_cran()
+test_that("neighbourhood-returns", {
+  #skip_on_cran()
   places1 <- ukc_neighbourhoods("dorset")
   places2 <- ukc_neighbourhood_specific("DORSET")
   places3 <- ukc_neighbourhood_boundary("dorset")

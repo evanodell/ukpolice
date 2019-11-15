@@ -102,7 +102,7 @@ ukc_crime_poly <- function(poly_df,
 
   # date = NULL
 
-  poly_string <- ukpolice:::ukc_poly_paste(poly_df,
+  poly_string <- ukc_poly_paste(poly_df,
                                 "long",
                                 "lat")
 
@@ -117,7 +117,7 @@ ukc_crime_poly <- function(poly_df,
   } else if (is.null(date) == TRUE) {
 
     # get the latest date
-    # last_date <- ukpolice::ukc_last_update()
+    # last_date <- ukc_last_update()
 
     result <- ukc_api(
       glue::glue("api/crimes-street/all-crime?poly={poly_string}")
