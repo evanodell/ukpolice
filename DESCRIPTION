@@ -10,7 +10,8 @@ Authors@R: c(
     person(family = "Nicholas", 
            given = "Tierney",
            email = "nicholas.tierney@gmail.com",
-           role = "aut"))
+           role = "aut",
+           comment = c(ORCID = "https://orcid.org/0000-0003-1460-8722")))
 Description: Downloads data from the 'UK Police' public data API, 
     the full docs of which are available at <https://data.police.uk/docs/>. 
     Includes data on police forces and police force areas, crime reports, 

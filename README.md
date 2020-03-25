@@ -1,6 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<!-- badges: start -->
+
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Travis build
@@ -14,12 +16,19 @@ status](https://codecov.io/gh/evanodell/ukpolice/branch/master/graph/badge.svg)]
 tag](https://img.shields.io/github/tag/evanodell/ukpolice.svg)](https://github.com/evanodell/ukpolice)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/ukpolice)](https://dgrtwo.shinyapps.io/cranview/)
 [![DOI](https://zenodo.org/badge/178673884.svg)](https://zenodo.org/badge/latestdoi/178673884)
+<!-- badges: end -->
 
 # ukpolice
 
 The `ukpolice` package downloads data from the UK Police public data
 API, the full docs of which are available at
 <https://data.police.uk/docs/>.
+
+`ukpolice` is on CRAN, which you can download using:
+
+``` r
+install.packages("ukpolice")
+```
 
 You can install the development version of `ukpolice` from github with:
 
@@ -85,13 +94,20 @@ v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
 Get citation information for `ukpolice` in R with `citation(package =
 'ukpolice')`, or use the citation information below:
 
-Odell E (2019). *ukpolice: Download Data on UK Police and Crime*. doi:
-10.5281/zenodo.2619537 (URL: <http://doi.org/10.5281/zenodo.2619537>), R
-package version 0.1.2, \<URL: <https://github.com/evanodell/ukpolice>\>.
+Odell E, Tierney N (2019). *ukpolice: Download Data on UK Police and
+Crime*. doi:
+[10.5281/zenodo.2619537](https://doi.org/10.5281/zenodo.2619537), R
+package version 0.1.2, URL: <https://github.com/evanodell/ukpolice>.
 
-A BibTeX entry for LaTeX users is
+A BibTeX entry for LaTeX users is:
 
-@Manual{, title = {{ukpolice}: Download Data on UK Police and Crime},
-author = {Evan Odell}, year = {2019}, note = {R package version 0.1.2},
-doi = {10.5281/zenodo.2619537}, url =
-{<https://github.com/evanodell/ukpolice>}, }
+``` 
+  @Manual{,
+    title = {{ukpolice}: Download Data on UK Police and Crime},
+    author = {Evan Odell and Nicholas Tierney},
+    year = {2019},
+    note = {R package version 0.1.2},
+    doi = {10.5281/zenodo.2619537},
+    url = {https://github.com/evanodell/ukpolice},
+  }
+```
