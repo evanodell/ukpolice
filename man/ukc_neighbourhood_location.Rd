@@ -19,7 +19,7 @@ Find the neighbourhood policing team responsible for a given area, by
 a set of coordinates.
 }
 \examples{
-\donttest{
+\dontrun{
 find <- ukc_neighbourhood_location(lat = 51.500617, lng = -0.124629)
 }
 

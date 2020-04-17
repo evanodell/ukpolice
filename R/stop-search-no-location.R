@@ -17,7 +17,7 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' ss_no_location <- ukc_stop_search_no_location(force = "city-of-london")
 #' }
 #' 

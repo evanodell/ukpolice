@@ -26,7 +26,7 @@ Returns details of crimes that cannot be mapped to a particular location.
 Note that the police force must be specified
 }
 \examples{
-\donttest{
+\dontrun{
 no_location <- ukc_crime_no_location(force = "city-of-london")
 }
 

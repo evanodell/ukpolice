@@ -16,7 +16,7 @@
 #' @seealso [ukc_neighbourhoods()]
 #' @rdname ukc_neighbourhood_specific
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' priorities <- ukc_neighbourhood_team("dorset", "55.CR3001")
 #' }
 #'

@@ -16,7 +16,7 @@
 #' @seealso [ukc_neighbourhood_boundary()]
 #' @seealso [ukc_neighbourhoods()]
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' find <- ukc_neighbourhood_location(lat = 51.500617, lng = -0.124629)
 #' }
 #' 

@@ -29,7 +29,7 @@ If specified, \code{lat} and \code{lng} must be the same length. \code{location}
 or both \code{lat} and \code{lng} must be specified.
 }
 \examples{
-\donttest{
+\dontrun{
 x <- ukc_crime_location(lat = 52, lng = 0)
 
 y <- ukc_crime_location(location = 802171)

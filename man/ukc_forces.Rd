@@ -26,7 +26,7 @@ Returns available police forces, details on a specific police force, or
 officers on that force.
 }
 \examples{
-\donttest{
+\dontrun{
 forces <- ukc_forces()
 
 cops <- ukc_officers("cumbria")

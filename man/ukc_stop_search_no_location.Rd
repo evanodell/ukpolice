@@ -25,7 +25,7 @@ location. Note that the police force must be specified. For all stop and
 searches carried out by a police force, use \code{\link[=ukc_stop_search_force]{ukc_stop_search_force()}}.
 }
 \examples{
-\donttest{
+\dontrun{
 ss_no_location <- ukc_stop_search_no_location(force = "city-of-london")
 }
 

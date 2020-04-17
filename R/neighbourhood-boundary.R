@@ -14,7 +14,7 @@
 #' @seealso [ukc_neighbourhood_location()]
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' borders <- ukc_neighbourhood_boundary("dorset", "55.CR3001")
 #' }
 #'

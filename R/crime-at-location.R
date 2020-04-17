@@ -18,12 +18,12 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' x <- ukc_crime_location(lat = 52, lng = 0)
-#' 
+#'
 #' y <- ukc_crime_location(location = 802171)
 #' }
-#' 
+#'
 ukc_crime_location <- function(lat, lng, location, date = NULL) {
   date_query <- ukc_date_processing(date)
 

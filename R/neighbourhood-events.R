@@ -16,7 +16,7 @@
 #' @seealso [ukc_neighbourhoods()]
 #' @rdname ukc_neighbourhood_specific
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' events <- ukc_neighbourhood_events("dorset", "55.CR3001")
 #' }
 #'

@@ -25,7 +25,7 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' ukc_stop_search1 <- ukc_stop_search_location(lat = 52.629729, lng = -1.131592)
 #' 
 #' ukc_stop_search2 <- ukc_stop_search_location(

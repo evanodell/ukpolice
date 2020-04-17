@@ -29,7 +29,7 @@ Street level crime
 \code{lat} and \code{lng} must be the same length.
 }
 \examples{
-\donttest{
+\dontrun{
 crime <- ukc_street_crime(
   lat = 51.5, lng = -0.6,
   crime_category = "bicycle-theft"

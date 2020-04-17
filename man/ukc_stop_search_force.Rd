@@ -23,7 +23,7 @@ Returns details of stop and searches carried out by a particular police
 force. Note that the police force must be specified.
 }
 \examples{
-\donttest{
+\dontrun{
 ss_dorset <- ukc_stop_search_force(force = "dorset")
 }
 

@@ -21,7 +21,7 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' street_crime_outcome1 <- ukc_street_crime_outcome(location = 883498)
 #' 
 #' street_crime_outcome2 <- ukc_street_crime_outcome(lat = 52, lng = 0)
