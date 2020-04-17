@@ -26,7 +26,5 @@ ukc_get_hood_data <- function(query) {
   api_return$contact_details <- as.data.frame(api_return$contact_details)
   api_return$centre <- as.data.frame(api_return$centre)
 
-  df <- as_tibble(api_return)
-
-  df
+  api_return
 }

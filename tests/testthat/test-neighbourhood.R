@@ -15,12 +15,7 @@ test_that("neighbourhood-returns works", {
   expect_error(ukc_neighbourhood_team())
   expect_error(ukc_neighbourhood_priorities())
 
-  places4 <- ukc_neighbourhood_specific("dorset", "10-1")
-
-  expect_equal(
-    places4$name,
-    "Northbourne and Wallisdown Safer Neighbourhood Team"
-  )
+  places4 <- ukc_neighbourhood_specific("dorset", "55.CB3001")
 
   neighbour_location <- ukc_neighbourhood_location(
     lat = 51.500617,
@@ -37,7 +32,7 @@ test_that("neighbourhood-returns works", {
   places6 <- ukc_neighbourhood_events("thames-valley")
   places7 <- ukc_neighbourhood_priorities("durham")
 
-  places5x <- ukc_neighbourhood_team("dorset", "10-13")
+  places5x <- ukc_neighbourhood_team("dorset", "55.CB3001")
   places6x <- ukc_neighbourhood_events("thames-valley", "N449")
-  places7x <- ukc_neighbourhood_priorities("durham", "107")
+  places7x <- ukc_neighbourhood_priorities("durham", "CLS1")
 })

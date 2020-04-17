@@ -26,7 +26,8 @@ returned from \code{\link[=ukc_neighbourhoods]{ukc_neighbourhoods()}}. If missin
 for the specified police force, using \code{\link[=ukc_neighbourhoods]{ukc_neighbourhoods()}}.}
 }
 \value{
-A tibble with data for a specific neighbourhood.
+A list with data for a specific neighbourhood, or a tibble with all
+neighbourhood IDs if no neighbourhood is specified.
 }
 \description{
 Data on a specific neighbourhood within a given police force area.
@@ -42,20 +43,20 @@ Data on a specific neighbourhood within a given police force area.
 }
 \examples{
 \donttest{
-events <- ukc_neighbourhood_events("dorset", "10-1")
+events <- ukc_neighbourhood_events("dorset", "55.CR3001")
 }
 
 \donttest{
-priorities <- ukc_neighbourhood_team("dorset", "10-2")
+priorities <- ukc_neighbourhood_team("dorset", "55.CR3001")
 }
 
 \donttest{
-people <- ukc_neighbourhood_team("dorset", "10-2")
+people <- ukc_neighbourhood_team("dorset", "55.CR3001")
 }
 
 \donttest{
 # returns a specific neighbourood
-places4 <- ukc_neighbourhood_specific("dorset", "10-1")
+places4 <- ukc_neighbourhood_specific("dorset", "55.CR3001")
 
 # returns all neighbourhoods as specific neighbourhood is unspecified.
 places3 <- ukc_neighbourhood_specific("dorset")

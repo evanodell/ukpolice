@@ -17,9 +17,9 @@
 #' @rdname ukc_neighbourhood_specific
 #' @examples
 #' \donttest{
-#' events <- ukc_neighbourhood_events("dorset", "10-1")
+#' events <- ukc_neighbourhood_events("dorset", "55.CR3001")
 #' }
-#' 
+#'
 ukc_neighbourhood_events <- function(force, neighbourhood_id) {
   if (missing(force)) {
     stop("The police force must be specified", call. = FALSE)

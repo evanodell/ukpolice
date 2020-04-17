@@ -9,16 +9,16 @@ test_that("specific-crime and no-location crime works", {
 
   expect_length(no_location, 9)
 
-  crime_id <- no_location$persistent_id[[1]]
-
-  expect_equal(
-    "734304974ca05eb149572baf1865e4b64a7e8954f6884a6511409ae59b4b477a",
-    crime_id
+  expect_true(
+    "a832abdef7dc2a9a794ca3ce9730e541619c316e6cc87132334a50ec7762b8ae" %in%
+      no_location$persistent_id
   )
 
-  outcome <- ukc_specific_outcome(crime_id)
+  outcome <- ukc_specific_outcome(
+    "a832abdef7dc2a9a794ca3ce9730e541619c316e6cc87132334a50ec7762b8ae"
+    )
 
-  expect_length(outcome, 6)
+  expect_length(outcome, 2)
 
   outcome2 <- ukc_specific_outcome(
     "590d68b69228a9ff95b675bb4af591b38de561aa03129dc09a03ef34f537588c"

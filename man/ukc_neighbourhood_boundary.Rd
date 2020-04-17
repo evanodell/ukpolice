@@ -22,7 +22,7 @@ Data on a specific neighbourhood boundary, using lat/lng pairs.
 }
 \examples{
 \donttest{
-borders <- ukc_neighbourhood_boundary("dorset", "10-1")
+borders <- ukc_neighbourhood_boundary("dorset", "55.CR3001")
 }
 
 }
