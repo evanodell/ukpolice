@@ -12,7 +12,7 @@ status](https://codecov.io/gh/evanodell/ukpolice/branch/master/graph/badge.svg)]
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/ukpolice)](https://cran.r-project.org/package=ukpolice)
 [![GitHub
 tag](https://img.shields.io/github/tag/evanodell/ukpolice.svg)](https://github.com/evanodell/ukpolice)
-[![](https://cranlogs.r-pkg.org/badges/grand-total/ukpolice)](https://dgrtwo.shinyapps.io/cranview/)
+[![](https://cranlogs.r-pkg.org/badges/grand-total/ukpolice)](https://cran.r-project.org/package=ukpolice)
 [![DOI](https://zenodo.org/badge/178673884.svg)](https://zenodo.org/badge/latestdoi/178673884)
 
 # ukpolice

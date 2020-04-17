@@ -1,4 +1,9 @@
 
+# ukpolice 0.1.4
+
+* Changed \donttest to \dontrun to avoid CRAN errors and overburdening the API.
+
+* Misc bug fixes.
 
 # ukpolice 0.1.3
 

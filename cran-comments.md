@@ -2,8 +2,8 @@
 
 ## Resubmission
 
-This is a update of the `ukpolice` package, 0.1.3, which removes a section
-of the vignette that was causing errors on CRAN.
+This is a update of the `ukpolice` package, 0.1.4, which changes \donttest to
+\dontrun in .Rd files, 
 
 ## Test environments
 * local OS X install, R 3.6.2
