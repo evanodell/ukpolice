@@ -47,9 +47,9 @@
 #' @rdname ukc_stop_search
 #' @examples
 #' \donttest{
-#' ukc_stop_search1 <- ukc_stop_search_loc(lat = 52.629729, lng = -1.131592)
+#' ukc_stop_search1 <- ukc_stop_search_coord(lat = 52.629729, lng = -1.131592)
 #'
-#' ukc_stop_search2 <- ukc_stop_search_loc(
+#' ukc_stop_search2 <- ukc_stop_search_coord(
 #'   lat = c(52.268, 53.194, 52.130),
 #'   lng = c(0.543, 0.238, 0.478)
 #' )
@@ -130,12 +130,33 @@ ukc_stop_search_coord <- function(lat, lng, date = NULL, ...) {
 #' head(ukc_data_poly_4)
 #' @export
 #'
-#'
-#'
 ukc_stop_search_poly <- function(poly_df, date = NULL, ...) {
 
   # poly must be a dataframe
   stopifnot(inherits(poly_df, "data.frame"))
+
+  # check for SP
+  if (inherits(poly_df, "Spatial")) {
+    if (requireNamespace("sf", quietly = TRUE)) {
+    poly_df <- sf::st_as_sf(poly_df)
+    } else {
+      warning("Package \"sf\" is needed to process Spatial data.",
+              call. = TRUE, immediate. = TRUE)
+    }
+  }
+
+  if (inherits(poly_df, "sf")) {
+    if (requireNamespace("sf", quietly = TRUE)) {
+      poly_df <- sf::st_transform(poly_df, crs = 4326)
+
+      poly_df <- as.data.frame(sf::st_coordinates(poly_df))
+      names(poly_df) <- c("lat", "long")
+    } else {
+      warning("Package \"sf\" is needed to process simple features.",
+              call. = TRUE, immediate. = TRUE)
+      }
+
+  }
 
   # "poly_df must contain columns named 'lat' and 'long'"
   stopifnot(c("lat", "long") %in% names(poly_df))
@@ -154,12 +175,7 @@ ukc_stop_search_poly <- function(poly_df, date = NULL, ...) {
     query <- glue::glue("stops-street?poly={poly_string}")
   } # end ifelse
 
-  result <- ukc_get_data(query)
-
-  extract_result <- purrr::map_dfr(
-    .x = result$content,
-    .f = ukc_crime_unlist
-  )
+  result <- ukpolice:::ukc_get_data(query)
 
   # rename the data
   extract_result <- dplyr::rename(
