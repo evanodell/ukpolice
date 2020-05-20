@@ -31,8 +31,8 @@ a custom polygon.}
 \item{lng}{Longitude. Accepts a single value or a vector of values to create
 a custom polygon.}
 
-\item{poly_df}{a dataframe containing the lat/lng pairs which define the
-boundary of the custom area, or a \code{\link[sf:sf]{sf}} or
+\item{poly_df}{a dataframe containing the lat/lng pairs which define
+the boundary of the custom area, or a \code{\link[sf:sf]{sf}} or
 \code{\link[sp:SpatialPointsDataFrame]{SpatialPointsDataFrame}}
 If a custom area contains more than 10,000
 crimes, the API will return a 503 status code.
@@ -60,10 +60,6 @@ set of coordinates are given, all recorded stop and searches within a one
 mile radius are returned. If multiple pairs, all recorded stop and searches
 within a custom drawn polygon will be returned.
 }
-\note{
-The API will return a 400 status code in response to a GET request
-longer than 4094 characters.
-}
 \examples{
 \dontrun{
 
@@ -73,12 +69,12 @@ ukc_stop_search2 <- ukc_stop_search_coord(
 )
 
 
-#' poly_df_4 <- data.frame(
+poly_df_4 <- data.frame(
   lat = c(52.268, 52.794, 52.130, 52.000),
   long = c(0.543, 0.238, 0.478, 0.400)
 )
-ukc_data_poly_4 <- ukc_stop_search_poly(poly_df = poly_df_4)
 
+ukc_data_poly_4 <- ukc_stop_search_poly(poly_df = poly_df_4)
 }
 
 }

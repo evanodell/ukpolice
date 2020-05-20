@@ -41,7 +41,7 @@ ukc_crime_no_location <- function(force, crime_category = NULL, date = NULL) {
     force_query, date_query
   )
 
-  df <- ukc_get_data(query, ...)
+  df <- ukc_get_data(query)
 
   df
 }

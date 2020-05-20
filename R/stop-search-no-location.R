@@ -30,7 +30,7 @@ ukc_stop_search_no_location <- function(force, date = NULL) {
 
   query <- paste0("stops-no-location?", force_query, date_query)
 
-  df <- ukc_get_data(query, ...)
+  df <- ukc_get_data(query) 
 
   df
 }

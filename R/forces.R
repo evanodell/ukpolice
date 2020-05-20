@@ -40,7 +40,7 @@ ukc_force_details <- function(force = NULL) {
     query <- paste0("forces/", force)
   }
 
-  df <- ukc_get_data(query, ...)
+  df <- ukc_get_data(query) 
 
   df
 }
@@ -50,7 +50,7 @@ ukc_force_details <- function(force = NULL) {
 ukc_officers <- function(force) {
   query <- paste0("forces/", force, "/people")
 
-  df <- ukc_get_data(query, ...)
+  df <- ukc_get_data(query) 
 
   df
 }

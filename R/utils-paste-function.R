@@ -17,7 +17,7 @@
 ukc_poly_paste <- function(data,
                            long,
                            lat) {
-  poly_paste <- paste(paste0(data$lat, data$long, sep = ","), collapse = ":")
+  poly_paste <- paste(paste(data$lat, data$long, sep = ","), collapse = ":")
 
   poly_paste
 }

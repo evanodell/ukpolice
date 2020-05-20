@@ -42,7 +42,7 @@ ukc_street_crime <- function(lat, lng, date = NULL, crime_category = NULL) {
 
   query <- paste0("crimes-street/", crime_query, loc_query, date_query)
 
-  df <- ukc_get_data(query, ...)
+  df <- ukc_get_data(query) 
 
   df
 }

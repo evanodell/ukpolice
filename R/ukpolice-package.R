@@ -22,5 +22,6 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom tibble as_tibble
 #' @importFrom purrr compact
+#' @importFrom httr GET
 #' @aliases NULL ukpolice-package
 NULL

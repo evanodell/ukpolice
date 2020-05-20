@@ -14,7 +14,7 @@ ukc_stop_search_location <- function(lat, lng, location, date = NULL) {
     query <- paste0("stops-street?", loc_query, date_query)
   }
 
-  df <- ukc_get_data(query, ...)
+  df <- ukc_get_data(query) 
 
   df
 }

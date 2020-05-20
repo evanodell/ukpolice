@@ -1,6 +1,6 @@
 
 # data retrieval function
-ukc_get_data <- function(query, ...) {
+ukc_get_data <- function(query, ...)  {
   x <- httr::GET(paste0(baseurl, query), ...)
 
   if (httr::status_code(x) != "200") {
@@ -24,7 +24,7 @@ ukc_get_data <- function(query, ...) {
 
 
 # separate function for specific crime outcomes cause different format in API
-ukc_get_data_specific_crime <- function(query) {
+ukc_get_data_specific_crime <- function(query, ...) {
   x <- httr::GET(paste0(baseurl, query), ...)
 
   if (httr::status_code(x) != "200") {
@@ -34,11 +34,9 @@ ukc_get_data_specific_crime <- function(query) {
     ), call. = FALSE)
   }
 
-  api_return <- tibble::as_tibble(
-    jsonlite::fromJSON(httr::content(x, as = "text", encoding = "utf8"),
+  api_return <- jsonlite::fromJSON(httr::content(x, as = "text", encoding = "utf8"),
       flatten = TRUE
     )
-  )
 
   if (is.null(api_return$outcomes)) {
     df <- tibble::as_tibble(purrr::compact(api_return$crime))

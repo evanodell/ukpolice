@@ -2,9 +2,12 @@
 % Please edit documentation in R/crime-at-location.R
 \name{ukc_crime_location}
 \alias{ukc_crime_location}
+\alias{ukc_crime_poly}
 \title{Crimes at a specific location}
 \usage{
 ukc_crime_location(lat, lng, location, date = NULL)
+
+ukc_crime_poly(poly_df, date = NULL, ...)
 }
 \arguments{
 \item{lat}{Latitude. Accepts a single value.}
@@ -17,6 +20,19 @@ available through other methods including \code{\link[=ukc_street_crime]{ukc_str
 \item{date}{The year and month in "YYYY-MM" form. If \code{NULL}, latest
 available month will be returned. Also accepts dates in formats that can be
 coerced to \code{Date} class with \code{as.Date()}.}
+
+\item{poly_df}{a dataframe containing the lat/lng pairs which define
+the boundary of the custom area, or a \code{\link[sf:sf]{sf}} or
+\code{\link[sp:SpatialPointsDataFrame]{SpatialPointsDataFrame}}
+If a custom area contains more than 10,000
+crimes, the API will return a 503 status code.
+The internal \code{ukc_crime_poly} function converts the
+dataframe into lat/lng pairs, separated by colons:
+\code{lat},\code{lng}:\code{lat},\code{lng}:\code{lat},\code{lng}. The first and last coordinates need
+not be the same — they will be joined by a straight line once the request
+is made.}
+
+\item{...}{further arguments passed to \code{\link[httr:GET]{httr::GET}}.}
 }
 \value{
 A \code{tibble} with details of crimes at a given location.
@@ -29,17 +45,22 @@ specific location ID, or from within a custom polygon.
 If specified, \code{lat} and \code{lng} must be the same length. \code{location}
 or both \code{lat} and \code{lng} must be specified.
 }
+\note{
+The API will return a 400 status code in response to a GET request
+longer than 4094 characters.
+}
 \examples{
 \dontrun{
 x <- ukc_crime_location(lat = 52, lng = 0)
 
 y <- ukc_crime_location(location = 802171)
 
-poly_df_3 = data.frame(lat = c(52.268, 52.794, 52.130),
-                       long = c(0.543, 0.238, 0.478))
+poly_df_3 <- data.frame(
+  lat = c(52.268, 52.794, 52.130),
+  long = c(0.543, 0.238, 0.478)
+)
 
 z <- ukc_crime_poly(poly_df_3)
-
 }
 
 }

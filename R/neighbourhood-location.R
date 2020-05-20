@@ -27,7 +27,7 @@ ukc_neighbourhood_location <- function(lat, lng) {
 
   query <- paste0("locate-neighbourhood?q=", lat, ",", lng)
 
-  df <- ukc_get_data(query, ...)
+  df <- ukc_get_data(query) 
 
   df
 }
