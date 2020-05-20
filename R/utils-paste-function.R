@@ -1,0 +1,26 @@
+# Format long/lat numbers into the right string
+#
+# `ukc_poly_paste` takes a dataframe of longitude and latitude and pastes
+#   them into the correct format required for the ukpolice API
+#
+# @param data a dataframe
+# @param long character
+# @param lat character
+#
+# @return character vector: "lat_1,long_1:lat_2,long_2:...,lat_n,long_n"
+#
+# @examples
+#
+# \dontrun{
+# ukc_poly_paste(york, "long", "lat")
+#}
+ukc_poly_paste <- function(data,
+                           long,
+                           lat){
+  poly_paste <- paste(paste0(data$lat, data$long, sep = ","), collapse = ":")
+
+  poly_paste
+}
+
+
+

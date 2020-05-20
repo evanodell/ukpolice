@@ -19,10 +19,11 @@ available month will be returned. Also accepts dates in formats that can be
 coerced to \code{Date} class with \code{as.Date()}.}
 }
 \value{
-A tibble with details of crimes at a given location.
+A \code{tibble} with details of crimes at a given location.
 }
 \description{
-Returns details at crimes at a given
+Returns details of crimes within a one mile radius of a given point, at a
+specific location ID, or from within a custom polygon.
 }
 \details{
 If specified, \code{lat} and \code{lng} must be the same length. \code{location}
@@ -33,6 +34,12 @@ or both \code{lat} and \code{lng} must be specified.
 x <- ukc_crime_location(lat = 52, lng = 0)
 
 y <- ukc_crime_location(location = 802171)
+
+poly_df_3 = data.frame(lat = c(52.268, 52.794, 52.130),
+                       long = c(0.543, 0.238, 0.478))
+
+z <- ukc_crime_poly(poly_df_3)
+
 }
 
 }

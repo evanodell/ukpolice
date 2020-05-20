@@ -11,12 +11,14 @@ ukc_stop_search_no_location(force, date = NULL)
 for. Must be specified, and is not case sensitive.
 See \code{\link[=ukc_forces]{ukc_forces()}} for details.}
 
-\item{date}{The year and month in "YYYY-MM" form. If \code{NULL}, latest
-available month will be returned. Also accepts dates in formats that can be
-coerced to \code{Date} class with \code{as.Date()}.}
+\item{date}{The year and month in "YYYY-MM" form. Also accepts dates in
+formats that can be coerced to \code{Date} class with \code{as.Date()}. If \code{NULL},
+the latest available month will be returned. Note that not all forces
+will necessarily have reported stop and search data for the latest month;
+check availability with the \code{\link[=ukc_available]{ukc_available()}} function.}
 }
 \value{
-A tibble with details of stop and searches without a specific
+A \code{tibble} with details of stop and searches without a specific
 location.
 }
 \description{
@@ -29,4 +31,9 @@ searches carried out by a police force, use \code{\link[=ukc_stop_search_force]{
 ss_no_location <- ukc_stop_search_no_location(force = "city-of-london")
 }
 
+}
+\seealso{
+\code{\link[=ukc_stop_search_force]{ukc_stop_search_force()}}
+
+\code{\link[=ukc_stop_search_location]{ukc_stop_search_location()}}
 }

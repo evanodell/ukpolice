@@ -6,10 +6,14 @@
 #'
 #' @details
 #' `ukpolice` contains the following functions for specific neighbourhoods:
-#' * `ukc_neighbourhood_specific`
-#' * `ukc_neighbourhood_team`
-#' * `ukc_neighbourhood_events`
-#' * `ukc_neighbourhood_priorities`
+#' * `ukc_neighbourhood_specific` -- Basic information and description of a
+#' specific neighbourhood.
+#' * `ukc_neighbourhood_team` -- Brief biographies of police officers
+#' responsible for the specified neighbourhood.
+#' * `ukc_neighbourhood_events` -- Police public engagement events taking
+#' place in the specified neighbourhood.
+#' * `ukc_neighbourhood_priorities` -- Policing priorities for the
+#' specified neighbourhood.
 #'
 #'
 #' @param force A string containing the name of the police force to return

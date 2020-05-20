@@ -20,7 +20,7 @@ available through other methods including \code{\link[=ukc_street_crime]{ukc_str
 available month will be returned.}
 }
 \value{
-A tibble with details of street crime outcomes.
+A \code{tibble} with details of street crime outcomes.
 }
 \description{
 Returns details on crimes at a given location, if given the id of a specific

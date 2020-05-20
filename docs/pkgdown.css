@@ -108,6 +108,7 @@ a.anchor {
   margin-top: -40px;
 }
 
+<<<<<<< HEAD
 /* Navbar submenu --------------------------*/
 
 .dropdown-submenu {
@@ -154,6 +155,8 @@ a.anchor {
   border-radius: 6px 0 6px 6px;
 }
 
+=======
+>>>>>>> development
 /* Sidebar --------------------------*/
 
 #pkgdown-sidebar {
@@ -232,8 +235,12 @@ nav[data-toggle='toc'] .nav .nav > .active:focus > a {
 /* orcid ------------------------------------------------------------------- */
 
 .orcid {
+<<<<<<< HEAD
   font-size: 16px;
   color: #A6CE39;
+=======
+  height: 16px;
+>>>>>>> development
   /* margins are required by official ORCID trademark and display guidelines */
   margin-left:4px;
   margin-right:4px;

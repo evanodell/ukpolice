@@ -8,7 +8,7 @@
 ukc_last_update <- function() {
   query <- "crime-last-updated"
 
-  df <- ukc_get_data(query)
+  df <- ukc_get_data(query, ...)
 
   df
 }

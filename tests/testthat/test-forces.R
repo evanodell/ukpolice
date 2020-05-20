@@ -1,7 +1,7 @@
 context("test-forces")
 
 test_that("forces retrieval", {
-  skip_on_cran()
+  #skip_on_cran()
   forcesa <- ukc_forces()
   expect_length(forcesa, 2)
   expect_equal(nrow(forcesa), 44)
@@ -15,6 +15,6 @@ test_that("forces retrieval", {
   forcesc <- ukc_officers("leicestershire")
 
   expect_length(forcesc, 4)
-  expect_equal(nrow(forcesb), 5)
-  expect_true(all(c("contact_details", "bio") %in% names(forcesc)))
+  expect_equal(nrow(forcesc), 4)
+  expect_true(all(c("bio") %in% names(forcesc)))
 })

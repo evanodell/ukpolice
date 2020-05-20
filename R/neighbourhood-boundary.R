@@ -6,7 +6,7 @@
 #'
 #' @inheritParams ukc_neighbourhood_specific
 #'
-#' @return A tibble with the lat/lng boundaries for a specific neighbourhood.
+#' @return A `tibble` with the lat/lng boundaries for a specific neighbourhood.
 #' @export
 #'
 #' @seealso [ukc_neighbourhoods()]
@@ -28,7 +28,7 @@ ukc_neighbourhood_boundary <- function(force, neighbourhood_id) {
   } else {
     query <- paste0(tolower(force), "/", neighbourhood_id, "/boundary")
 
-    df <- ukc_get_data(query)
+    df <- ukc_get_data(query, ...)
   }
 
   df

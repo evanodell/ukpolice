@@ -3,6 +3,14 @@
   $(function() {
 
     $('.navbar-fixed-top').headroom();
+<<<<<<< HEAD
+=======
+
+    $('body').css('padding-top', $('.navbar').height() + 10);
+    $(window).resize(function(){
+      $('body').css('padding-top', $('.navbar').height() + 10);
+    });
+>>>>>>> development
 
     $('body').css('padding-top', $('.navbar').height() + 10);
     $(window).resize(function(){

@@ -7,7 +7,7 @@
 ukc_crime_category()
 }
 \value{
-A tibble with all available categories of crime.
+A \code{tibble} with all available categories of crime.
 }
 \description{
 Crime categories

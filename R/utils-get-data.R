@@ -1,7 +1,21 @@
 
 # data retrieval function
-ukc_get_data <- function(query) {
-  df <- tibble::as_tibble(jsonlite::fromJSON(paste0(baseurl, query)))
+ukc_get_data <- function(query, ...) {
+  x <- httr::GET(paste0(baseurl, query), ...)
+
+  if (httr::status_code(x) != "200") {
+    stop(paste(
+      "Request returned error code:",
+      httr::status_code(x)
+    ), call. = FALSE)
+  }
+
+  df <- tibble::as_tibble(
+    jsonlite::fromJSON(httr::content(x, as = "text", encoding = "utf8"),
+                       flatten = TRUE))
+
+  names(df) <- snakecase::to_snake_case(names(df))
+  names(df) <- gsub("location_", "", names(df), fixed = TRUE)
 
   df
 }
@@ -9,7 +23,18 @@ ukc_get_data <- function(query) {
 
 # separate function for specific crime outcomes cause different format in API
 ukc_get_data_specific_crime <- function(query) {
-  api_return <- jsonlite::fromJSON(paste0(baseurl, query))
+  x <- httr::GET(paste0(baseurl, query), ...)
+
+  if (httr::status_code(x) != "200") {
+    stop(paste(
+      "Request returned error code:",
+      httr::status_code(x)
+    ), call. = FALSE)
+  }
+
+  api_return <- tibble::as_tibble(
+    jsonlite::fromJSON(httr::content(x, as = "text", encoding = "utf8"),
+                       flatten = TRUE))
 
   if (is.null(api_return$outcomes)) {
     df <- tibble::as_tibble(purrr::compact(api_return$crime))

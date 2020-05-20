@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 pandoc: 2.9.2.1
 pkgdown: 1.5.1
+=======
+pandoc: 2.7.3
+pkgdown: 1.4.1
+>>>>>>> development
 pkgdown_sha: ~
 articles:
   introduction: introduction.html

@@ -11,12 +11,14 @@ ukc_stop_search_force(force, date = NULL)
 for. Must be specified, and is not case sensitive.
 See \code{\link[=ukc_forces]{ukc_forces()}} for details.}
 
-\item{date}{The year and month in "YYYY-MM" form. If \code{NULL}, latest
-available month will be returned. Also accepts dates in formats that can be
-coerced to \code{Date} class with \code{as.Date()}.}
+\item{date}{The year and month in "YYYY-MM" form. Also accepts dates in
+formats that can be coerced to \code{Date} class with \code{as.Date()}. If \code{NULL},
+the latest available month will be returned. Note that not all forces
+will necessarily have reported stop and search data for the latest month;
+check availability with the \code{\link[=ukc_available]{ukc_available()}} function.}
 }
 \value{
-A tibble with details of stop and searches by a given police force.
+A \code{tibble} with details of stop and searches by a given police force.
 }
 \description{
 Returns details of stop and searches carried out by a particular police
@@ -27,4 +29,9 @@ force. Note that the police force must be specified.
 ss_dorset <- ukc_stop_search_force(force = "dorset")
 }
 
+}
+\seealso{
+\code{\link[=ukc_stop_search_location]{ukc_stop_search_location()}}
+
+\code{\link[=ukc_stop_search_no_location]{ukc_stop_search_no_location()}}
 }

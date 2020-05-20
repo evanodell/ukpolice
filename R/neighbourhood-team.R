@@ -12,9 +12,9 @@
 #'
 #' @export
 #'
-#' @seealso [ukc_neighbourhood_boundary()]
-#' @seealso [ukc_neighbourhoods()]
-#' @seealso [ukc_neighbourhood_location()]
+# @seealso [ukc_neighbourhood_boundary()]
+# @seealso [ukc_neighbourhoods()]
+# @seealso [ukc_neighbourhood_location()]
 #' @rdname ukc_neighbourhood_specific
 #' @examples
 #' \dontrun{
@@ -31,7 +31,7 @@ ukc_neighbourhood_team <- function(force, neighbourhood_id) {
   } else {
     query <- paste0(tolower(force), "/", neighbourhood_id, "/people")
 
-    df <- ukc_get_data(query)
+    df <- ukc_get_data(query, ...)
   }
 
   df

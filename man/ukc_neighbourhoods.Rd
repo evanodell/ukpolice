@@ -2,7 +2,7 @@
 % Please edit documentation in R/neighbourhoods.R
 \name{ukc_neighbourhoods}
 \alias{ukc_neighbourhoods}
-\title{Neighbourhoods}
+\title{Policing Neighbourhoods}
 \usage{
 ukc_neighbourhoods(force)
 }
@@ -11,7 +11,7 @@ ukc_neighbourhoods(force)
 neighbourhoods for. Must be specified, and is not case sensitive.}
 }
 \value{
-A tibble with data for neighbourhoods within the area of the
+A \code{tibble} with data for neighbourhoods within the area of the
 given police force.
 }
 \description{
@@ -27,4 +27,6 @@ places <- ukc_neighbourhoods("dorset")
 \code{\link[=ukc_neighbourhood_boundary]{ukc_neighbourhood_boundary()}}
 
 \code{\link[=ukc_neighbourhood_specific]{ukc_neighbourhood_specific()}}
+
+\code{\link[=ukc_neighbourhood_location]{ukc_neighbourhood_location()}}
 }

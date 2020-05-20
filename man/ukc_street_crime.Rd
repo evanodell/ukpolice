@@ -20,7 +20,7 @@ available month will be returned.}
 returning all crimes. See \code{\link[=ukc_crime_category]{ukc_crime_category()}} for details.}
 }
 \value{
-A tibble with details of street crimes.
+A \code{tibble} with details of street crimes.
 }
 \description{
 Street level crime

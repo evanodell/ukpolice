@@ -19,7 +19,7 @@ available month will be returned. Also accepts dates in formats that can be
 coerced to \code{Date} class with \code{as.Date()}.}
 }
 \value{
-A tibble with details of crimes without a specific location.
+A \code{tibble} with details of crimes without a specific location.
 }
 \description{
 Returns details of crimes that cannot be mapped to a particular location.

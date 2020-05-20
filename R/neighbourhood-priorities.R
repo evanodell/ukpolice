@@ -12,8 +12,8 @@
 #'
 #' @export
 #'
-#' @seealso [ukc_neighbourhood_boundary()]
-#' @seealso [ukc_neighbourhoods()]
+# @seealso [ukc_neighbourhood_boundary()]
+# @seealso [ukc_neighbourhoods()]
 #' @rdname ukc_neighbourhood_specific
 #' @examples
 #' \dontrun{
@@ -30,7 +30,7 @@ ukc_neighbourhood_priorities <- function(force, neighbourhood_id) {
   } else {
     query <- paste0(tolower(force), "/", neighbourhood_id, "/priorities")
 
-    df <- ukc_get_data(query)
+    df <- ukc_get_data(query, ...)
   }
 
   df

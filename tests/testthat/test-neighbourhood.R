@@ -1,7 +1,7 @@
 context("test-neighbourhood")
 
-test_that("neighbourhood-returns works", {
-  skip_on_cran()
+test_that("neighbourhood-returns", {
+  #skip_on_cran()
   places1 <- ukc_neighbourhoods("dorset")
   places2 <- ukc_neighbourhood_specific("DORSET")
   places3 <- ukc_neighbourhood_boundary("dorset")
@@ -29,10 +29,11 @@ test_that("neighbourhood-returns works", {
   expect_error(ukc_neighbourhood_location(lat = c(51, 51), lng = 2))
 
   places5 <- ukc_neighbourhood_team("dorset")
-  places6 <- ukc_neighbourhood_events("thames-valley")
+  places6 <- ukc_neighbourhood_events("leicestershire")
   places7 <- ukc_neighbourhood_priorities("durham")
 
   places5x <- ukc_neighbourhood_team("dorset", "55.CB3001")
   places6x <- ukc_neighbourhood_events("thames-valley", "N449")
   places7x <- ukc_neighbourhood_priorities("durham", "CLS1")
+
 })
