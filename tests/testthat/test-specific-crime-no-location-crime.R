@@ -1,7 +1,7 @@
 context("test-specific-crime")
 
 test_that("specific-crime and no-location crime", {
-  #skip_on_cran()
+  # skip_on_cran()
   no_location <- ukc_crime_no_location(
     force = "city-of-london",
     date = "2019-01"
@@ -16,7 +16,7 @@ test_that("specific-crime and no-location crime", {
 
   outcome <- ukc_specific_outcome(
     "a832abdef7dc2a9a794ca3ce9730e541619c316e6cc87132334a50ec7762b8ae"
-    )
+  )
 
   expect_length(outcome, 2)
 
@@ -38,4 +38,3 @@ test_that("specific-crime and no-location crime", {
   expect_error(ukc_crime_no_location())
   expect_error(ukc_specific_outcome())
 })
-

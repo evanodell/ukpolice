@@ -26,19 +26,20 @@ utils_poly_processing <- function(poly_df) {
       poly_df <- sf::st_as_sf(poly_df)
     } else {
       warning("Package \"sf\" is needed to process Spatial data.",
-              call. = TRUE, immediate. = TRUE)
+        call. = TRUE, immediate. = TRUE
+      )
     }
   }
 
   if (inherits(poly_df, "sf")) {
     if (requireNamespace("sf", quietly = TRUE)) {
-      poly_df <- as.data.frame(sf::st_coordinates(poly_df, crs=4326))
+      poly_df <- as.data.frame(sf::st_coordinates(poly_df, crs = 4326))
       names(poly_df) <- c("lat", "long")
     } else {
       warning("Package \"sf\" is needed to process simple features.",
-              call. = TRUE, immediate. = TRUE)
+        call. = TRUE, immediate. = TRUE
+      )
     }
-
   }
 
   # "poly_df must contain columns named 'lat' and 'long'"
@@ -49,6 +50,4 @@ utils_poly_processing <- function(poly_df) {
     "long",
     "lat"
   )
-
 }
-

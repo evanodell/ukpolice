@@ -34,10 +34,10 @@ ukc_forces <- function() {
 #' @export
 #' @rdname ukc_forces
 ukc_force_details <- function(force = NULL) {
-  if(is.null(force)) {
+  if (is.null(force)) {
     query <- "forces"
   } else {
-  query <- paste0("forces/", force)
+    query <- paste0("forces/", force)
   }
 
   df <- ukc_get_data(query, ...)

@@ -24,11 +24,12 @@
 #'
 #' y <- ukc_crime_location(location = 802171)
 #'
-#' poly_df_3 = data.frame(lat = c(52.268, 52.794, 52.130),
-#'                        long = c(0.543, 0.238, 0.478))
+#' poly_df_3 <- data.frame(
+#'   lat = c(52.268, 52.794, 52.130),
+#'   long = c(0.543, 0.238, 0.478)
+#' )
 #'
 #' z <- ukc_crime_poly(poly_df_3)
-#'
 #' }
 #'
 ukc_crime_location <- function(lat, lng, location, date = NULL) {
@@ -65,18 +66,18 @@ ukc_crime_location <- function(lat, lng, location, date = NULL) {
 #' @export
 ukc_crime_poly <- function(poly_df,
                            date = NULL,
-                           ...){
-
+                           ...) {
   poly_string <- utils_poly_processing(poly_df)
 
   # if date is used
   if (is.null(date) == FALSE) {
-    query <- paste0("crimes-street/all-crime?poly=", poly_string,
-                    "&date=", date)
+    query <- paste0(
+      "crimes-street/all-crime?poly=", poly_string,
+      "&date=", date
+    )
   } else {
     query <- paste0("crimes-street/all-crime?poly=", poly_string)
   }
 
   result <- ukc_get_data(query, ...)
-
-} # end function
+}

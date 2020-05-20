@@ -1,7 +1,7 @@
 context("test-neighbourhood")
 
 test_that("neighbourhood-returns", {
-  #skip_on_cran()
+  # skip_on_cran()
   places1 <- ukc_neighbourhoods("dorset")
   places2 <- ukc_neighbourhood_specific("DORSET")
   places3 <- ukc_neighbourhood_boundary("dorset")
@@ -35,5 +35,4 @@ test_that("neighbourhood-returns", {
   places5x <- ukc_neighbourhood_team("dorset", "55.CB3001")
   places6x <- ukc_neighbourhood_events("thames-valley", "N449")
   places7x <- ukc_neighbourhood_priorities("durham", "CLS1")
-
 })

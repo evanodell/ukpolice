@@ -12,7 +12,9 @@ ukc_get_data <- function(query, ...) {
 
   df <- tibble::as_tibble(
     jsonlite::fromJSON(httr::content(x, as = "text", encoding = "utf8"),
-                       flatten = TRUE))
+      flatten = TRUE
+    )
+  )
 
   names(df) <- snakecase::to_snake_case(names(df))
   names(df) <- gsub("location_", "", names(df), fixed = TRUE)
@@ -34,7 +36,9 @@ ukc_get_data_specific_crime <- function(query) {
 
   api_return <- tibble::as_tibble(
     jsonlite::fromJSON(httr::content(x, as = "text", encoding = "utf8"),
-                       flatten = TRUE))
+      flatten = TRUE
+    )
+  )
 
   if (is.null(api_return$outcomes)) {
     df <- tibble::as_tibble(purrr::compact(api_return$crime))

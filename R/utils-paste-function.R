@@ -13,14 +13,11 @@
 #
 # \dontrun{
 # ukc_poly_paste(york, "long", "lat")
-#}
+# }
 ukc_poly_paste <- function(data,
                            long,
-                           lat){
+                           lat) {
   poly_paste <- paste(paste0(data$lat, data$long, sep = ","), collapse = ":")
 
   poly_paste
 }
-
-
-

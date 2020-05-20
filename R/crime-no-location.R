@@ -36,8 +36,10 @@ ukc_crime_no_location <- function(force, crime_category = NULL, date = NULL) {
     crime_query <- paste0(crime_category, "&")
   }
 
-  query <- paste0("crimes-no-location?category=", crime_query,
-                  force_query, date_query)
+  query <- paste0(
+    "crimes-no-location?category=", crime_query,
+    force_query, date_query
+  )
 
   df <- ukc_get_data(query, ...)
 

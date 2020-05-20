@@ -23,20 +23,22 @@ test_that("stop_and_search functions work", {
   expect_equal(nrow(ukc_stop_search2), 5)
 
   expect_warning(
-  ukc_stop_search3 <- ukc_stop_search_location(
-    location = 1142484,
-    date = "2019-01"
-  )
+    ukc_stop_search3 <- ukc_stop_search_location(
+      location = 1142484,
+      date = "2019-01"
+    )
   )
   expect_equal(nrow(ukc_stop_search3), 1)
 
   poly_df_4 <- data.frame(
-     lat = c(52.268, 52.794, 52.130, 52.000),
-     long = c(0.543, 0.238, 0.478, 0.400)
-   )
+    lat = c(52.268, 52.794, 52.130, 52.000),
+    long = c(0.543, 0.238, 0.478, 0.400)
+  )
 
-  ukc_data_poly_4 <- ukc_stop_search_poly(poly_df = poly_df_4,
-                                          date = "2020-03-27")
+  ukc_data_poly_4 <- ukc_stop_search_poly(
+    poly_df = poly_df_4,
+    date = "2020-03-27"
+  )
 
   expect_true(is.data.frame(ukc_data_poly_4))
 
@@ -52,11 +54,12 @@ test_that("stop_and_search functions work", {
     x = c("one", "two", "three", "four"),
     y = c("four", "three", "two", "one")
   )
-  dat_2 <- sp::SpatialPointsDataFrame(dat_orig[,c("lat", "long")],
-                                      dat_orig[,3:4])
+  dat_2 <- sp::SpatialPointsDataFrame(
+    dat_orig[, c("lat", "long")],
+    dat_orig[, 3:4]
+  )
 
-  ukc_data_poly_sp <-  ukc_stop_search_poly(dat_2)
+  ukc_data_poly_sp <- ukc_stop_search_poly(dat_2)
 
   expect_equal(ukc_data_poly_sp, ukc_data_poly_sf)
-
 })
