@@ -2,7 +2,7 @@
 #' Crimes without location
 #'
 #' Returns details of crimes that cannot be mapped to a particular location.
-#' Note that the police force must be specified
+#' Note that the police force must be specified.
 #'
 #' @param force A string containing the name of the police force to return data
 #' for. Must be specified, and is not case sensitive.

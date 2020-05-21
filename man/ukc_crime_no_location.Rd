@@ -23,7 +23,7 @@ A \code{tibble} with details of crimes without a specific location.
 }
 \description{
 Returns details of crimes that cannot be mapped to a particular location.
-Note that the police force must be specified
+Note that the police force must be specified.
 }
 \examples{
 \dontrun{

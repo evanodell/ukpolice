@@ -1,7 +1,14 @@
 
 # ukpolice 0.1.4.9000
 
-* Incorporate stuff from Nick Tiernay into package
+* `ukc_poly_*` functions now accept `sf` and `sp` objects
+
+* Added Nick Tierney as author
+
+* Deprecated `ukc_crime_location()` in favour of `ukc_crime_coord()` and
+  `ukc_crime_loc()`
+  
+* Using `httr` for better error messages.
 
 
 # ukpolice 0.1.4

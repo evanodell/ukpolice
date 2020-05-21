@@ -2,6 +2,8 @@
 
 export(ukc_available)
 export(ukc_crime_category)
+export(ukc_crime_coord)
+export(ukc_crime_loc)
 export(ukc_crime_location)
 export(ukc_crime_no_location)
 export(ukc_crime_poly)

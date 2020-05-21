@@ -23,7 +23,7 @@
 #' @param ... further arguments passed to [`httr::GET`][httr::GET].
 #' @note The API will return a 400 status code in response to a GET request
 #' longer than 4094 characters.
-
+#' @rdname ukc_crime_location
 #' @return A `tibble` with details of crimes at a given location.
 #' @export
 #'
@@ -41,18 +41,34 @@
 #' z <- ukc_crime_poly(poly_df_3)
 #' }
 #'
-ukc_crime_location <- function(lat, lng, location, date = NULL, ...) {
+#'
+#'
+ukc_crime_loc  <- function(location, date = NULL, ...) {
+  date_query <- ukc_date_processing(date)
+    if (!missing(location)) {
+      query <- paste0(
+        "outcomes-at-location?", date_query,
+        "&location_id=", location
+      )
+  } else {
+    stop("`location` must be specified", call. = FALSE)
+  }
+
+  df <- ukc_get_data(query)
+
+  df
+}
+
+
+
+#' @rdname ukc_crime_location
+#' @export
+ukc_crime_coord <- function(lat, lng, date = NULL, ...) {
   date_query <- ukc_date_processing(date)
 
-  if (!missing(location)) {
-    query <- paste0(
-      "outcomes-at-location?", date_query,
-      "&location_id=", location
-    )
-  } else {
-    if (any(length(lat) != 1, length(lng) != 1)) {
+  if (any(length(lat) != 1, length(lng) != 1)) {
       stop("`lat` and `lng` must only contain a single value each.",
-        call. = FALSE
+           call. = FALSE
       )
     }
 
@@ -62,7 +78,6 @@ ukc_crime_location <- function(lat, lng, location, date = NULL, ...) {
       "crimes-street/outcomes-at-location?",
       loc_query, date_query
     )
-  }
 
   df <- ukc_get_data(query)
 

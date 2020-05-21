@@ -62,4 +62,10 @@ test_that("stop_and_search functions work", {
   ukc_data_poly_sp <- ukc_stop_search_poly(dat_2)
 
   expect_equal(ukc_data_poly_sp, ukc_data_poly_sf)
+
+  ss_location <- ukc_stop_search_loc(883407, date = "2019-11")
+
+  expect_s3_class(ss_location, "data.frame")
+
+
 })
