@@ -19,4 +19,12 @@ test_that("crime at location", {
   expect_s3_class(z, "data.frame")
   expect_true("anti-social-behaviour" %in% z$category)
 
+
+  crime_loc <- ukc_crime_loc(883407, date = "2019-11")
+  expect_s3_class(crime_loc, "data.frame")
+
+
+  crime_coord <- ukc_crime_coord(52.1, 0.23, date = "2019-12")
+  expect_s3_class(crime_coord, "data.frame")
+
 })
