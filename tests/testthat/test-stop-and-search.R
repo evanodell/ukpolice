@@ -32,7 +32,7 @@ test_that("stop_and_search functions work", {
 
   poly_df_4 <- data.frame(
     lat = c(52.268, 52.794, 52.130, 52.000),
-    long = c(0.543, 0.238, 0.478, 0.400)
+    lng = c(0.543, 0.238, 0.478, 0.400)
   )
 
   ukc_data_poly_4 <- ukc_stop_search_poly(
@@ -42,7 +42,7 @@ test_that("stop_and_search functions work", {
 
   expect_true(is.data.frame(ukc_data_poly_4))
 
-  poly_sf <- sf::st_as_sf(poly_df_4, coords = c("lat", "long"))
+  poly_sf <- sf::st_as_sf(poly_df_4, coords = c("lat", "lng"))
 
   ukc_data_poly_sf <- ukc_stop_search_poly(poly_df = poly_sf)
 
@@ -50,12 +50,12 @@ test_that("stop_and_search functions work", {
 
   dat_orig <- data.frame(
     lat = c(52.268, 52.794, 52.130, 52.000),
-    long = c(0.543, 0.238, 0.478, 0.400),
+    lng = c(0.543, 0.238, 0.478, 0.400),
     x = c("one", "two", "three", "four"),
     y = c("four", "three", "two", "one")
   )
   dat_2 <- sp::SpatialPointsDataFrame(
-    dat_orig[, c("lat", "long")],
+    dat_orig[, c("lat", "lng")],
     dat_orig[, 3:4]
   )
 

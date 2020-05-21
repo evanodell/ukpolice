@@ -15,9 +15,9 @@
 # ukc_poly_paste(york, "long", "lat")
 # }
 ukc_poly_paste <- function(data,
-                           long,
+                           lng,
                            lat) {
-  poly_paste <- paste(paste(data$lat, data$long, sep = ","), collapse = ":")
+  poly_paste <- paste(paste(data$lat, data$lng, sep = ","), collapse = ":")
 
   poly_paste
 }

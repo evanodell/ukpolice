@@ -28,12 +28,9 @@ ukc_get_data_specific_crime <- function(query, ...) {
   x <- httr::GET(paste0(baseurl, query), ...)
 
   if (httr::status_code(x) != "200") {
-    stop(paste(
-      "Request returned error code:",
-      httr::status_code(x)
-    ), call. = FALSE)
-  }
-
+    message(paste("Request returned error code:", httr::status_code(x)))
+    return(NULL)
+  } else {
   api_return <- jsonlite::fromJSON(httr::content(x, as = "text", encoding = "utf8"),
       flatten = TRUE
     )
@@ -44,6 +41,7 @@ ukc_get_data_specific_crime <- function(query, ...) {
     df <- api_return
   }
   df
+  }
 }
 
 # because neighbourhood data is weird

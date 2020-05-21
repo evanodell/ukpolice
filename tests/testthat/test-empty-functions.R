@@ -9,4 +9,9 @@ test_that("empty-functions works", {
   expect_length(crimes, 2)
   expect_true(nrow(crimes) == 15)
   expect_true("drugs" %in% crimes$url)
+
+  available <- ukc_available()
+
+  expect_s3_class(available, "data.frame")
+
 })

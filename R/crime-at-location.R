@@ -13,14 +13,10 @@
 #' available through other methods including [ukc_street_crime()].
 #' @param poly_df a dataframe containing the lat/lng pairs which define
 #' the boundary of the custom area, or a [`sf`][sf::sf] or
-#' [`SpatialPointsDataFrame`][sp::SpatialPointsDataFrame()]
-#' If a custom area contains more than 10,000
-#' crimes, the API will return a 503 status code.
-#' The internal `ukc_crime_poly` function converts the
-#' dataframe into lat/lng pairs, separated by colons:
-#' `lat`,`lng`:`lat`,`lng`:`lat`,`lng`. The first and last coordinates need
-#' not be the same — they will be joined by a straight line once the request
-#' is made.
+#' [`SpatialPointsDataFrame`][sp::SpatialPointsDataFrame()] object.
+#' The first and last coordinates need not be the same — they will be joined
+#' by a straight line once the request is made. If a dataframe, the lat/lng
+#' must be the first two columns, or named `"lat"` and `"lng"`.
 #' @param date The year and month in "YYYY-MM" form. If `NULL`, latest
 #' available month will be returned. Also accepts dates in formats that can be
 #' coerced to `Date` class with `as.Date()`.
@@ -39,13 +35,13 @@
 #'
 #' poly_df_3 <- data.frame(
 #'   lat = c(52.268, 52.794, 52.130),
-#'   long = c(0.543, 0.238, 0.478)
+#'   lng = c(0.543, 0.238, 0.478)
 #' )
 #'
 #' z <- ukc_crime_poly(poly_df_3)
 #' }
 #'
-ukc_crime_location <- function(lat, lng, location, date = NULL) {
+ukc_crime_location <- function(lat, lng, location, date = NULL, ...) {
   date_query <- ukc_date_processing(date)
 
   if (!missing(location)) {
@@ -76,20 +72,14 @@ ukc_crime_location <- function(lat, lng, location, date = NULL) {
 
 #' @rdname ukc_crime_location
 #' @export
-ukc_crime_poly <- function(poly_df,
-                           date = NULL,
-                           ...) {
+ukc_crime_poly <- function(poly_df, date = NULL, ...) {
   poly_string <- utils_poly_processing(poly_df)
 
-  # if date is used
-  if (is.null(date) == FALSE) {
-    query <- paste0(
-      "crimes-street/all-crime?poly=", poly_string,
-      "&date=", date
-    )
-  } else {
-    query <- paste0("crimes-street/all-crime?poly=", poly_string)
-  }
+  date_query <- ukc_date_processing(date)
 
-  result <- ukc_get_data(query)
+  query <- paste0("crimes-street/all-crime?poly=", poly_string, date_query)
+
+  df <- ukc_get_data(query)
+
+  df
 }

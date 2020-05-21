@@ -5,7 +5,7 @@
 \alias{ukc_crime_poly}
 \title{Crimes at a specific location}
 \usage{
-ukc_crime_location(lat, lng, location, date = NULL)
+ukc_crime_location(lat, lng, location, date = NULL, ...)
 
 ukc_crime_poly(poly_df, date = NULL, ...)
 }
@@ -21,18 +21,14 @@ available through other methods including \code{\link[=ukc_street_crime]{ukc_str
 available month will be returned. Also accepts dates in formats that can be
 coerced to \code{Date} class with \code{as.Date()}.}
 
+\item{...}{further arguments passed to \code{\link[httr:GET]{httr::GET}}.}
+
 \item{poly_df}{a dataframe containing the lat/lng pairs which define
 the boundary of the custom area, or a \code{\link[sf:sf]{sf}} or
-\code{\link[sp:SpatialPointsDataFrame]{SpatialPointsDataFrame}}
-If a custom area contains more than 10,000
-crimes, the API will return a 503 status code.
-The internal \code{ukc_crime_poly} function converts the
-dataframe into lat/lng pairs, separated by colons:
-\code{lat},\code{lng}:\code{lat},\code{lng}:\code{lat},\code{lng}. The first and last coordinates need
-not be the same — they will be joined by a straight line once the request
-is made.}
-
-\item{...}{further arguments passed to \code{\link[httr:GET]{httr::GET}}.}
+\code{\link[sp:SpatialPointsDataFrame]{SpatialPointsDataFrame}} object.
+The first and last coordinates need not be the same — they will be joined
+by a straight line once the request is made. If a dataframe, the lat/lng
+must be the first two columns, or named \code{"lat"} and \code{"lng"}.}
 }
 \value{
 A \code{tibble} with details of crimes at a given location.
@@ -57,7 +53,7 @@ y <- ukc_crime_location(location = 802171)
 
 poly_df_3 <- data.frame(
   lat = c(52.268, 52.794, 52.130),
-  long = c(0.543, 0.238, 0.478)
+  lng = c(0.543, 0.238, 0.478)
 )
 
 z <- ukc_crime_poly(poly_df_3)

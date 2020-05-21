@@ -33,14 +33,10 @@ a custom polygon.}
 
 \item{poly_df}{a dataframe containing the lat/lng pairs which define
 the boundary of the custom area, or a \code{\link[sf:sf]{sf}} or
-\code{\link[sp:SpatialPointsDataFrame]{SpatialPointsDataFrame}}
-If a custom area contains more than 10,000
-crimes, the API will return a 503 status code.
-The internal \code{ukc_crime_poly} function converts the
-dataframe into lat/lng pairs, separated by colons:
-\code{lat},\code{lng}:\code{lat},\code{lng}:\code{lat},\code{lng}. The first and last coordinates need
-not be the same — they will be joined by a straight line once the request
-is made.}
+\code{\link[sp:SpatialPointsDataFrame]{SpatialPointsDataFrame}} object.
+The first and last coordinates need not be the same — they will be joined
+by a straight line once the request is made. If a dataframe, the lat/lng
+must be the first two columns, or named \code{"lat"} and \code{"lng"}.}
 }
 \value{
 A \code{tibble} with details of stop and searches outcomes.
