@@ -4,11 +4,9 @@ ukc_get_data <- function(query, ...)  {
   x <- httr::GET(paste0(baseurl, query), ...)
 
   if (httr::status_code(x) != "200") {
-    stop(paste(
-      "Request returned error code:",
-      httr::status_code(x)
-    ), call. = FALSE)
-  }
+    message(paste("Request returned error code:", httr::status_code(x)))
+    return(NULL)
+  } else {
 
   df <- tibble::as_tibble(
     jsonlite::fromJSON(httr::content(x, as = "text", encoding = "utf8"),
@@ -20,6 +18,8 @@ ukc_get_data <- function(query, ...)  {
   names(df) <- gsub("location_", "", names(df), fixed = TRUE)
 
   df
+
+  }
 }
 
 

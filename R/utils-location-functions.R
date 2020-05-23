@@ -51,7 +51,7 @@ utils_poly_processing <- function(poly_df) {
   }
 
   poly_string <- ukc_poly_paste(
-    poly_df,
+    poly_df2,
     "lng",
     "lat"
   )

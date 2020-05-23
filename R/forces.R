@@ -35,13 +35,10 @@ ukc_forces <- function() {
 #' @rdname ukc_forces
 ukc_force_details <- function(force = NULL) {
   if (is.null(force)) {
-    query <- "forces"
+    df <- ukc_get_data("forces")
   } else {
-    query <- paste0("forces/", force)
+    df <- ukc_get_data(paste0("forces/", force))
   }
-
-  df <- ukc_get_data(query) 
-
   df
 }
 
@@ -50,7 +47,7 @@ ukc_force_details <- function(force = NULL) {
 ukc_officers <- function(force) {
   query <- paste0("forces/", force, "/people")
 
-  df <- ukc_get_data(query) 
+  df <- ukc_get_data(query)
 
   df
 }

@@ -18,7 +18,7 @@
 #' See the [API documentation](https://data.police.uk/docs/) for more details.
 #'
 #' @docType package
-#' @name ukpolice
+#' @name ukpolice-package
 #' @importFrom jsonlite fromJSON
 #' @importFrom tibble as_tibble
 #' @importFrom purrr compact

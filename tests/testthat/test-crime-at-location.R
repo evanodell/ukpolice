@@ -27,4 +27,11 @@ test_that("crime at location", {
   crime_coord <- ukc_crime_coord(52.1, 0.23, date = "2019-12")
   expect_s3_class(crime_coord, "data.frame")
 
+
+  expect_error(ukc_stop_search_loc(ukc_crime_loc))
+
+  expect_error(
+  ukc_crime_coord(c(51, 52), c(1, 2))
+  )
+
 })
