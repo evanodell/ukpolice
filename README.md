@@ -84,8 +84,9 @@ documentation](https://docs.evanodell.com/ukpolice/reference/index.html).
 ## Meta
 
 Please note that the ‘ukpolice’ project is released with a [Contributor
-Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project,
-you agree to abide by its terms.
+Code of
+Conduct](https://github.com/evanodell/ukpolice/blob/master/CODE_OF_CONDUCT.md).
+By contributing to this project, you agree to abide by its terms.
 
 The UK Police API is operated by the UK Government’s Home Office. The
 `ukpolice` package is not affiliated with the Home Office. All data

@@ -82,7 +82,7 @@ For more details, see the package vignette [vignette](https://docs.evanodell.com
 
 ## Meta
 
-Please note that the 'ukpolice' project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
+Please note that the 'ukpolice' project is released with a [Contributor Code of Conduct](https://github.com/evanodell/ukpolice/blob/master/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
 
 The UK Police API is operated by the UK Government's Home Office. The `ukpolice` package is not affiliated with the Home Office. All data accessed through `ukpolice` is licenced with [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
 
