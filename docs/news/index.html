@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ukpolice</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -133,6 +133,16 @@
       <small>Source: <a href='https://github.com/EvanOdell/ukpolice/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="ukpolice-0149000" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.4.9000">
+<a href="#ukpolice-0149000" class="anchor"></a>ukpolice 0.1.4.9000<small> Unreleased </small>
+</h1>
+<ul>
+<li><p>Added Nick Tierney as author, with new <code>ukc_poly_*</code> functions, which accept <code>sf</code> and <code>sp</code> objects as well as dataframes of lat/long pairs.</p></li>
+<li><p>Deprecated <code><a href="../reference/ukc_crime_location.html">ukc_crime_location()</a></code> in favour of <code><a href="../reference/ukc_crime_location.html">ukc_crime_coord()</a></code> and <code><a href="../reference/ukc_crime_location.html">ukc_crime_loc()</a></code>, for consistent function names.</p></li>
+<li><p>Now using the <code>httr</code> for better messages and handling of requests.</p></li>
+</ul>
+</div>
     <div id="ukpolice-014" class="section level1">
 <h1 class="page-header" data-toc-text="0.1.4">
 <a href="#ukpolice-014" class="anchor"></a>ukpolice 0.1.4<small> 2020-04-17 </small>
@@ -147,8 +157,17 @@
 <a href="#ukpolice-013" class="anchor"></a>ukpolice 0.1.3<small> Unreleased </small>
 </h1>
 <ul>
-<li>Remove vignette section causing errors on CRAN.</li>
+<li><p>Remove vignette section causing errors on CRAN.</p></li>
+<li><p>Adding in <code><a href="../reference/ukc_available.html">ukc_available()</a></code> function.</p></li>
+<li><p>Documentation improvements.</p></li>
 </ul>
+<div id="code-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#code-changes" class="anchor"></a>Code Changes</h2>
+<ul>
+<li>Revision to structure of location based searches</li>
+</ul>
+</div>
 </div>
     <div id="ukpolice-012" class="section level1">
 <h1 class="page-header" data-toc-text="0.1.2">
@@ -188,7 +207,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://evanodell.com'>Evan Odell</a>.</p>
+  <p>Developed by <a href='https://evanodell.com'>Evan Odell</a>, Tierney Nicholas.</p>
 </div>
 
 <div class="pkgdown">

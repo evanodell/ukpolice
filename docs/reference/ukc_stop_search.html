@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Neighbourhood Location — ukc_neighbourhood_location • ukpolice</title>
+<title>Stop and search — ukc_stop_search_loc • ukpolice</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,11 @@
 
 
 
-<meta property="og:title" content="Neighbourhood Location — ukc_neighbourhood_location" />
-<meta property="og:description" content="Find the neighbourhood policing team responsible for a given area, by
-a set of coordinates. Accepts only a single pair of latitude and longitude." />
+<meta property="og:title" content="Stop and search — ukc_stop_search_loc" />
+<meta property="og:description" content="Returns details on stops and searches at a given location. The stop and
+searches returned in the API, like the crimes, are only an approximation
+of where the actual stop and searches occurred, they are not the exact
+locations." />
 
 
 
@@ -131,42 +133,96 @@ a set of coordinates. Accepts only a single pair of latitude and longitude." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Neighbourhood Location</h1>
-    <small class="dont-index">Source: <a href='https://github.com/EvanOdell/ukpolice/blob/master/R/neighbourhood-location.R'><code>R/neighbourhood-location.R</code></a></small>
-    <div class="hidden name"><code>ukc_neighbourhood_location.Rd</code></div>
+    <h1>Stop and search</h1>
+    <small class="dont-index">Source: <a href='https://github.com/EvanOdell/ukpolice/blob/master/R/stop-search-location.R'><code>R/stop-search-location.R</code></a>, <a href='https://github.com/EvanOdell/ukpolice/blob/master/R/ukpolice-deprecated.R'><code>R/ukpolice-deprecated.R</code></a></small>
+    <div class="hidden name"><code>ukc_stop_search.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Find the neighbourhood policing team responsible for a given area, by
-a set of coordinates. Accepts only a single pair of latitude and longitude.</p>
+    <p>Returns details on stops and searches at a given location. The stop and
+searches returned in the API, like the crimes, are only an approximation
+of where the actual stop and searches occurred, they are not the exact
+locations.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ukc_neighbourhood_location</span>(<span class='no'>lat</span>, <span class='no'>lng</span>)</pre>
+    <pre class="usage"><span class='fu'>ukc_stop_search_loc</span>(<span class='no'>location</span>, <span class='kw'>date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+
+<span class='fu'>ukc_stop_search_coord</span>(<span class='no'>lat</span>, <span class='no'>lng</span>, <span class='kw'>date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+
+<span class='fu'>ukc_stop_search_poly</span>(<span class='no'>poly_df</span>, <span class='kw'>date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+
+<span class='fu'>ukc_stop_search_location</span>(<span class='no'>lat</span>, <span class='no'>lng</span>, <span class='no'>location</span>, <span class='kw'>date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>location</th>
+      <td><p>If specified, <code>lat</code> and <code>lng</code> are ignored. Location IDs are
+available through other methods including <code><a href='ukc_street_crime.html'>ukc_street_crime()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>date</th>
+      <td><p>The year and month in "YYYY-MM" form. If <code>NULL</code>, latest
+available month will be returned. Also accepts dates in formats that can be
+coerced to <code>Date</code> class with <code><a href='https://rdrr.io/r/base/as.Date.html'>as.Date()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>further arguments passed to <code><a href='https://httr.r-lib.org/reference/GET.html'>httr::GET</a></code>.</p></td>
+    </tr>
+    <tr>
       <th>lat</th>
-      <td><p>Latitude</p></td>
+      <td><p>Latitude. Accepts a single value or a vector of values to create
+a custom polygon.</p></td>
     </tr>
     <tr>
       <th>lng</th>
-      <td><p>Longitude</p></td>
+      <td><p>Longitude. Accepts a single value or a vector of values to create
+a custom polygon.</p></td>
+    </tr>
+    <tr>
+      <th>poly_df</th>
+      <td><p>a dataframe containing the lat/lng pairs which define
+the boundary of the custom area, or a <code><a href='https://rdrr.io/pkg/sf/man/sf.html'>sf</a></code> or
+<code><a href='https://rdrr.io/pkg/sp/man/SpatialPoints.html'>SpatialPointsDataFrame</a></code> object.
+The first and last coordinates need not be the same — they will be joined
+by a straight line once the request is made. If a dataframe, the lat/lng
+must be the first two columns, or named <code>"lat"</code> and <code>"lng"</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The police force and neighbourhood code of the given coordinates.</p>
+    <p>A <code>tibble</code> with details of stop and searches outcomes.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Functions accept one of <code>lat</code> and <code>lng</code> pairs, <code>location</code> IDs or
+a dataframe containing lat/lng pairs defining the boundary of a custom area.</p>
+<p>If specified, <code>lat</code> and <code>lng</code> must be the same length. If only one
+set of coordinates are given, all recorded stop and searches within a one
+mile radius are returned. If multiple pairs, all recorded stop and searches
+within a custom drawn polygon will be returned.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='ukc_neighbourhood_boundary.html'>ukc_neighbourhood_boundary()</a></code></p>
-<p><code><a href='ukc_neighbourhoods.html'>ukc_neighbourhoods()</a></code></p></div>
+    <div class='dont-index'><p><code><a href='ukc_stop_search_force.html'>ukc_stop_search_force()</a></code></p>
+<p><code><a href='ukc_stop_search_no_location.html'>ukc_stop_search_no_location()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>find</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_neighbourhood_location</span>(<span class='kw'>lat</span> <span class='kw'>=</span> <span class='fl'>51.500617</span>, <span class='kw'>lng</span> <span class='kw'>=</span> -<span class='fl'>0.124629</span>)
+
+<span class='no'>ukc_stop_search2</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_stop_search_coord</span>(
+  <span class='kw'>lat</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>52.268</span>, <span class='fl'>53.194</span>, <span class='fl'>52.130</span>),
+  <span class='kw'>lng</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.543</span>, <span class='fl'>0.238</span>, <span class='fl'>0.478</span>)
+)
+
+
+<span class='no'>poly_df_4</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(
+  <span class='kw'>lat</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>52.268</span>, <span class='fl'>52.794</span>, <span class='fl'>52.130</span>, <span class='fl'>52.000</span>),
+  <span class='kw'>long</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.543</span>, <span class='fl'>0.238</span>, <span class='fl'>0.478</span>, <span class='fl'>0.400</span>)
+)
+
+<span class='no'>ukc_data_poly_4</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_stop_search_poly</span>(<span class='kw'>poly_df</span> <span class='kw'>=</span> <span class='no'>poly_df_4</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

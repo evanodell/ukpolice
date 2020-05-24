@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Crimes at a specific location — ukc_crime_location • ukpolice</title>
+<title>Crimes at a specific location — ukc_crime_loc • ukpolice</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,9 @@
 
 
 
-<meta property="og:title" content="Crimes at a specific location — ukc_crime_location" />
-<meta property="og:description" content="Returns details at crimes at a given" />
+<meta property="og:title" content="Crimes at a specific location — ukc_crime_loc" />
+<meta property="og:description" content="Returns details of crimes within a one mile radius of a given point, at a
+specific location ID, or from within a custom polygon." />
 
 
 
@@ -82,7 +83,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ukpolice</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -131,27 +132,26 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Crimes at a specific location</h1>
-    <small class="dont-index">Source: <a href='https://github.com/EvanOdell/ukpolice/blob/master/R/crime-at-location.R'><code>R/crime-at-location.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/EvanOdell/ukpolice/blob/master/R/crime-at-location.R'><code>R/crime-at-location.R</code></a>, <a href='https://github.com/EvanOdell/ukpolice/blob/master/R/ukpolice-deprecated.R'><code>R/ukpolice-deprecated.R</code></a></small>
     <div class="hidden name"><code>ukc_crime_location.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Returns details at crimes at a given</p>
+    <p>Returns details of crimes within a one mile radius of a given point, at a
+specific location ID, or from within a custom polygon.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ukc_crime_location</span>(<span class='no'>lat</span>, <span class='no'>lng</span>, <span class='no'>location</span>, <span class='kw'>date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>ukc_crime_loc</span>(<span class='no'>location</span>, <span class='kw'>date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+
+<span class='fu'>ukc_crime_coord</span>(<span class='no'>lat</span>, <span class='no'>lng</span>, <span class='kw'>date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+
+<span class='fu'>ukc_crime_poly</span>(<span class='no'>poly_df</span>, <span class='kw'>date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+
+<span class='fu'>ukc_crime_location</span>(<span class='no'>lat</span>, <span class='no'>lng</span>, <span class='no'>location</span>, <span class='kw'>date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>lat</th>
-      <td><p>Latitude. Accepts a single value.</p></td>
-    </tr>
-    <tr>
-      <th>lng</th>
-      <td><p>Longitude. Accepts a single value.</p></td>
-    </tr>
     <tr>
       <th>location</th>
       <td><p>If specified, <code>lat</code> and <code>lng</code> are ignored. Location IDs are
@@ -163,21 +163,53 @@ available through other methods including <code><a href='ukc_street_crime.html'>
 available month will be returned. Also accepts dates in formats that can be
 coerced to <code>Date</code> class with <code><a href='https://rdrr.io/r/base/as.Date.html'>as.Date()</a></code>.</p></td>
     </tr>
+    <tr>
+      <th>...</th>
+      <td><p>further arguments passed to <code><a href='https://httr.r-lib.org/reference/GET.html'>httr::GET</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>lat</th>
+      <td><p>Latitude. Accepts a single value.</p></td>
+    </tr>
+    <tr>
+      <th>lng</th>
+      <td><p>Longitude. Accepts a single value.</p></td>
+    </tr>
+    <tr>
+      <th>poly_df</th>
+      <td><p>a dataframe containing the lat/lng pairs which define
+the boundary of the custom area, or a <code><a href='https://rdrr.io/pkg/sf/man/sf.html'>sf</a></code> or
+<code><a href='https://rdrr.io/pkg/sp/man/SpatialPoints.html'>SpatialPointsDataFrame</a></code> object.
+The first and last coordinates need not be the same — they will be joined
+by a straight line once the request is made. If a dataframe, the lat/lng
+must be the first two columns, or named <code>"lat"</code> and <code>"lng"</code>.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A tibble with details of crimes at a given location.</p>
+    <p>A <code>tibble</code> with details of crimes at a given location.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>If specified, <code>lat</code> and <code>lng</code> must be the same length. <code>location</code>
 or both <code>lat</code> and <code>lng</code> must be specified.</p>
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>The API will return a 400 status code in response to a GET request
+longer than 4094 characters.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_crime_location</span>(<span class='kw'>lat</span> <span class='kw'>=</span> <span class='fl'>52</span>, <span class='kw'>lng</span> <span class='kw'>=</span> <span class='fl'>0</span>)
 
 <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_crime_location</span>(<span class='kw'>location</span> <span class='kw'>=</span> <span class='fl'>802171</span>)
+
+<span class='no'>poly_df_3</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(
+  <span class='kw'>lat</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>52.268</span>, <span class='fl'>52.794</span>, <span class='fl'>52.130</span>),
+  <span class='kw'>lng</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.543</span>, <span class='fl'>0.238</span>, <span class='fl'>0.478</span>)
+)
+
+<span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_crime_poly</span>(<span class='no'>poly_df_3</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -190,7 +222,7 @@ or both <code>lat</code> and <code>lng</code> must be specified.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://evanodell.com'>Evan Odell</a>.</p>
+  <p>Developed by <a href='https://evanodell.com'>Evan Odell</a>, Tierney Nicholas.</p>
 </div>
 
 <div class="pkgdown">

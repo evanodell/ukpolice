@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Specific Neighbourhood Events — ukc_neighbourhood_events • ukpolice</title>
+<title>Specific Neighbourhood — ukc_neighbourhood_specific • ukpolice</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Specific Neighbourhood Events — ukc_neighbourhood_events" />
+<meta property="og:title" content="Specific Neighbourhood — ukc_neighbourhood_specific" />
 <meta property="og:description" content="Data on a specific neighbourhood within a given police force area." />
 
 
@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ukpolice</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -130,8 +130,8 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Specific Neighbourhood Events</h1>
-    <small class="dont-index">Source: <a href='https://github.com/EvanOdell/ukpolice/blob/master/R/neighbourhood-events.R'><code>R/neighbourhood-events.R</code></a>, <a href='https://github.com/EvanOdell/ukpolice/blob/master/R/neighbourhood-priorities.R'><code>R/neighbourhood-priorities.R</code></a>, <a href='https://github.com/EvanOdell/ukpolice/blob/master/R/neighbourhood-team.R'><code>R/neighbourhood-team.R</code></a>, and 1 more</small>
+    <h1>Specific Neighbourhood</h1>
+    <small class="dont-index">Source: <a href='https://github.com/EvanOdell/ukpolice/blob/master/R/neighbourhood-all-specific.R'><code>R/neighbourhood-all-specific.R</code></a>, <a href='https://github.com/EvanOdell/ukpolice/blob/master/R/neighbourhood-events.R'><code>R/neighbourhood-events.R</code></a>, <a href='https://github.com/EvanOdell/ukpolice/blob/master/R/neighbourhood-priorities.R'><code>R/neighbourhood-priorities.R</code></a>, and 1 more</small>
     <div class="hidden name"><code>ukc_neighbourhood_specific.Rd</code></div>
     </div>
 
@@ -139,13 +139,13 @@
     <p>Data on a specific neighbourhood within a given police force area.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ukc_neighbourhood_events</span>(<span class='no'>force</span>, <span class='no'>neighbourhood_id</span>)
+    <pre class="usage"><span class='fu'>ukc_neighbourhood_specific</span>(<span class='no'>force</span>, <span class='no'>neighbourhood_id</span>)
+
+<span class='fu'>ukc_neighbourhood_events</span>(<span class='no'>force</span>, <span class='no'>neighbourhood_id</span>)
 
 <span class='fu'>ukc_neighbourhood_priorities</span>(<span class='no'>force</span>, <span class='no'>neighbourhood_id</span>)
 
-<span class='fu'>ukc_neighbourhood_team</span>(<span class='no'>force</span>, <span class='no'>neighbourhood_id</span>)
-
-<span class='fu'>ukc_neighbourhood_specific</span>(<span class='no'>force</span>, <span class='no'>neighbourhood_id</span>)</pre>
+<span class='fu'>ukc_neighbourhood_team</span>(<span class='no'>force</span>, <span class='no'>neighbourhood_id</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -170,27 +170,32 @@ neighbourhood IDs if no neighbourhood is specified.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p><code>ukpolice</code> contains the following functions for specific neighbourhoods:</p><ul>
-<li><p><code>ukc_neighbourhood_specific</code></p></li>
-<li><p><code>ukc_neighbourhood_team</code></p></li>
-<li><p><code>ukc_neighbourhood_events</code></p></li>
-<li><p><code>ukc_neighbourhood_priorities</code></p></li>
+<li><p><code>ukc_neighbourhood_specific</code> -- Basic information and description of a
+specific neighbourhood.</p></li>
+<li><p><code>ukc_neighbourhood_team</code> -- Brief biographies of police officers
+responsible for the specified neighbourhood.</p></li>
+<li><p><code>ukc_neighbourhood_events</code> -- Police public engagement events taking
+place in the specified neighbourhood.</p></li>
+<li><p><code>ukc_neighbourhood_priorities</code> -- Policing priorities for the
+specified neighbourhood.</p></li>
 </ul>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='ukc_neighbourhood_boundary.html'>ukc_neighbourhood_boundary()</a></code></p>
 <p><code><a href='ukc_neighbourhoods.html'>ukc_neighbourhoods()</a></code></p>
-<p><code><a href='ukc_neighbourhood_boundary.html'>ukc_neighbourhood_boundary()</a></code></p>
-<p><code><a href='ukc_neighbourhoods.html'>ukc_neighbourhoods()</a></code></p>
-<p><code><a href='ukc_neighbourhood_boundary.html'>ukc_neighbourhood_boundary()</a></code></p>
-<p><code><a href='ukc_neighbourhoods.html'>ukc_neighbourhoods()</a></code></p>
-<p><code><a href='ukc_neighbourhood_location.html'>ukc_neighbourhood_location()</a></code></p>
-<p><code><a href='ukc_neighbourhood_boundary.html'>ukc_neighbourhood_boundary()</a></code></p>
-<p><code><a href='ukc_neighbourhoods.html'>ukc_neighbourhoods()</a></code></p>
 <p><code><a href='ukc_neighbourhood_location.html'>ukc_neighbourhood_location()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='co'># returns a specific neighbourood</span>
+<span class='no'>places4</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_neighbourhood_specific</span>(<span class='st'>"dorset"</span>, <span class='st'>"55.CR3001"</span>)
+
+<span class='co'># returns all neighbourhoods as specific neighbourhood is unspecified.</span>
+<span class='no'>places3</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_neighbourhood_specific</span>(<span class='st'>"dorset"</span>)
+}
+
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='no'>events</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_neighbourhood_events</span>(<span class='st'>"dorset"</span>, <span class='st'>"55.CR3001"</span>)
 }
 
@@ -200,14 +205,6 @@ neighbourhood IDs if no neighbourhood is specified.</p>
 
 <span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='no'>people</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_neighbourhood_team</span>(<span class='st'>"dorset"</span>, <span class='st'>"55.CR3001"</span>)
-}
-
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='co'># returns a specific neighbourood</span>
-<span class='no'>places4</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_neighbourhood_specific</span>(<span class='st'>"dorset"</span>, <span class='st'>"55.CR3001"</span>)
-
-<span class='co'># returns all neighbourhoods as specific neighbourhood is unspecified.</span>
-<span class='no'>places3</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_neighbourhood_specific</span>(<span class='st'>"dorset"</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -220,7 +217,7 @@ neighbourhood IDs if no neighbourhood is specified.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://evanodell.com'>Evan Odell</a>.</p>
+  <p>Developed by <a href='https://evanodell.com'>Evan Odell</a>, Tierney Nicholas.</p>
 </div>
 
 <div class="pkgdown">

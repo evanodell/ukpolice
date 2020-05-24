@@ -84,7 +84,7 @@ searches carried out by a police force, use ukc_stop_search_force()." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ukpolice</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -156,16 +156,22 @@ See <code><a href='ukc_forces.html'>ukc_forces()</a></code> for details.</p></td
     </tr>
     <tr>
       <th>date</th>
-      <td><p>The year and month in "YYYY-MM" form. If <code>NULL</code>, latest
-available month will be returned. Also accepts dates in formats that can be
-coerced to <code>Date</code> class with <code><a href='https://rdrr.io/r/base/as.Date.html'>as.Date()</a></code>.</p></td>
+      <td><p>The year and month in "YYYY-MM" form. Also accepts dates in
+formats that can be coerced to <code>Date</code> class with <code><a href='https://rdrr.io/r/base/as.Date.html'>as.Date()</a></code>. If <code>NULL</code>,
+the latest available month will be returned. Note that not all forces
+will necessarily have reported stop and search data for the latest month;
+check availability with the <code><a href='ukc_available.html'>ukc_available()</a></code> function.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A tibble with details of stop and searches without a specific
+    <p>A <code>tibble</code> with details of stop and searches without a specific
 location.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='ukc_stop_search_force.html'>ukc_stop_search_force()</a></code></p>
+<p><code><a href='ukc_stop_search.html'>ukc_stop_search_location()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
@@ -182,7 +188,7 @@ location.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://evanodell.com'>Evan Odell</a>.</p>
+  <p>Developed by <a href='https://evanodell.com'>Evan Odell</a>, Tierney Nicholas.</p>
 </div>
 
 <div class="pkgdown">

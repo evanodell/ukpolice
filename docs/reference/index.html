@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ukpolice</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -143,8 +143,8 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
+          <h2 id="section-crimes" class="hasAnchor"><a href="#section-crimes" class="anchor"></a>Crimes</h2>
+          <p class="section-desc"><p>Retrieve data on police reported crime</p></p>
         </th>
       </tr>
       
@@ -161,7 +161,7 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="ukc_crime_location.html">ukc_crime_location()</a></code> </p>
+          <p><code><a href="ukc_crime_location.html">ukc_crime_loc()</a></code> <code><a href="ukc_crime_location.html">ukc_crime_coord()</a></code> <code><a href="ukc_crime_location.html">ukc_crime_poly()</a></code> <code><a href="ukc_crime_location.html">ukc_crime_location()</a></code> </p>
         </td>
         <td><p>Crimes at a specific location</p></td>
       </tr><tr>
@@ -170,66 +170,6 @@
           <p><code><a href="ukc_crime_no_location.html">ukc_crime_no_location()</a></code> </p>
         </td>
         <td><p>Crimes without location</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ukc_forces.html">ukc_forces()</a></code> <code><a href="ukc_forces.html">ukc_force_details()</a></code> <code><a href="ukc_forces.html">ukc_officers()</a></code> </p>
-        </td>
-        <td><p>England and Wales Police Forces</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ukc_last_update.html">ukc_last_update()</a></code> </p>
-        </td>
-        <td><p>Latest crime update</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ukc_neighbourhood_boundary.html">ukc_neighbourhood_boundary()</a></code> </p>
-        </td>
-        <td><p>Specific Neighbourhood Boundary</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ukc_neighbourhood_location.html">ukc_neighbourhood_location()</a></code> </p>
-        </td>
-        <td><p>Neighbourhood Location</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ukc_neighbourhood_specific.html">ukc_neighbourhood_events()</a></code> <code><a href="ukc_neighbourhood_specific.html">ukc_neighbourhood_priorities()</a></code> <code><a href="ukc_neighbourhood_specific.html">ukc_neighbourhood_team()</a></code> <code><a href="ukc_neighbourhood_specific.html">ukc_neighbourhood_specific()</a></code> </p>
-        </td>
-        <td><p>Specific Neighbourhood Events</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ukc_neighbourhoods.html">ukc_neighbourhoods()</a></code> </p>
-        </td>
-        <td><p>Neighbourhoods</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ukc_specific_outcome.html">ukc_specific_outcome()</a></code> </p>
-        </td>
-        <td><p>Outcomes for a specific crime</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ukc_stop_search_force.html">ukc_stop_search_force()</a></code> </p>
-        </td>
-        <td><p>Stop and Searches by Police Force</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ukc_stop_search_location.html">ukc_stop_search_location()</a></code> </p>
-        </td>
-        <td><p>Stop and search</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ukc_stop_search_no_location.html">ukc_stop_search_no_location()</a></code> </p>
-        </td>
-        <td><p>Stop and Searches without location</p></td>
       </tr><tr>
         
         <td>
@@ -245,9 +185,127 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="ukpolice.html">ukpolice</a></code> </p>
+          <p><code><a href="ukc_specific_outcome.html">ukc_specific_outcome()</a></code> </p>
         </td>
-        <td><p>ukpolice: Download Data on UK Police and Crime</p></td>
+        <td><p>Outcomes for a specific crime</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ukc_last_update.html">ukc_last_update()</a></code> </p>
+        </td>
+        <td><p>Latest crime update</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-police-forces" class="hasAnchor"><a href="#section-police-forces" class="anchor"></a>Police Forces</h2>
+          <p class="section-desc"><p>Retrieve data on specific forces and officers</p></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="ukc_forces.html">ukc_forces()</a></code> <code><a href="ukc_forces.html">ukc_force_details()</a></code> <code><a href="ukc_forces.html">ukc_officers()</a></code> </p>
+        </td>
+        <td><p>England and Wales Police Forces</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-neighbourhoods" class="hasAnchor"><a href="#section-neighbourhoods" class="anchor"></a>Neighbourhoods</h2>
+          <p class="section-desc"><p>Retrieve data on policing neighbourhood areas, priorities, etc.</p></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="ukc_neighbourhood_boundary.html">ukc_neighbourhood_boundary()</a></code> </p>
+        </td>
+        <td><p>Specific Neighbourhood Boundary</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ukc_neighbourhood_location.html">ukc_neighbourhood_location()</a></code> </p>
+        </td>
+        <td><p>Neighbourhood Location</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ukc_neighbourhood_specific.html">ukc_neighbourhood_specific()</a></code> <code><a href="ukc_neighbourhood_specific.html">ukc_neighbourhood_events()</a></code> <code><a href="ukc_neighbourhood_specific.html">ukc_neighbourhood_priorities()</a></code> <code><a href="ukc_neighbourhood_specific.html">ukc_neighbourhood_team()</a></code> </p>
+        </td>
+        <td><p>Specific Neighbourhood</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ukc_neighbourhoods.html">ukc_neighbourhoods()</a></code> </p>
+        </td>
+        <td><p>Policing Neighbourhoods</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-stop-and-search" class="hasAnchor"><a href="#section-stop-and-search" class="anchor"></a>Stop and Search</h2>
+          <p class="section-desc"><p>Retrieve data on the use of stop and search powers by the police</p></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="ukc_stop_search.html">ukc_stop_search_loc()</a></code> <code><a href="ukc_stop_search.html">ukc_stop_search_coord()</a></code> <code><a href="ukc_stop_search.html">ukc_stop_search_poly()</a></code> <code><a href="ukc_stop_search.html">ukc_stop_search_location()</a></code> </p>
+        </td>
+        <td><p>Stop and search</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ukc_stop_search_force.html">ukc_stop_search_force()</a></code> </p>
+        </td>
+        <td><p>Stop and Searches by Police Force</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ukc_stop_search_no_location.html">ukc_stop_search_no_location()</a></code> </p>
+        </td>
+        <td><p>Stop and Searches without location</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ukc_available.html">ukc_available()</a></code> </p>
+        </td>
+        <td><p>Available data</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-specific-crimes" class="hasAnchor"><a href="#section-specific-crimes" class="anchor"></a>Specific crimes</h2>
+          <p class="section-desc"><p>Retrieve data on specific crime outcomes</p></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="ukc_specific_outcome.html">ukc_specific_outcome()</a></code> </p>
+        </td>
+        <td><p>Outcomes for a specific crime</p></td>
       </tr>
     </tbody>
     </table>
@@ -263,7 +321,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://evanodell.com'>Evan Odell</a>.</p>
+  <p>Developed by <a href='https://evanodell.com'>Evan Odell</a>, Tierney Nicholas.</p>
 </div>
 
 <div class="pkgdown">

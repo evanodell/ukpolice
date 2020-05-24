@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>England and Wales Police Forces — ukc_forces • ukpolice</title>
+<title>ukpolice: Download Data on UK Police and Crime — ukpolice-package • ukpolice</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,10 @@
 
 
 
-<meta property="og:title" content="England and Wales Police Forces — ukc_forces" />
-<meta property="og:description" content="Returns available police forces, details on a specific police force, or
-officers on that force." />
+<meta property="og:title" content="ukpolice: Download Data on UK Police and Crime — ukpolice-package" />
+<meta property="og:description" content="Downloads data from the 'UK Police' public data API. Includes data on UK
+police forces and police force areas, crime reports, and the use of
+stop-and-search powers." />
 
 
 
@@ -131,46 +132,30 @@ officers on that force." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>England and Wales Police Forces</h1>
-    <small class="dont-index">Source: <a href='https://github.com/EvanOdell/ukpolice/blob/master/R/forces.R'><code>R/forces.R</code></a></small>
-    <div class="hidden name"><code>ukc_forces.Rd</code></div>
+    <h1>ukpolice: Download Data on UK Police and Crime</h1>
+    <small class="dont-index">Source: <a href='https://github.com/EvanOdell/ukpolice/blob/master/R/ukpolice-package.R'><code>R/ukpolice-package.R</code></a></small>
+    <div class="hidden name"><code>ukpolice-package.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Returns available police forces, details on a specific police force, or
-officers on that force.</p>
+    <p>Downloads data from the 'UK Police' public data API. Includes data on UK
+police forces and police force areas, crime reports, and the use of
+stop-and-search powers.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ukc_forces</span>()
 
-<span class='fu'>ukc_force_details</span>(<span class='kw'>force</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>ukc_officers</span>(<span class='no'>force</span>)</pre>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>force</th>
-      <td><p>The id of the police force, available from the <code>id</code> column
-returned by <code>ukc_forces</code>. Not case sensitive.</p></td>
-    </tr>
-    </table>
+    <p>Most functions return a <code>tibble</code> with the requested data, with the exception
+of <code><a href='ukc_specific_outcome.html'>ukc_specific_outcome()</a></code> in some cases, which returns a list containing a
+list and a <code>tibble</code>.</p>
+<p>Data accessed through <code>ukpolice</code> is licenced with
+<a href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'>Open Government Licence v3.0</a>.</p>
+<p>The API allows for 15 requests each second, but up to 30 in a single second
+if in a single burst. The API does not require authentication.
+See the <a href='https://data.police.uk/docs/'>API documentation</a> for more details.</p>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p><code>ukc_forces</code> returns a <code>tibble</code> with all police forces in England
-and Wales, <code>ukc_force_details</code> returns details on a given police force and
-<code>ukc_officers</code> returns details on senior officers for a given police force.</p>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>forces</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_forces</span>()
-
-<span class='no'>cops</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_officers</span>(<span class='st'>"cumbria"</span>)
-
-<span class='no'>details</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_force_details</span>(<span class='st'>"thames-valley"</span>)
-}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
