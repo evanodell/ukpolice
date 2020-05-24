@@ -2,8 +2,8 @@
 
 ## Resubmission
 
-This is a update of the `ukpolice` package, 0.1.4, which changes \donttest to
-\dontrun in .Rd files.
+This is a update of the `ukpolice` package, 0.2.0, which includes new functions
+and internal changes to improve handling of external resources.  
 
 ## Test environments
 * local OS X install, R 4.0.0

@@ -1,14 +1,13 @@
 
 # ukpolice 0.1.4.9000
 
-* `ukc_poly_*` functions now accept `sf` and `sp` objects
-
-* Added Nick Tierney as author
+* Added Nick Tierney as author, with new `ukc_poly_*` functions, which accept
+  `sf` and `sp` objects as well as dataframes of lat/long pairs.
 
 * Deprecated `ukc_crime_location()` in favour of `ukc_crime_coord()` and
-  `ukc_crime_loc()`
+  `ukc_crime_loc()`, for consistent function names.
   
-* Using `httr` for better error messages.
+* Now using the `httr` for better messages and handling of requests.
 
 
 # ukpolice 0.1.4
