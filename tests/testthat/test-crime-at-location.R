@@ -11,9 +11,9 @@ test_that("crime at location", {
 
 
   poly_df_3 <- data.frame(
-     lat = c(52.268, 52.794, 52.130),
-     lng = c(0.543, 0.238, 0.478)
-   )
+    lat = c(52.268, 52.794, 52.130),
+    lng = c(0.543, 0.238, 0.478)
+  )
 
   z <- ukc_crime_poly(poly_df_3, date = "2020-01")
   expect_s3_class(z, "data.frame")
@@ -31,7 +31,6 @@ test_that("crime at location", {
   expect_error(ukc_stop_search_loc(ukc_crime_loc))
 
   expect_error(
-  ukc_crime_coord(c(51, 52), c(1, 2))
+    ukc_crime_coord(c(51, 52), c(1, 2))
   )
-
 })

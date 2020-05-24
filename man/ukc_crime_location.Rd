@@ -65,6 +65,4 @@ poly_df_3 <- data.frame(
 z <- ukc_crime_poly(poly_df_3)
 }
 
-
-
 }

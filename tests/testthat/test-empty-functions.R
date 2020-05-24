@@ -13,5 +13,4 @@ test_that("empty-functions works", {
   available <- ukc_available()
 
   expect_s3_class(available, "data.frame")
-
 })

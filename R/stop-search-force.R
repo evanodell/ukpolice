@@ -36,7 +36,7 @@ ukc_stop_search_force <- function(force, date = NULL) {
 
   query <- paste0("stops-force?", force_query, date_query)
 
-  df <- ukc_get_data(query) 
+  df <- ukc_get_data(query)
 
   df
 }

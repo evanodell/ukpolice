@@ -33,7 +33,7 @@ ukc_crime_location <- function(lat, lng, location, date = NULL, ...) {
   } else {
     if (any(length(lat) != 1, length(lng) != 1)) {
       stop("`lat` and `lng` must only contain a single value each.",
-           call. = FALSE
+        call. = FALSE
       )
     }
 

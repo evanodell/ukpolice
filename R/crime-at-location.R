@@ -41,15 +41,13 @@
 #' z <- ukc_crime_poly(poly_df_3)
 #' }
 #'
-#'
-#'
-ukc_crime_loc  <- function(location, date = NULL, ...) {
+ukc_crime_loc <- function(location, date = NULL, ...) {
   date_query <- ukc_date_processing(date)
-    if (!missing(location)) {
-      query <- paste0(
-        "outcomes-at-location?", date_query,
-        "&location_id=", location
-      )
+  if (!missing(location)) {
+    query <- paste0(
+      "outcomes-at-location?", date_query,
+      "&location_id=", location
+    )
   } else {
     stop("`location` must be specified", call. = FALSE)
   }
@@ -67,17 +65,17 @@ ukc_crime_coord <- function(lat, lng, date = NULL, ...) {
   date_query <- ukc_date_processing(date)
 
   if (any(length(lat) != 1, length(lng) != 1)) {
-      stop("`lat` and `lng` must only contain a single value each.",
-           call. = FALSE
-      )
-    }
-
-    loc_query <- paste0("lat=", lat, "&lng=", lng)
-
-    query <- paste0(
-      "crimes-street/outcomes-at-location?",
-      loc_query, date_query
+    stop("`lat` and `lng` must only contain a single value each.",
+      call. = FALSE
     )
+  }
+
+  loc_query <- paste0("lat=", lat, "&lng=", lng)
+
+  query <- paste0(
+    "crimes-street/outcomes-at-location?",
+    loc_query, date_query
+  )
 
   df <- ukc_get_data(query)
 

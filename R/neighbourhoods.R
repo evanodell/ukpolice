@@ -26,7 +26,7 @@ ukc_neighbourhoods <- function(force) {
 
   query <- paste0(tolower(force), "/neighbourhoods")
 
-  df <- ukc_get_data(query) 
+  df <- ukc_get_data(query)
 
   df
 }

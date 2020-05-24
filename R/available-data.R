@@ -13,7 +13,7 @@
 ukc_available <- function() {
   query <- "crimes-street-dates"
 
-  df <- ukc_get_data(query) 
+  df <- ukc_get_data(query)
 
   df
 }

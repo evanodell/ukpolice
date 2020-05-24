@@ -8,7 +8,7 @@
 ukc_crime_category <- function() {
   query <- "crime-categories"
 
-  df <- ukc_get_data(query) 
+  df <- ukc_get_data(query)
 
   df
 }

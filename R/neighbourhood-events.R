@@ -30,7 +30,7 @@ ukc_neighbourhood_events <- function(force, neighbourhood_id) {
   } else {
     query <- paste0(tolower(force), "/", neighbourhood_id, "/events")
 
-    df <- ukc_get_data(query) 
+    df <- ukc_get_data(query)
   }
 
   df

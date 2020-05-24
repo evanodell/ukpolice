@@ -68,6 +68,4 @@ test_that("stop_and_search functions work", {
   expect_s3_class(ss_location, "data.frame")
 
   expect_error(ukc_stop_search_loc())
-
-
 })

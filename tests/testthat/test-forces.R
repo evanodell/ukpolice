@@ -21,7 +21,8 @@ test_that("forces retrieval", {
   expect_equal(nrow(forcesc), 4)
   expect_true(all(c("bio") %in% names(forcesc)))
 
-  expect_message(ukc_force_details("safdsdf"),
-                 "Request returned error code: 404")
-
+  expect_message(
+    ukc_force_details("safdsdf"),
+    "Request returned error code: 404"
+  )
 })
