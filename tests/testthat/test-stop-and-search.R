@@ -42,12 +42,14 @@ test_that("stop_and_search functions work", {
   expect_true(is.data.frame(ukc_data_poly_4))
 
 
-# test SF -----------------------------------------------------------------
+  # test SF -----------------------------------------------------------------
 
   poly_sf <- sf::st_as_sf(poly_df_4, coords = c("lat", "long"))
 
-  ukc_data_poly_sf <- ukc_stop_search_poly(poly_df = poly_sf,
-                                           date = "2020-03-27")
+  ukc_data_poly_sf <- ukc_stop_search_poly(
+    poly_df = poly_sf,
+    date = "2020-03-27"
+  )
 
   expect_equal(ukc_data_poly_sf, ukc_data_poly_4)
 
@@ -62,10 +64,9 @@ test_that("stop_and_search functions work", {
     dat_orig[, 3:4]
   )
 
-# test SP -----------------------------------------------------------------
+  # test SP -----------------------------------------------------------------
 
-  ukc_data_poly_sp <- ukc_stop_search_poly(dat_2,
-                                           date = "2020-03-27")
+  ukc_data_poly_sp <- ukc_stop_search_poly(dat_2, date = "2020-03-27")
 
   expect_equal(ukc_data_poly_sp, ukc_data_poly_sf)
 
