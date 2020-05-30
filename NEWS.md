@@ -1,5 +1,13 @@
 
-# ukpolice 0.1.4.9000
+# ukpolice 0.2.1
+
+* Fix error occuring on Solaris platform
+
+* Fix error when testing `ukc_stop_search_poly()` caused by comparing responses
+  covering different dates.
+
+
+# ukpolice 0.2.0
 
 * Added Nick Tierney as author, with new `ukc_poly_*` functions, which accept
   `sf` and `sp` objects as well as dataframes of lat/long pairs.
