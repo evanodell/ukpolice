@@ -1,7 +1,8 @@
 context("test-forces")
 
 test_that("forces retrieval", {
-  # skip_on_cran()
+  skip_on_cran()
+
   forcesa1 <- ukc_forces()
   expect_length(forcesa1, 2)
   expect_equal(nrow(forcesa1), 44)

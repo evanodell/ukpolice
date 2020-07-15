@@ -1,6 +1,8 @@
 context("test-stop-and-search")
 
 test_that("stop_and_search functions work", {
+  skip_on_cran()
+
   ss_no_location <- ukc_stop_search_no_location(
     force = "city-of-london",
     date = "2019-01-01"
