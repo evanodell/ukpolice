@@ -36,5 +36,4 @@ test_that("specific-crime and no-location crime", {
 
   expect_error(ukc_crime_no_location())
   expect_error(ukc_specific_outcome())
-
 })
