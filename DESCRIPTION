@@ -1,6 +1,6 @@
 Package: ukpolice
 Title: Download Data on UK Police and Crime
-Version: 0.2.1
+Version: 0.2.1.9000
 Authors@R: c(
     person(given = "Evan",
            family = "Odell",
@@ -23,7 +23,8 @@ Imports:
     jsonlite,
     tibble,
     purrr,
-    httr
+    httr,
+    snakecase
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
@@ -39,6 +40,5 @@ Suggests:
     htmltools,
     scales,
     sf,
-    snakecase,
     sp
 VignetteBuilder: knitr

@@ -16,7 +16,8 @@
 #' [`SpatialPointsDataFrame`][sp::SpatialPointsDataFrame()] object.
 #' The first and last coordinates need not be the same — they will be joined
 #' by a straight line once the request is made. If a dataframe, the lat/lng
-#' must be the first two columns, or named `"lat"` and `"lng"`.
+#' must be the first two columns, named `"lat"` and `"lng"`,
+#' or begin with `"lat"` and `"long"`.
 #' @param date The year and month in "YYYY-MM" form. If `NULL`, latest
 #' available month will be returned. Also accepts dates in formats that can be
 #' coerced to `Date` class with `as.Date()`.

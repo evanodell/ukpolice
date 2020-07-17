@@ -46,8 +46,9 @@ ukc_get_data_specific_crime <- function(query, ...) {
 ukc_get_hood_data <- function(query) {
   api_return <- jsonlite::fromJSON(paste0(baseurl, query))
 
-  api_return$contact_details <- as.data.frame(api_return$contact_details)
-  api_return$centre <- as.data.frame(api_return$centre)
+  api_return$contact_details <- tibble::as_tibble(api_return$contact_details)
+  api_return$centre <- tibble::as_tibble(api_return$centre)
+  api_return$locations <- tibble::as_tibble(api_return$locations)
 
   api_return
 }

@@ -22,6 +22,7 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom tibble as_tibble
 #' @importFrom purrr compact
-#' @importFrom httr GET
+#' @importFrom httr GET status_code content
+#' @importFrom snakecase to_snake_case
 #' @aliases NULL ukpolice-package
 NULL

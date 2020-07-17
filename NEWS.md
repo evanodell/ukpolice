@@ -1,4 +1,13 @@
 
+
+
+# ukpolice 0.2.2
+
+* Fix errors with tests on some platforms.
+
+* Improved internal handling of coordinates labelled other than "lat"/"lng".
+
+
 # ukpolice 0.2.1
 
 * Fix error occuring on Solaris platform
