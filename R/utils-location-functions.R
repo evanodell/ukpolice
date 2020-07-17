@@ -32,7 +32,9 @@ utils_poly_processing <- function(poly_df) {
   }
 
   if (inherits(poly_df, "sf")) {
-      poly_df <- as.data.frame(sf::st_coordinates(poly_df, crs = 4326))
+    sf::st_crs(poly_df) <- 4326
+
+      poly_df <- as.data.frame(sf::st_coordinates(poly_df))
 
       names(poly_df)[names(poly_df)=="X"] <- "lng"
       names(poly_df)[names(poly_df)=="Y"] <- "lat"
