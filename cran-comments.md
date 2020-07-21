@@ -2,9 +2,9 @@
 
 ## Resubmission
 
-This is a update of the `ukpolice` package, 0.2.1, in response to an test error
-in Solaris checks. It also fixes a test error caused by comparing two objects 
-covering different time periods.
+This is a re-submission of the `ukpolice` package, 0.2.2. The previous version,
+0.2.1, was archived on 2020-07-14 due to a test error, this update corrects 
+that issue.
 
 ## Test environments
 * local OS X install, R 4.0.2
