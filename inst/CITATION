@@ -5,7 +5,7 @@ bibentry(bibtype = "Manual",
          author = c(
                     person("Evan", "Odell"),
                     person("Nicholas", "Tierney")),
-         year = 2019,
+         year = 2020,
          note = note,
          doi = "10.5281/zenodo.2619537",
          url = "https://github.com/evanodell/ukpolice")

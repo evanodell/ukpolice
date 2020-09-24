@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ukpolice</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -139,13 +139,13 @@
     <p>Data on a specific neighbourhood within a given police force area.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ukc_neighbourhood_specific</span>(<span class='no'>force</span>, <span class='no'>neighbourhood_id</span>)
+    <pre class="usage"><span class='fu'>ukc_neighbourhood_specific</span>(<span class='kw'>force</span>, <span class='kw'>neighbourhood_id</span>)
 
-<span class='fu'>ukc_neighbourhood_events</span>(<span class='no'>force</span>, <span class='no'>neighbourhood_id</span>)
+<span class='fu'>ukc_neighbourhood_events</span>(<span class='kw'>force</span>, <span class='kw'>neighbourhood_id</span>)
 
-<span class='fu'>ukc_neighbourhood_priorities</span>(<span class='no'>force</span>, <span class='no'>neighbourhood_id</span>)
+<span class='fu'>ukc_neighbourhood_priorities</span>(<span class='kw'>force</span>, <span class='kw'>neighbourhood_id</span>)
 
-<span class='fu'>ukc_neighbourhood_team</span>(<span class='no'>force</span>, <span class='no'>neighbourhood_id</span>)</pre>
+<span class='fu'>ukc_neighbourhood_team</span>(<span class='kw'>force</span>, <span class='kw'>neighbourhood_id</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -187,25 +187,27 @@ specified neighbourhood.</p></li>
 <p><code><a href='ukc_neighbourhood_location.html'>ukc_neighbourhood_location()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'># returns a specific neighbourood</span>
-<span class='no'>places4</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_neighbourhood_specific</span>(<span class='st'>"dorset"</span>, <span class='st'>"55.CR3001"</span>)
+<span class='kw'>places4</span> <span class='op'>&lt;-</span> <span class='fu'>ukc_neighbourhood_specific</span>(<span class='st'>"dorset"</span>, <span class='st'>"55.CR3001"</span>)
 
 <span class='co'># returns all neighbourhoods as specific neighbourhood is unspecified.</span>
-<span class='no'>places3</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_neighbourhood_specific</span>(<span class='st'>"dorset"</span>)
+<span class='kw'>places3</span> <span class='op'>&lt;-</span> <span class='fu'>ukc_neighbourhood_specific</span>(<span class='st'>"dorset"</span>)
 }
 
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>events</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_neighbourhood_events</span>(<span class='st'>"dorset"</span>, <span class='st'>"55.CR3001"</span>)
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='kw'>events</span> <span class='op'>&lt;-</span> <span class='fu'>ukc_neighbourhood_events</span>(<span class='st'>"dorset"</span>, <span class='st'>"55.CR3001"</span>)
 }
 
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>priorities</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_neighbourhood_team</span>(<span class='st'>"dorset"</span>, <span class='st'>"55.CR3001"</span>)
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='kw'>priorities</span> <span class='op'>&lt;-</span> <span class='fu'>ukc_neighbourhood_team</span>(<span class='st'>"dorset"</span>, <span class='st'>"55.CR3001"</span>)
 }
 
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>people</span> <span class='kw'>&lt;-</span> <span class='fu'>ukc_neighbourhood_team</span>(<span class='st'>"dorset"</span>, <span class='st'>"55.CR3001"</span>)
-}</div></pre>
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='kw'>people</span> <span class='op'>&lt;-</span> <span class='fu'>ukc_neighbourhood_team</span>(<span class='st'>"dorset"</span>, <span class='st'>"55.CR3001"</span>)
+}
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -217,11 +219,11 @@ specified neighbourhood.</p></li>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://evanodell.com'>Evan Odell</a>, Tierney Nicholas.</p>
+  <p>Developed by <a href='https://evanodell.com'>Evan Odell</a>, <a href='https://www.njtierney.com'>Nicholas Tierney</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

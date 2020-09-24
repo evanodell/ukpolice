@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ukpolice</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -133,13 +133,22 @@
       <small>Source: <a href='https://github.com/EvanOdell/ukpolice/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="ukpolice-022" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.2">
+<a href="#ukpolice-022" class="anchor"></a>ukpolice 0.2.2<small> 2020-08-03 </small>
+</h1>
+<ul>
+<li><p>Fix errors with tests on some platforms.</p></li>
+<li><p>Improved internal handling of coordinates labelled other than “lat”/“lng”.</p></li>
+</ul>
+</div>
     <div id="ukpolice-021" class="section level1">
 <h1 class="page-header" data-toc-text="0.2.1">
 <a href="#ukpolice-021" class="anchor"></a>ukpolice 0.2.1<small> 2020-05-31 </small>
 </h1>
 <ul>
 <li><p>Fix error occuring on Solaris platform</p></li>
-<li><p>Fix error when testing <code><a href="../reference/ukc_stop_search.html">ukc_stop_search_poly()</a></code> caused by comparing responses covering different dates.</p></li>
+<li><p>Fix error when testing <code><a href="../reference/ukc_stop_search_loc.html">ukc_stop_search_poly()</a></code> caused by comparing responses covering different dates.</p></li>
 </ul>
 </div>
     <div id="ukpolice-020" class="section level1">
@@ -148,7 +157,7 @@
 </h1>
 <ul>
 <li><p>Added Nick Tierney as author, with new <code>ukc_poly_*</code> functions, which accept <code>sf</code> and <code>sp</code> objects as well as dataframes of lat/long pairs.</p></li>
-<li><p>Deprecated <code><a href="../reference/ukc_crime_location.html">ukc_crime_location()</a></code> in favour of <code><a href="../reference/ukc_crime_location.html">ukc_crime_coord()</a></code> and <code><a href="../reference/ukc_crime_location.html">ukc_crime_loc()</a></code>, for consistent function names.</p></li>
+<li><p>Deprecated <code><a href="../reference/ukc_crime_loc.html">ukc_crime_location()</a></code> in favour of <code><a href="../reference/ukc_crime_loc.html">ukc_crime_coord()</a></code> and <code><a href="../reference/ukc_crime_loc.html">ukc_crime_loc()</a></code>, for consistent function names.</p></li>
 <li><p>Now using the <code>httr</code> for better messages and handling of requests.</p></li>
 </ul>
 </div>
@@ -216,11 +225,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://evanodell.com'>Evan Odell</a>, Tierney Nicholas.</p>
+  <p>Developed by <a href='https://evanodell.com'>Evan Odell</a>, <a href='https://www.njtierney.com'>Nicholas Tierney</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
