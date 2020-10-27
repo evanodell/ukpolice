@@ -4,9 +4,12 @@ test_that("crime at location", {
   skip_on_cran()
 
   x <- ukc_crime_location(lat = 52, lng = 0)
-  expect_true(length(x) == 13)
+  expect_s3_class(x, "tbl_df")
+  expect_true("On or near Windmill Close" %in% x$street_name)
 
-  y <- ukc_crime_location(location = 802171)
+  y <- ukc_crime_location(location = 884227, date = "2020-08")
+  expect_s3_class(y, "tbl_df")
+  expect_true("Force" %in% y$crime_type)
 
   expect_error(ukc_crime_location())
   expect_error(ukc_crime_location(lat = 52, lng = c(0, 0.5)))
