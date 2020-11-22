@@ -1,5 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# ukpolice
+
 <!-- badges: start -->
 
 [![License:
@@ -15,25 +18,27 @@ status](https://codecov.io/gh/evanodell/ukpolice/branch/master/graph/badge.svg)]
 tag](https://img.shields.io/github/tag/evanodell/ukpolice.svg)](https://github.com/evanodell/ukpolice)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/ukpolice)](https://cran.r-project.org/package=ukpolice)
 [![DOI](https://zenodo.org/badge/178673884.svg)](https://zenodo.org/badge/latestdoi/178673884)
+[![R build
+status](https://github.com/evanodell/ukpolice/workflows/R-CMD-check/badge.svg)](https://github.com/evanodell/ukpolice/actions)
 <!-- badges: end -->
-
-ukpolice
-========
 
 The `ukpolice` package downloads data from the UK Police public data
 API, the full docs of which are available at
-<a href="https://data.police.uk/docs/" class="uri">https://data.police.uk/docs/</a>.
-Data is available on police forces, crimes, policing areas and
-stop-and-search.
+<https://data.police.uk/docs/>. Data is available on police forces,
+crimes, policing areas and stop-and-search.
 
 `ukpolice` is on CRAN, which you can download using:
 
-    install.packages("ukpolice")
+``` r
+install.packages("ukpolice")
+```
 
 You can install the development version of `ukpolice` from github with:
 
-    # install.packages("devtools")
-    devtools::install_github("evanodell/ukpolice")
+``` r
+# install.packages("devtools")
+devtools::install_github("evanodell/ukpolice")
+```
 
 Data is available on police forces, crimes, policing areas and
 stop-and-search. All functions begin with `ukc_`.
@@ -41,36 +46,38 @@ stop-and-search. All functions begin with `ukc_`.
 The example below queries stop and searches by the Thames Valley Police
 in December 2018, and plots them by police-reported ethnic group.
 
-    library(ukpolice)
-    library(ggplot2)
-    library(dplyr)
+``` r
+library(ukpolice)
+library(ggplot2)
+library(dplyr)
 
-    tv_ss <- ukc_stop_search_force("thames-valley", date = "2020-07")
+tv_ss <- ukc_stop_search_force("thames-valley", date = "2020-07")
 
-    tv_ss2 <- tv_ss %>% 
-      filter(!is.na(officer_defined_ethnicity) & outcome != "" ) %>%
-      group_by(officer_defined_ethnicity, outcome) %>%
-      summarise(n = n()) %>%
-      mutate(perc = n/sum(n))
+tv_ss2 <- tv_ss %>% 
+  filter(!is.na(officer_defined_ethnicity) & outcome != "" ) %>%
+  group_by(officer_defined_ethnicity, outcome) %>%
+  summarise(n = n()) %>%
+  mutate(perc = n/sum(n))
 
-    theme_set(theme_bw())
+theme_set(theme_bw())
 
-    p1 <- ggplot(tv_ss2, aes(x = outcome, y = perc,
-                             group = outcome, fill = outcome)) + 
-      geom_col(position = "dodge") + 
-      scale_y_continuous(labels = scales::percent,
-                         breaks = seq(0.25, 0.8, by = 0.25)) + 
-      scale_x_discrete(labels = scales::wrap_format(20)) + 
-      theme(legend.position = "none",
-            axis.text.x = element_text(size = 7, angle = 45, hjust = 1)) + 
-      labs(x = "Outcome", 
-           y = "Percentage of stop and searches resulting in outcome",
-           title = "Stop and Search Outcomes by Police-Reported Ethnicity",
-           subtitle = "Thames Valley Police Department, July 2020",
-           caption = "(c) Evan Odell | CC-BY-SA") + 
-      facet_wrap(~officer_defined_ethnicity)
+p1 <- ggplot(tv_ss2, aes(x = outcome, y = perc,
+                         group = outcome, fill = outcome)) + 
+  geom_col(position = "dodge") + 
+  scale_y_continuous(labels = scales::percent,
+                     breaks = seq(0.25, 0.8, by = 0.25)) + 
+  scale_x_discrete(labels = scales::wrap_format(20)) + 
+  theme(legend.position = "none",
+        axis.text.x = element_text(size = 7, angle = 45, hjust = 1)) + 
+  labs(x = "Outcome", 
+       y = "Percentage of stop and searches resulting in outcome",
+       title = "Stop and Search Outcomes by Police-Reported Ethnicity",
+       subtitle = "Thames Valley Police Department, July 2020",
+       caption = "(c) Evan Odell | CC-BY-SA") + 
+  facet_wrap(~officer_defined_ethnicity)
 
-    p1
+p1
+```
 
 <img src="man/figures/README-example-1.png" width="100%" />
 
@@ -79,8 +86,7 @@ For more details, see the package vignette
 and [function
 documentation](https://docs.evanodell.com/ukpolice/reference/index.html).
 
-Meta
-----
+## Meta
 
 Please note that the ‘ukpolice’ project is released with a [Contributor
 Code of
@@ -98,8 +104,7 @@ Get citation information for `ukpolice` in R with
 Odell E, Tierney N (2020). *ukpolice: Download Data on UK Police and
 Crime*. doi:
 [10.5281/zenodo.2619537](https://doi.org/10.5281/zenodo.2619537), R
-package version 0.2.2, URL:
-<a href="https://github.com/evanodell/ukpolice" class="uri">https://github.com/evanodell/ukpolice</a>.
+package version 0.2.2, URL: <https://github.com/evanodell/ukpolice>.
 
 A BibTeX entry for LaTeX users is:
 
